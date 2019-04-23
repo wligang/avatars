@@ -1,0 +1,2 @@
+
+include "avatar-api","avatar-web","avatar-service"
