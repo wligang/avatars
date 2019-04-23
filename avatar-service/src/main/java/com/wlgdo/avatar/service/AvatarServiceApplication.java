@@ -1,9 +1,11 @@
 package com.wlgdo.avatar.service;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan("com.wlgdo.avatar.service.dao")
 public class AvatarServiceApplication {
 
     public static void main(String[] args) {

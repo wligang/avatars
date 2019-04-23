@@ -1,7 +1,9 @@
-
 apply plugin: 'org.springframework.boot'
 dependencies {
     compile project(':avatar-api')
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+    compile 'com.alibaba:druid:1.0.11'
+//    compile 'org.mybatis:mybatis:3.2.8'
+    compile('mysql:mysql-connector-java')
 }
