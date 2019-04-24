@@ -11,6 +11,7 @@ public class AvatarServiceApplicationTests {
 
     @Test
     public void contextLoads() {
+        System.out.println("test statting......");
     }
 
 }
