@@ -14,7 +14,7 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Reference(lazy = false)
+    @Reference
     private IUserService userService;
 
     @RequestMapping("index")
