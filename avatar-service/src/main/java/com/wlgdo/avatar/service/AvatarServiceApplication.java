@@ -17,9 +17,9 @@ public class AvatarServiceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-       System.out.println( userService.getUserName());
+        System.out.println(userService.getUserName());
 
-        //Thread.currentThread().join();
+        Thread.currentThread().join();
     }
 
     public static void main(String[] args) {
