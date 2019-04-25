@@ -5,6 +5,7 @@ import com.wlgdo.avatar.api.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,9 +19,9 @@ public class UserController {
 
     @RequestMapping("index")
     public Object index() {
-        String uname =userService.getUserName();
+        String uname = userService.getUserName();
 
         logger.info("user`s name is:{}", uname);
-        return "helloworld";
+        return "welcome to you:" + (StringUtils.isEmpty(uname) ? "helloworld" : uname);
     }
 }
