@@ -1,10 +1,10 @@
-package com.wlgdo.avatar.admin.util;
+package com.wlgdo.avatar.admin.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
 import com.wlgdo.avatar.admin.config.exception.CommonJsonException;
-import com.wlgdo.avatar.admin.util.constants.Constants;
-import com.wlgdo.avatar.admin.util.constants.ErrorEnum;
+import com.wlgdo.avatar.admin.utils.constants.Constants;
+import com.wlgdo.avatar.admin.utils.constants.ErrorEnum;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;

@@ -1,7 +1,8 @@
-package com.heeexy.example.config.shiro;
+package com.wlgdo.avatar.admin.config.shiro;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.util.constants.ErrorEnum;
+
+import com.wlgdo.avatar.admin.utils.constants.ErrorEnum;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -12,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
 /**
- * @author: hxy
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  * @description: 对没有登录的请求进行拦截, 全部返回json信息. 覆盖掉shiro原本的跳转login.jsp的拦截方式
- * @date: 2017/10/24 10:11
  */
 public class AjaxPermissionsAuthorizationFilter extends FormAuthenticationFilter {
 

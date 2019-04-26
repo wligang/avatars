@@ -1,10 +1,10 @@
-package com.heeexy.example.service;
+package com.wlgdo.avatar.admin.service;
 
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * @author: hxy
- * @date: 2017/10/30 13:10
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 public interface PermissionService {
 	/**

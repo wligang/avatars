@@ -1,11 +1,12 @@
-package com.heeexy.example.service.impl;
+package com.wlgdo.avatar.admin.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.dao.LoginDao;
-import com.heeexy.example.service.LoginService;
-import com.heeexy.example.service.PermissionService;
-import com.heeexy.example.util.CommonUtil;
-import com.heeexy.example.util.constants.Constants;
+
+import com.wlgdo.avatar.admin.dao.LoginDao;
+import com.wlgdo.avatar.admin.service.LoginService;
+import com.wlgdo.avatar.admin.service.PermissionService;
+import com.wlgdo.avatar.admin.utils.CommonUtil;
+import com.wlgdo.avatar.admin.utils.constants.Constants;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -15,9 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @author: hxy
- * @description: 登录service实现类
- * @date: 2017/10/24 11:53
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 @Service
 public class LoginServiceImpl implements LoginService {

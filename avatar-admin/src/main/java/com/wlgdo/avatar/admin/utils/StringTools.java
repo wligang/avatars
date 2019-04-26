@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.admin.util;
+package com.wlgdo.avatar.admin.utils;
 
 /**
  * @author: Ligang.Wang[wlgchun@163.com]

@@ -1,16 +1,16 @@
-package com.heeexy.example.service.impl;
+package com.wlgdo.avatar.admin.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.dao.PermissionDao;
-import com.heeexy.example.service.PermissionService;
+import com.wlgdo.avatar.admin.dao.PermissionDao;
+import com.wlgdo.avatar.admin.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
- * @author: hxy
- * @date: 2017/10/30 13:15
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 @Service
 public class PermissionServiceImpl implements PermissionService {

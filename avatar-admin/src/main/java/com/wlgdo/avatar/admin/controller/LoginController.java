@@ -1,8 +1,8 @@
-package com.heeexy.example.controller;
+package com.wlgdo.avatar.admin.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.service.LoginService;
-import com.heeexy.example.util.CommonUtil;
+import com.wlgdo.avatar.admin.service.LoginService;
+import com.wlgdo.avatar.admin.utils.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author: hxy
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  * @description: 登录相关Controller
- * @date: 2017/10/24 10:33
  */
 @RestController
 @RequestMapping("/login")

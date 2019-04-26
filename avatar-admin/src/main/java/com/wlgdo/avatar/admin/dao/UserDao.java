@@ -1,4 +1,4 @@
-package com.heeexy.example.dao;
+package com.wlgdo.avatar.admin.dao;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.ibatis.annotations.Param;
@@ -6,9 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @author: hxy
- * @description: 用户/角色/权限
- * @date: 2017-11-14 15:08:45
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 public interface UserDao {
 	/**

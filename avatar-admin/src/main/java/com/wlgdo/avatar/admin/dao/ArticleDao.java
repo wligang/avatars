@@ -1,13 +1,13 @@
-package com.heeexy.example.dao;
+package com.wlgdo.avatar.admin.dao;
 
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
 /**
- * @author: hxy
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  * @description: 文章Dao层
- * @date: 2017/10/24 16:06
  */
 public interface ArticleDao {
 	/**

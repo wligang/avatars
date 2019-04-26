@@ -1,9 +1,10 @@
-package com.heeexy.example.service.impl;
+package com.wlgdo.avatar.admin.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.dao.ArticleDao;
-import com.heeexy.example.service.ArticleService;
-import com.heeexy.example.util.CommonUtil;
+
+import com.wlgdo.avatar.admin.dao.ArticleDao;
+import com.wlgdo.avatar.admin.service.ArticleService;
+import com.wlgdo.avatar.admin.utils.CommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,8 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @author: hxy
- * @date: 2017/10/24 16:07
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 @Service
 public class ArticleServiceImpl implements ArticleService {

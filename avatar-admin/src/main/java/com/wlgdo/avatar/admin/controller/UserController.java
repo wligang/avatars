@@ -1,8 +1,9 @@
-package com.heeexy.example.controller;
+package com.wlgdo.avatar.admin.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.service.UserService;
-import com.heeexy.example.util.CommonUtil;
+
+import com.wlgdo.avatar.admin.service.UserService;
+import com.wlgdo.avatar.admin.utils.CommonUtil;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author: hxy
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  * @description: 用户/角色/权限相关controller
- * @date: 2017/11/2 10:19
  */
 @RestController
 @RequestMapping("/user")

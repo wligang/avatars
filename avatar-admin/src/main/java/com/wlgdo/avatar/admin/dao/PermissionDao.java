@@ -1,12 +1,12 @@
-package com.heeexy.example.dao;
+package com.wlgdo.avatar.admin.dao;
 
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.Set;
 
 /**
- * @author: hxy
- * @date: 2017/10/30 13:28
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 public interface PermissionDao {
 	/**

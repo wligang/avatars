@@ -1,8 +1,9 @@
-package com.heeexy.example.config.shiro;
+package com.wlgdo.avatar.admin.config.shiro;
 
 import com.alibaba.fastjson.JSONObject;
-import com.heeexy.example.service.LoginService;
-import com.heeexy.example.util.constants.Constants;
+
+import com.wlgdo.avatar.admin.service.LoginService;
+import com.wlgdo.avatar.admin.utils.constants.Constants;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -17,9 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collection;
 
 /**
- * @author: hxy
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  * @description: 自定义Realm
- * @date: 2017/10/24 10:06
  */
 public class UserRealm extends AuthorizingRealm {
 	private Logger logger = LoggerFactory.getLogger(UserRealm.class);

@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.admin.util.model;
+package com.wlgdo.avatar.admin.utils.model;
 
 import com.alibaba.fastjson.JSONObject;
 

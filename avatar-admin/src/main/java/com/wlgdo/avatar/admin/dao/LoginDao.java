@@ -1,12 +1,11 @@
-package com.heeexy.example.dao;
+package com.wlgdo.avatar.admin.dao;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author: hxy
- * @description: 登录相关dao
- * @date: 2017/10/24 11:02
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 public interface LoginDao {
 	/**

@@ -1,11 +1,10 @@
-package com.heeexy.example.service;
+package com.wlgdo.avatar.admin.service;
 
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * @author: hxy
- * @description: 登录Service
- * @date: 2017/10/24 11:02
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  */
 public interface LoginService {
 	/**

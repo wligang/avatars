@@ -1,4 +1,4 @@
-package com.heeexy.example.config.shiro;
+package com.wlgdo.avatar.admin.config.shiro;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
@@ -16,9 +16,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author: hxy
+ * @author: Ligang.Wang[wlgchun@163.com]
+ * @date: 2019/04/26
  * @description: shiro配置类
- * @date: 2017/10/24 10:10
  */
 @Configuration
 public class ShiroConfiguration {

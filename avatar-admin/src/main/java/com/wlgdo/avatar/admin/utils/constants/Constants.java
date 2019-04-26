@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.admin.util.constants;
+package com.wlgdo.avatar.admin.utils.constants;
 
 /**
  * @author: Ligang.Wang[wlgchun@163.com]
