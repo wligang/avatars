@@ -2,7 +2,7 @@ package com.wlgdo.avatar.service.users;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.wlgdo.avatar.api.service.IUserService;
+
 
 import com.wlgdo.avatar.service.dao.UserMapper;
 import com.wlgdo.avatar.service.model.User;

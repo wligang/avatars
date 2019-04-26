@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.api.service;
+package com.wlgdo.avatar.dubbo.service;
 
 public interface IUserService {
     String getUserName();
