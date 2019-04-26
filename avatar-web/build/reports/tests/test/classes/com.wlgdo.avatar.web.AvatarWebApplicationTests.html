@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.wlgdo.avatar.web.AvatarWebApplicationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.wlgdo.avatar.web.AvatarWebApplicationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.wlgdo.avatar.web.html">com.wlgdo.avatar.web</a> &gt; AvatarWebApplicationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.006s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="contextLoads"></a>
+<h3 class="failures">contextLoads</h3>
+<span class="code">
+<pre>java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108)
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190)
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:106)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:117)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
+	... 49 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 67 more
+Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:236)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.initializeDataSourceBuilder(DataSourceProperties.java:176)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:44)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:88)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$226e1b30.CGLIB$dataSource$0(&lt;generated&gt;)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$226e1b30$$FastClassBySpringCGLIB$$614e59ce.invoke(&lt;generated&gt;)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$226e1b30.dataSource(&lt;generated&gt;)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 68 more
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">contextLoads</td>
+<td class="failures">0.006s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>15:14:31.882 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:31.889 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+15:14:31.901 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+15:14:31.925 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+15:14:31.940 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests], using SpringBootContextLoader
+15:14:31.943 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]: class path resource [com/wlgdo/avatar/web/AvatarWebApplicationTests-context.xml] does not exist
+15:14:31.943 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]: class path resource [com/wlgdo/avatar/web/AvatarWebApplicationTestsContext.groovy] does not exist
+15:14:31.944 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:14:31.945 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]: AvatarWebApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:14:32.007 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.070 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\acer\git\avatars\avatar-web\build\classes\java\main\com\wlgdo\avatar\web\AvatarWebApplication.class]
+15:14:32.071 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.wlgdo.avatar.web.AvatarWebApplication for test class com.wlgdo.avatar.web.AvatarWebApplicationTests
+15:14:32.160 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.wlgdo.avatar.web.AvatarWebApplicationTests]: using defaults.
+15:14:32.161 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+15:14:32.182 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3b3899c6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@378bd166, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6f6f6c71, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@577be0cf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2872a54f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@411b41c6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5503a170, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5d764e87, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6093c0bb, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7b1db81e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@335d9e2c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5cb0ecb6]
+15:14:32.185 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.185 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.186 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.186 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.190 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1dad06f0 testClass = AvatarWebApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@49e03c58 testClass = AvatarWebApplicationTests, locations = '{}', classes = '{class com.wlgdo.avatar.web.AvatarWebApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@79eef8d8, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@477d4585, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@39cb70b8, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@14c43543], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+15:14:32.191 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.191 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.wlgdo.avatar.web.AvatarWebApplicationTests]
+15:14:32.214 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  ████████▄  ███    █▄  ?█████████▄  ?█████████▄   ▄██████▄  
+  ███   ?███ ███    ███   ███    ███   ███    ███ ███    ███ 
+  ███    ███ ███    ███   ███    ███   ███    ███ ███    ███ 
+  ███    ███ ███    ███  ▄███▄▄▄██?   ▄███▄▄▄██?  ███    ███ 
+  ███    ███ ███    ███ ??███???██▄  ??███???██▄  ███    ███ 
+  ███    ███ ███    ███   ███    ██▄   ███    ██▄ ███    ███ 
+  ███   ▄███ ███    ███   ███    ███   ███    ███ ███    ███ 
+  ████████?  ████████?  ▄█████████?  ▄█████████?   ?██████?  
+                                                             
+
+ :: Dubbo ::        (v2.6.0)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.4.RELEASE)
+
+2019-04-26 15:14:32.523  INFO 719812 --- [    Test worker] c.w.a.web.AvatarWebApplicationTests      : Starting AvatarWebApplicationTests on WangLigang with PID 719812 (started by acer in C:\Users\acer\git\avatars\avatar-web)
+2019-04-26 15:14:32.524  INFO 719812 --- [    Test worker] c.w.a.web.AvatarWebApplicationTests      : No active profile set, falling back to default profiles: default
+2019-04-26 15:14:33.401  WARN 719812 --- [    Test worker] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.wlgdo.avatar.web]' package. Please check your configuration.
+2019-04-26 15:14:34.171  INFO 719812 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'spring.dubbo-com.alibaba.dubbo.spring.boot.DubboProperties' of type [com.alibaba.dubbo.spring.boot.DubboProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-26 15:14:34.199  INFO 719812 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e1eeb143] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-26 15:14:34.281  INFO 719812 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.dubbo.spring.boot.DubboConsumerAutoConfiguration' of type [com.alibaba.dubbo.spring.boot.DubboConsumerAutoConfiguration$$EnhancerBySpringCGLIB$$1c094a65] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-26 15:14:34.663  INFO 719812 --- [-127.0.0.1:2181] org.I0Itec.zkclient.ZkEventThread        : Starting ZkClient event thread.
+2019-04-26 15:14:34.669  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+2019-04-26 15:14:34.669  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:host.name=WangLigang
+2019-04-26 15:14:34.669  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.version=1.8.0_121
+2019-04-26 15:14:34.669  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.vendor=Oracle Corporation
+2019-04-26 15:14:34.669  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.home=C:\Program Files (x86)\Java\java8\jre
+2019-04-26 15:14:34.669  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.class.path=C:\Users\acer\git\avatars\avatar-web\build\classes\java\test;C:\Users\acer\git\avatars\avatar-web\build\resources\test;C:\Users\acer\git\avatars\avatar-web\build\classes\java\main;C:\Users\acer\git\avatars\avatar-web\build\resources\main;C:\Users\acer\git\avatars\avatar-api\build\libs\avatar-api-1.0-SNAPSHOT.jar;C:\mavenresp\org\springframework\boot\spring-boot-starter-web\2.1.0.RELEASE\spring-boot-starter-web-2.1.0.RELEASE.jar;C:\mavenresp\com\101tec\zkclient\0.10\zkclient-0.10.jar;C:\mavenresp\com\alibaba\spring\boot\dubbo-spring-boot-starter\2.0.0\dubbo-spring-boot-starter-2.0.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-devtools\2.1.4.RELEASE\d415f0a4dbf800d4343b7662c0ea141978d93d4c\spring-boot-devtools-2.1.4.RELEASE.jar;C:\mavenresp\org\springframework\boot\spring-boot-starter-test\2.1.0.RELEASE\spring-boot-starter-test-2.1.0.RELEASE.jar;C:\mavenresp\junit\junit\4.12\junit-4.12.jar;C:\mavenresp\com\github\pagehelper\pagehelper-spring-boot-starter\1.2.3\pagehelper-spring-boot-starter-1.2.3.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-json\2.1.4.RELEASE\247d7c2efae986f310a29e9fef7174adc91d0835\spring-boot-starter-json-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-actuator\2.1.4.RELEASE\3f3897febeecb4c3243e5a31bee769e4d9fd9445\spring-boot-starter-actuator-2.1.4.RELEASE.jar;C:\mavenresp\org\mybatis\spring\boot\mybatis-spring-boot-starter\1.3.1\mybatis-spring-boot-starter-1.3.1.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-jdbc\2.1.4.RELEASE\1e5b6ff541d77655f3295d2f1d66f90f50b58f03\spring-boot-starter-jdbc-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter\2.1.4.RELEASE\8fa436ef4e273cb476d5dc3aa73701a8837460af\spring-boot-starter-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-tomcat\2.1.4.RELEASE\3b0c04450d86fc29c9fdad555b4555e553a4008\spring-boot-starter-tomcat-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.hibernate.validator\hibernate-validator\6.0.16.Final\ad9557c558972093c0567a2a1f224f318c00f650\hibernate-validator-6.0.16.Final.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-webmvc\5.1.6.RELEASE\cf4ea53740c93e0b8ff951ef0a3eaf154c74dbd0\spring-webmvc-5.1.6.RELEASE.jar;C:\mavenresp\com\alibaba\dubbo\2.6.0\dubbo-2.6.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-web\5.1.6.RELEASE\4e15a24feba0581a02efd508af03a15b05570bd4\spring-web-5.1.6.RELEASE.jar;C:\mavenresp\org\apache\zookeeper\zookeeper\3.4.8\zookeeper-3.4.8.jar;C:\mavenresp\com\jayway\jsonpath\json-path\2.4.0\json-path-2.4.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-logging\2.1.4.RELEASE\2fb669a89cd65b275be20ab755c3742399395dff\spring-boot-starter-logging-2.1.4.RELEASE.jar;C:\mavenresp\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-to-slf4j\2.11.2\6d37bf7b046c0ce2669f26b99365a2cfa45c4c18\log4j-to-slf4j-2.11.2.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.slf4j\jul-to-slf4j\1.7.26\8031352b2bb0a49e67818bf04c027aa92e645d5c\jul-to-slf4j-1.7.26.jar;C:\mavenresp\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.26\77100a62c2e6f04b53977b9f541044d7d722693d\slf4j-api-1.7.26.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-test-autoconfigure\2.1.4.RELEASE\6321ef3b715ffa5cfedcd98bf58ba1e8596d17e7\spring-boot-test-autoconfigure-2.1.4.RELEASE.jar;C:\mavenresp\com\github\pagehelper\pagehelper-spring-boot-autoconfigure\1.2.3\pagehelper-spring-boot-autoconfigure-1.2.3.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-actuator-autoconfigure\2.1.4.RELEASE\c17cc820eb7c4b1a95d05aaac806c3acc784c01\spring-boot-actuator-autoconfigure-2.1.4.RELEASE.jar;C:\mavenresp\org\mybatis\spring\boot\mybatis-spring-boot-autoconfigure\1.3.1\mybatis-spring-boot-autoconfigure-1.3.1.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-autoconfigure\2.1.4.RELEASE\d5f8b3f7835a23b4dfd8d1489d265c1e426e317b\spring-boot-autoconfigure-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-test\2.1.4.RELEASE\a409d8e6aa654520e7dc7e92332b307a8bf4acdb\spring-boot-test-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-actuator\2.1.4.RELEASE\fdafe5167dc886e116cf07ef552a4229e93883af\spring-boot-actuator-2.1.4.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework.boot\spring-boot\2.1.4.RELEASE\5ad0355a8c810b32b9221b9b92746b51c983337f\spring-boot-2.1.4.RELEASE.jar;C:\mavenresp\org\hamcrest\hamcrest-library\1.3\hamcrest-library-1.3.jar;C:\mavenresp\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\mavenresp\org\assertj\assertj-core\3.11.1\assertj-core-3.11.1.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.mockito\mockito-core\2.23.4\a35b6f8ffcfa786771eac7d7d903429e790fdf3f\mockito-core-2.23.4.jar;C:\mavenresp\org\skyscreamer\jsonassert\1.5.0\jsonassert-1.5.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-test\5.1.6.RELEASE\3f419c32390d4adabe431d726996479d799cec0e\spring-test-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-context\5.1.6.RELEASE\7b9e80ab68ee91ca0462a0eb2c58a9d957788b\spring-context-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-expression\5.1.6.RELEASE\50fe4080029e43e7612e50fb4d7c7c43e95bf03c\spring-expression-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-aop\5.1.6.RELEASE\a473d4bca7295f2b90522594e413f9e19107c1d2\spring-aop-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-jdbc\5.1.6.RELEASE\6212f7015d4ffd7091558d9c0d6aadf6db8ca058\spring-jdbc-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-tx\5.1.6.RELEASE\e1c6de29a9f9b6ded22133fd0cfdc4366a431cc2\spring-tx-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-beans\5.1.6.RELEASE\90d2f4bf7eced108de0b5bf617abb2b13a6206a3\spring-beans-5.1.6.RELEASE.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-core\5.1.6.RELEASE\9329591e728ef9844911e082e399f4fc3e3ecb37\spring-core-5.1.6.RELEASE.jar;C:\mavenresp\org\xmlunit\xmlunit-core\2.6.2\xmlunit-core-2.6.2.jar;C:\mavenresp\com\github\pagehelper\pagehelper\5.1.2\pagehelper-5.1.2.jar;C:\mavenresp\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;C:\mavenresp\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\com.fasterxml.jackson.datatype\jackson-datatype-jdk8\2.9.8\bcd02aa9195390e23747ed40bf76be869ad3a2fb\jackson-datatype-jdk8-2.9.8.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\com.fasterxml.jackson.datatype\jackson-datatype-jsr310\2.9.8\28ad1bced632ba338e51c825a652f6e11a8e6eac\jackson-datatype-jsr310-2.9.8.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\com.fasterxml.jackson.module\jackson-module-parameter-names\2.9.8\c4eef0e6e20d60fb27af4bc4770dba7bcc3f6de6\jackson-module-parameter-names-2.9.8.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.9.8\11283f21cc480aa86c4df7a0a3243ec508372ed2\jackson-databind-2.9.8.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-websocket\9.0.17\a786505cc2697f7f2d8693c0c318270cc8addd92\tomcat-embed-websocket-9.0.17.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-core\9.0.17\aacb92c34eb2e88f38a060c9fcaaae329a79c9ca\tomcat-embed-core-9.0.17.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-el\9.0.17\595fbb87426e23f27c71b267f22b6e7d2a91a2aa\tomcat-embed-el-9.0.17.jar;C:\mavenresp\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;C:\mavenresp\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;C:\mavenresp\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.slf4j\slf4j-log4j12\1.7.26\12f5c685b71c3027fd28bcf90528ec4ec74bf818\slf4j-log4j12-1.7.26.jar;C:\mavenresp\log4j\log4j\1.2.16\log4j-1.2.16.jar;C:\mavenresp\jline\jline\0.9.94\jline-0.9.94.jar;C:\mavenresp\io\netty\netty\3.7.0.Final\netty-3.7.0.Final.jar;C:\mavenresp\org\javassist\javassist\3.20.0-GA\javassist-3.20.0-GA.jar;C:\mavenresp\org\jboss\netty\netty\3.2.5.Final\netty-3.2.5.Final.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\io.micrometer\micrometer-core\1.1.4\96eabfe2343a4a4676d215b2122cbbc4d4b6af9b\micrometer-core-1.1.4.jar;C:\mavenresp\net\minidev\json-smart\2.3\json-smart-2.3.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy\1.9.12\39050dbbd36862ea87eb9a64158854b04619ccd6\byte-buddy-1.9.12.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.9.12\e00a8edb67b99217cab8ade01f1f1183c15d669e\byte-buddy-agent-1.9.12.jar;C:\mavenresp\org\objenesis\objenesis\2.6\objenesis-2.6.jar;C:\mavenresp\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.springframework\spring-jcl\5.1.6.RELEASE\a4ad3c98c7cc31357e94e12772c8e6449522bc5\spring-jcl-5.1.6.RELEASE.jar;C:\mavenresp\org\mybatis\mybatis\3.4.5\mybatis-3.4.5.jar;C:\mavenresp\org\mybatis\mybatis-spring\1.3.1\mybatis-spring-1.3.1.jar;C:\mavenresp\com\github\jsqlparser\jsqlparser\1.0\jsqlparser-1.0.jar;C:\mavenresp\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.9.8\f5a654e4675769c716e5b387830d19b501ca191\jackson-core-2.9.8.jar;C:\mavenresp\org\hdrhistogram\HdrHistogram\2.1.9\HdrHistogram-2.1.9.jar;C:\mavenresp\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\mavenresp\net\minidev\accessors-smart\1.2\accessors-smart-1.2.jar;C:\mavenresp\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;F:\devtools\gradle-4.9\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-api\2.11.2\f5e9a2ffca496057d6891a3de65128efc636e26e\log4j-api-2.11.2.jar;C:\mavenresp\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar
+2019-04-26 15:14:34.670  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.library.path=C:\Program Files (x86)\Java\java8\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Java\java8\bin;F:\devtools\gradle-4.9\bin;F:\devtools\apache-maven-3.5.2\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\Git\mingw64\libexec\git-core;F:\devtools\Python37;C:\Program Files\MySQL\MySQL Server 5.7\bin;F:\devtools\gnuplot\bin;D:\Program Files (x86)\WinRAR;F:\devtools\zookeeper-3.4.14\bin;%ZOOKEEPER_HOME\conf;C:\Users\acer\AppData\Local\Microsoft\WindowsApps;;.
+2019-04-26 15:14:34.670  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.io.tmpdir=C:\Users\acer\AppData\Local\Temp\
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:java.compiler=&lt;NA&gt;
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:os.name=Windows 10
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:os.arch=amd64
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:os.version=10.0
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:user.name=acer
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:user.home=C:\Users\acer
+2019-04-26 15:14:34.671  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Client environment:user.dir=C:\Users\acer\git\avatars\avatar-web
+2019-04-26 15:14:34.672  INFO 719812 --- [clientConnector] org.apache.zookeeper.ZooKeeper           : Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=30000 watcher=org.I0Itec.zkclient.ZkClient@29a6df85
+2019-04-26 15:14:34.684  INFO 719812 --- [clientConnector] org.I0Itec.zkclient.ZkClient             : Waiting for keeper state SyncConnected
+2019-04-26 15:14:34.687  INFO 719812 --- [127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Opening socket connection to server 127.0.0.1/127.0.0.1:2181. Will not attempt to authenticate using SASL (unknown error)
+2019-04-26 15:14:34.688  INFO 719812 --- [127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Socket connection established to 127.0.0.1/127.0.0.1:2181, initiating session
+2019-04-26 15:14:34.803  INFO 719812 --- [127.0.0.1:2181)] org.apache.zookeeper.ClientCnxn          : Session establishment complete on server 127.0.0.1/127.0.0.1:2181, sessionid = 0x1002c0be769002c, negotiated timeout = 30000
+2019-04-26 15:14:34.805  INFO 719812 --- [tor-EventThread] org.I0Itec.zkclient.ZkClient             : zookeeper state changed (SyncConnected)
+2019-04-26 15:14:36.773  INFO 719812 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-26 15:14:37.975  WARN 719812 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2019-04-26 15:14:37.981  INFO 719812 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-26 15:14:38.009  INFO 719812 --- [    Test worker] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-04-26 15:14:38.014 ERROR 719812 --- [    Test worker] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2019-04-26 15:14:38.027 ERROR 719812 --- [    Test worker] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@3b3899c6] to prepare test instance [com.wlgdo.avatar.web.AvatarWebApplicationTests@4d08dca4]
+
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:106) [gradle-testing-jvm-4.9.jar:4.9]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58) [gradle-testing-jvm-4.9.jar:4.9]
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38) [gradle-testing-jvm-4.9.jar:4.9]
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66) [gradle-testing-jvm-4.9.jar:4.9]
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51) [gradle-testing-base-4.9.jar:4.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93) [gradle-messaging-4.9.jar:4.9]
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source) [na:na]
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:117) [gradle-testing-base-4.9.jar:4.9]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404) [gradle-messaging-4.9.jar:4.9]
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63) [gradle-base-services-4.9.jar:4.9]
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46) [gradle-base-services-4.9.jar:4.9]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_121]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_121]
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55) [gradle-base-services-4.9.jar:4.9]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_121]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:849) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) ~[spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) ~[spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) ~[spring-boot-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	... 49 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	... 67 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:236) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.initializeDataSourceBuilder(DataSourceProperties.java:176) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:44) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:88) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$226e1b30.CGLIB$dataSource$0(&lt;generated&gt;) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$226e1b30$$FastClassBySpringCGLIB$$614e59ce.invoke(&lt;generated&gt;) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari$$EnhancerBySpringCGLIB$$226e1b30.dataSource(&lt;generated&gt;) ~[spring-boot-autoconfigure-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_121]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_121]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_121]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_121]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	... 68 common frames omitted
+
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/mavenresp/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/F:/devtools/gradle-4.9/caches/modules-2/files-2.1/org.slf4j/slf4j-log4j12/1.7.26/12f5c685b71c3027fd28bcf90528ec4ec74bf818/slf4j-log4j12-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+log4j:WARN No appenders could be found for logger (com.alibaba.dubbo.common.logger.LoggerFactory).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.9</a> at 2019-4-26 15:14:38</p>
+</div>
+</div>
+</body>
+</html>
