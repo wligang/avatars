@@ -1,7 +1,7 @@
 package com.wlgdo.avatar.web.user;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.wlgdo.avatar.api.service.IUserService;
+import com.wlgdo.avatar.dubbo.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
