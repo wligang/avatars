@@ -1,0 +1,10 @@
+
+spring:
+  datasource:
+      url: jdbc:mysql://localhost:3306/mktdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: mkt
+      password: mkt_sit
+mybatis:
+   mapperLocations: classpath:/mapper/*.xml
+server:
+  port: 8083
