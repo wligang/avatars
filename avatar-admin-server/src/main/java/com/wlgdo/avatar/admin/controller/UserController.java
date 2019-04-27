@@ -1,7 +1,6 @@
 package com.wlgdo.avatar.admin.controller;
 
 import com.alibaba.fastjson.JSONObject;
-
 import com.wlgdo.avatar.admin.service.UserService;
 import com.wlgdo.avatar.admin.utils.CommonUtil;
 import org.apache.shiro.authz.annotation.Logical;
