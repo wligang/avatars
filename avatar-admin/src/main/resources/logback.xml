@@ -11,7 +11,7 @@
     <property name="CONSOLE_LOG_PATTERN"
               value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
 
-    <contextName>heeexy</contextName>
+    <contextName>wlgdo-admin</contextName>
 
     <!--定义日志文件的存储地址 -->
     <property name="LOG_HOME" value="logs"/>
@@ -35,11 +35,11 @@
         </filter>
         <!-- 可让每天产生一个日志文件，最多 180 个，自动回滚 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/heeexy-%d{yyyy-MM-dd}.log
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/avatar-admin-%d{yyyy-MM-dd}.log
             </fileNamePattern>
             <!-- keep 180 days' worth of history capped at 50GB total size -->
             <maxHistory>180</maxHistory>
-            <totalSizeCap>40GB</totalSizeCap>
+            <totalSizeCap>40MB</totalSizeCap>
         </rollingPolicy>
         <!-- 日志文件的格式 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -64,6 +64,6 @@
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.apache" level="WARN"/>
     <!--如果需要打印SQL,可以把下面的级别设置为DEBUG -->
-    <logger name="com.heeexy.example.dao" level="DEBUG"/>
+    <logger name="com.wlgdo.avatar.admin.dao" level="DEBUG"/>
 
 </configuration>
