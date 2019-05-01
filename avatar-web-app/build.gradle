@@ -4,10 +4,9 @@ apply plugin: 'org.springframework.boot'
 dependencies {
     compile project(':avatar-api')
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
+    compile 'com.alibaba:fastjson:1.2.57'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0'
-    compile group: 'com.101tec', name: 'zkclient', version: '0.10'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.1.4.RELEASE'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.0.RELEASE'
 }

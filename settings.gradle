@@ -1,2 +1,2 @@
 
-include "avatar-api","avatar-web","avatar-service","avatar-admin"
+include "avatar-api","avatar-web","avatar-service","avatar-admin","avatar-web-app"
