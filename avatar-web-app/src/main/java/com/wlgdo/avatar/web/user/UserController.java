@@ -27,11 +27,14 @@ public class UserController {
 
     @GetMapping("index/{key}")
     public Object index(@PathVariable String key) {
-        JSONObject jsonObject = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
-        logger.info("userInfo:{}", jsonObject);
-        String uname = (String) jsonObject.get("nickname");
-        logger.info("user`s name is:{}", uname);
-        return "welcome to you:" + (StringUtils.isEmpty(uname) ? "helloworld" : uname);
+
+        if (stringRedisTemplate.hasKey(CSDN_USER + key)) {
+            JSONObject jsonObject = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
+            logger.info("userInfo:{}", jsonObject);
+            return jsonObject;
+        }
+
+        return String.format("未获取到用户【%s】授权，暂时无法获取数据", key);
     }
 
     @GetMapping("index/get/{key}")
