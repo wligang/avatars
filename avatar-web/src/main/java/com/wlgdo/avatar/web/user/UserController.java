@@ -16,6 +16,8 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
+    //private RedisTemplate<String, String> redisTemplate;
+
     @Reference
     private IUserService userService;
 
@@ -31,5 +33,10 @@ public class UserController {
     public Object list(@PathVariable int pageNo, @PathVariable int pageSize) {
         PageInfo page = userService.getList(pageNo, pageSize);
         return page;
+    }
+
+    public Object getUserInfo(){
+
+        return null;
     }
 }
