@@ -8,3 +8,9 @@
 @time: 2019/5/1 21:56
 @desc:
 '''
+from avatar.blog import Avatar
+
+if __name__ == '__main__':
+    print('start begin the method...')
+    avatar = Avatar('LeegooWang')
+    avatar.getPage(avatar.username)
