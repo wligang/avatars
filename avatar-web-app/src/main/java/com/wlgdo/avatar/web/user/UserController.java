@@ -1,6 +1,8 @@
 package com.wlgdo.avatar.web.user;
 
 import com.alibaba.fastjson.JSONObject;
+import com.wlgdo.avatar.dubbo.rpc.Resp;
+import com.wlgdo.avatar.web.domain.CsdnUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +24,7 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    private static String CSDN_USER = "userInfo_";
+    public static String CSDN_USER = "userInfo_";
 
     @Value("${python.data.script.path}")
     private String pythonScriptPath;
@@ -32,16 +34,15 @@ public class UserController {
     private StringRedisTemplate stringRedisTemplate;
 
 
+    @Deprecated
     @GetMapping("index/{key}")
     public Object index(@PathVariable String key) {
-
         if (stringRedisTemplate.hasKey(CSDN_USER + key)) {
             JSONObject jsonObject = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
             logger.info("userInfo:{}", jsonObject);
-            return jsonObject;
+            return new Resp(jsonObject);
         }
-
-        return String.format("未获取到用户【%s】授权，暂时无法获取数据", key);
+        return new Resp("-1", "未获取到数据");
     }
 
     @GetMapping("index/get/{key}")
@@ -67,9 +68,10 @@ public class UserController {
         if (stringRedisTemplate.hasKey(CSDN_USER + key)) {
             JSONObject jsonObject = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
             logger.info("userInfo:{}", jsonObject);
-            return jsonObject;
+            return new Resp(jsonObject);
         }
+        return new Resp(new CsdnUser(key, "未命名"));
 
-        return "不知道发生了啥";
+
     }
 }
