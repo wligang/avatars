@@ -7,7 +7,7 @@
  提供大中台支持、Rpc提供者、DB持久化等等核心服务
 
 ### 前台PAI服务[avatar-web-x](https://github.com/wligang/avatars/tree/master/avatar-web)
-  提供各微服务API服务,如MQ消费者、RPC消费者、TCP、HTTP等等
+  提供各微应用API服务,如MQ消费者、RPC消费者、TCP、HTTP等等
 
 ### 后台服务[avatar-admin](https://github.com/wligang/avatars/tree/master/avatar-admin)
   提供大后台管理，权限校验，角色配置，监控等等
