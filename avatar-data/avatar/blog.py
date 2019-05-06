@@ -32,7 +32,7 @@ class Avatar(object):
 
     def getPage(self, username):
         url = 'https://blog.csdn.net/' + username + '/article/list?orderby=ViewCount'
-        html = urllib.urlopen(url).read().decode('utf-8')
+        html = urllib.request.urlopen(url).read().decode('utf-8')
         soup = BeautifulSoup(html, "lxml")
         self.getArticlesInPage(html)
 
