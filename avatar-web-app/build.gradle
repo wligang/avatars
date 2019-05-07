@@ -3,6 +3,8 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(':avatar-api')
+//    compileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.projectlombok:lombok'
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
     compile 'com.alibaba:fastjson:1.2.57'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'

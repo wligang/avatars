@@ -14,6 +14,7 @@ import time
 
 import redis
 import urllib
+#import urllib.request
 from bs4 import BeautifulSoup
 
 print('This is a csdn blog data python application')
@@ -32,7 +33,7 @@ class Avatar(object):
 
     def getPage(self, username):
         url = 'https://blog.csdn.net/' + username + '/article/list?orderby=ViewCount'
-        html = urllib.request.urlopen(url).read().decode('utf-8')
+        html = urllib.urlopen(url).read().decode('utf-8')
         soup = BeautifulSoup(html, "lxml")
         self.getArticlesInPage(html)
 
@@ -86,12 +87,13 @@ class Avatar(object):
 
             csdnUserInfo['articles'].append(articleItem)
 
-        localtime = time.asctime( time.localtime(time.time()) )
-        csdnUserInfo['dataTime']=localtime
+        localtime = time.asctime(time.localtime(time.time()))
+        csdnUserInfo['dataTime'] = localtime
         self.redis.set('userInfo_' + self.username, json.dumps(csdnUserInfo, indent=2))
         print('user`s info set redis successful')
 
 
 if __name__ == '__main__':
-    avatar = Avatar('LeegooWang')
+    username = sys.argv[1]
+    avatar = Avatar(username)
     avatar.getPage(avatar.username)
