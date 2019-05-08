@@ -1,12 +1,9 @@
-println("##################[start task] env is $env ,version is $v ######################")
+ext.env = hasProperty("env") ? env : "dev"
+println "######################[start compile] env is $env ######################"
 buildscript {
-
     ext {
         springBootVersion = '2.1.4.RELEASE'
-        env = hasProperty("env") ? env : "dev"
-        v = hasProperty("v") ? v : "1.0"
     }
-
     repositories {
         mavenCentral()
         jcenter()
