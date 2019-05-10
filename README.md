@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="http://avatar.wlgdo.com">
+   <img alt="avatar-github-img" src="https://repository-images.githubusercontent.com/182984652/8992b700-7337-11e9-9c04-df8b5f02c21e">
+  </a>
+</p>
+
 # Avatars
 >Ps:为什么叫Avatar呢？其实简单，就是想提供一套灵活的，可以根据不用业务来‘画像’的轻应用框架。
 
