@@ -2,7 +2,6 @@ package com.wlgdo.avatar.service.users;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.github.pagehelper.PageHelper;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.dubbo.service.IUserService;
@@ -14,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -23,7 +23,7 @@ public class UserServiceImpl implements IUserService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Override
@@ -36,7 +36,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public PageInfo getList(int pageIndex, int pageSize) {
         logger.info("stat get user list");
-        PageHelper.startPage(pageIndex, pageSize);
         List lists = userMapper.getList();
         PageInfo pageInfo = new PageInfo(lists);
 

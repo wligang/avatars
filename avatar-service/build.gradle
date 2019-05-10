@@ -3,16 +3,16 @@ apply plugin: 'org.springframework.boot'
 dependencies {
     compile project(':avatar-api')
 
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
-    implementation 'com.alibaba:druid:1.0.11'
-    //implementation 'com.baomidou:mybatis-plus-boot-starter:2.3'
     implementation('mysql:mysql-connector-java')
+    implementation 'com.alibaba:druid:1.0.11'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.1.1'
+
 
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
     compile 'com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0'
     compile 'com.101tec:zkclient:0.10'
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
-    compile 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.3'
+    
 }
 
 processResources {
