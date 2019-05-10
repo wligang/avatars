@@ -7,4 +7,6 @@ public interface IUserService {
     String getUserName();
 
     PageInfo getList(int pageIndex, int pageSize);
+
+    Object addCsdnUserAccount();
 }

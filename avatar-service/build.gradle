@@ -5,6 +5,7 @@ dependencies {
 
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
     implementation 'com.alibaba:druid:1.0.11'
+    //implementation 'com.baomidou:mybatis-plus-boot-starter:2.3'
     implementation('mysql:mysql-connector-java')
 
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
