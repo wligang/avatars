@@ -1,7 +1,7 @@
-package com.wlgdo.avatar.service.dao;
+package com.wlgdo.avatar.service.users.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wlgdo.avatar.service.model.User;
+import com.wlgdo.avatar.service.users.entity.User;
 
 
 /**

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * Date: 2019/5/10 18:23
  */
 @Configuration
-@MapperScan("com.wlgdo.avatar.service.dao")
+@MapperScan("com.wlgdo.avatar.service")
 public class MybatisPlusConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor() {
