@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.model;
+package com.wlgdo.avatar.service.users.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 
