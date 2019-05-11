@@ -1,15 +1,14 @@
-package com.wlgdo.avatar.service.users;
+package com.wlgdo.avatar.service.users.service;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
-import com.wlgdo.avatar.service.dao.CsdnUserMapper;
-import com.wlgdo.avatar.service.model.User;
+import com.wlgdo.avatar.service.users.mapper.CsdnUserMapper;
+import com.wlgdo.avatar.service.users.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

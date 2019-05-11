@@ -1,16 +1,15 @@
-package com.wlgdo.avatar.service.users;
+package com.wlgdo.avatar.service.users.service;
 
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.dubbo.service.IUserService;
-import com.wlgdo.avatar.service.dao.UserMapper;
-import com.wlgdo.avatar.service.model.User;
+import com.wlgdo.avatar.service.users.mapper.UserMapper;
+import com.wlgdo.avatar.service.users.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

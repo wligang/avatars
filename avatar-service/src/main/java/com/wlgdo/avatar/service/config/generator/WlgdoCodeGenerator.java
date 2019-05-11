@@ -124,7 +124,7 @@ public class WlgdoCodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.wlgdo.avatar.service.model.User");
+        //strategy.setSuperEntityClass("com.wlgdo.avatar.service.users.entity.User");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.wlgdo.avatar.service.CsdnUserController");

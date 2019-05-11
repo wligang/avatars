@@ -1,6 +1,6 @@
-package com.wlgdo.avatar.service.dao;
+package com.wlgdo.avatar.service.users.mapper;
 
-import com.wlgdo.avatar.service.model.User;
+import com.wlgdo.avatar.service.users.entity.User;
 
 import java.util.List;
 
