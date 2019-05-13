@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.users.service;
+package com.wlgdo.avatar.service.users.service.impl;
 
 
 
