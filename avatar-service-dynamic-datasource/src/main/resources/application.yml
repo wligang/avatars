@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    dynamic:
+      strict: false
+      datasource:
+        master:
+          username: mkt
+          password: mkt_sit
+          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_1:
+          username: root
+          password: root
+          url: jdbc:mysql://127.0.0.1:3306/mktdb1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_2:
+          username: mkt
+          password: mkt_sit
+          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_3:
+          username: mkt
+          password: mkt_sit
+          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          driver-class-name: com.mysql.jdbc.Driver
+logging:
+  level:
+    com.baomidou: debug
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com/wlgdo/avatar/service/model
