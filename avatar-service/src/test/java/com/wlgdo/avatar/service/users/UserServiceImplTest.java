@@ -41,7 +41,8 @@ public class UserServiceImplTest {
 
     @Test
     public void getUserName() {
-        userService.getUserName();
+        String userName = userService.getUserName();
+        logger.info("The test result:{}", userName);
     }
 
     @Test

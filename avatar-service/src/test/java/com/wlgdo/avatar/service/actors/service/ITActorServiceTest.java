@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.service.actors.service;
 
 import com.wlgdo.avatar.service.actors.entity.TActor;
+import com.wlgdo.avatar.service.users.entity.User;
 import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Assert;
@@ -45,5 +46,12 @@ public class ITActorServiceTest {
         Assert.assertTrue(user != null);
 
         logger.info("this test pass");
+    }
+
+
+    @Test
+    public void getFindUser() {
+        User user = actorServiceImpl.findActorUser();
+        logger.info("The test result:{}", user);
     }
 }
