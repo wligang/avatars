@@ -1,2 +1,2 @@
 
-include "avatar-api","avatar-web","avatar-service","avatar-admin","avatar-web-app","avatar-common","avatar-service-dynamic-datasource"
+include "avatar-api","avatar-web","avatar-service","avatar-admin","avatar-web-app","avatar-common","avatar-service-dynamic-datasource","avatar-web-monitor"

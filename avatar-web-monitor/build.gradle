@@ -12,7 +12,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-redis:2.1.4.RELEASE'
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'de.codecentric:spring-boot-admin-starter-client:2.1.4'
+    compile 'de.codecentric:spring-boot-admin-server:2.1.4'
+    compile 'de.codecentric:spring-boot-admin-server-ui:2.1.4'
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.0.RELEASE'
 }
