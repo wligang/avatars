@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class TActor{
+public class TActor {
 
     private static final long serialVersionUID=1L;
 

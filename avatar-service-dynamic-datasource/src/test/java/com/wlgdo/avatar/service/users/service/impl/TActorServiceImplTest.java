@@ -1,7 +1,6 @@
 package com.wlgdo.avatar.service.users.service.impl;
 
 import com.wlgdo.avatar.service.users.entity.TActor;
-import com.wlgdo.avatar.service.users.entity.User;
 import com.wlgdo.avatar.service.users.service.ActorService;
 import org.junit.After;
 import org.junit.Before;
@@ -21,7 +20,7 @@ import java.util.List;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class ActorServiceImplTest {
+public class TActorServiceImplTest {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
