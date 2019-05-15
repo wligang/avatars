@@ -33,9 +33,10 @@ public class AppManagerController {
             logger.info("userInfo:{}", jsonObject);
             respData.put("appInfo", jsonObject);
         }
-
-        JSONObject hotArticles = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get("userInfo_LeegooWang"));
-        respData.put("hotArticles", hotArticles.get("articles"));
+        if (stringRedisTemplate.hasKey("userInfo_LeegooWang")) {
+            JSONObject hotArticles = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get("userInfo_LeegooWang"));
+            respData.put("hotArticles", hotArticles.get("articles"));
+        }
         return new Resp(respData);
     }
 
