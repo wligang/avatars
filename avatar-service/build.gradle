@@ -17,6 +17,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'de.codecentric:spring-boot-admin-starter-client:2.1.4'
 
+    compile 'org.springframework.kafka:spring-kafka:2.2.6.RELEASE'
+
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
 
 }

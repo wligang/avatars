@@ -3,6 +3,7 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(':avatar-api')
+    compile project(':avatar-common')
 
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
     implementation 'com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0'
@@ -12,7 +13,11 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'de.codecentric:spring-boot-admin-starter-client:2.1.4'
 
+    compile 'org.springframework.kafka:spring-kafka:2.2.6.RELEASE'
+
+    compile 'org.apache.commons:commons-lang3:3.9'
+
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testCompile'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
 }
