@@ -3,7 +3,6 @@ package com.wlgdo.avatar.web.user;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.wlgdo.avatar.common.http.HttpResp;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
-import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.dubbo.service.IUserService;
 import com.wlgdo.avatar.web.configure.kafka.KafkaProducer;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    private  KafkaTemplate kafkaTemplate;
+    private KafkaTemplate kafkaTemplate;
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -49,7 +48,7 @@ public class UserController {
         boolean isOk = false;
         if (StringUtils.isNotBlank(msg)) {
 
-            kafkaTemplate.send("wlgdo-avatar", "helloworld:" + msg);
+            isOk = KafkaProducer.instance().send(msg);
 
         }
         return new HttpResp(isOk);
