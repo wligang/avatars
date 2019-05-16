@@ -26,11 +26,11 @@ public class KafkaConsumer {
     public void consumer(ConsumerRecord<?, ?> consumerRecord) {
         //判断是否为null
         Optional<?> kafkaMessage = Optional.ofNullable(consumerRecord.value());
-        logger.info(">>>>>>>>>> Begin consume kafka message :{}" + kafkaMessage);
+        logger.info(">>>>>>>>>> Begin consume kafka message :{}", kafkaMessage);
         if (kafkaMessage.isPresent()) {
             //得到Optional实例中的值
             Object message = kafkaMessage.get();
-            logger.info(">>>>>>>>>> Begin consume kafka message :{}" + message);
+            logger.info(">>>>>>>>>> Begin consume kafka message :{}", message);
         }
     }
 
