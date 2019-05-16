@@ -7,6 +7,10 @@ dependencies {
 //    annotationProcessor 'org.projectlombok:lombok'
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
     compile 'com.alibaba:fastjson:1.2.57'
+
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'de.codecentric:spring-boot-admin-starter-client:2.1.4'
+
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.1.4.RELEASE'

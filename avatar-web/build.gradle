@@ -5,8 +5,6 @@ dependencies {
     compile project(':avatar-api')
 
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
-    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0'
     compile 'com.101tec:zkclient:0.10'
     compile 'org.springframework.boot:spring-boot-starter-data-redis:2.1.4.RELEASE'
@@ -14,5 +12,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'de.codecentric:spring-boot-admin-starter-client:2.1.4'
 
-    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.0.RELEASE'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
 }
