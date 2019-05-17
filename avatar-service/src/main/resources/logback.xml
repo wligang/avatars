@@ -60,9 +60,9 @@
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/${APP_NAME}-%d{yyyy-MM-dd}.log.%i</fileNamePattern>
-            <MaxHistory>10</MaxHistory>
+            <MaxHistory>30</MaxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <MaxFileSize>10kB</MaxFileSize>
+                <MaxFileSize>50MB</MaxFileSize>
             </TimeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
