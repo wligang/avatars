@@ -17,6 +17,9 @@ dependencies {
 
     compile 'org.apache.commons:commons-lang3:3.9'
     compile 'com.alibaba:fastjson:1.2.57'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'

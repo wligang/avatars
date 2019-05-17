@@ -2,9 +2,14 @@ package com.wlgdo.avatar.common.http;
 
 
 public class HttpResp {
-    public HttpResp() {
+    public  HttpResp() {
         this.code = RespCode.SERVER_ERROR.code;
         this.msg = RespCode.SERVER_ERROR.msg;
+    }
+
+    public static HttpResp instance() {
+        return new HttpResp();
+
     }
 
     public HttpResp(RespCode respCode, Object data) {
@@ -54,8 +59,9 @@ public class HttpResp {
         return data;
     }
 
-    public void setData(Object data) {
+    public Object setData(Object data) {
         this.data = data;
+        return data;
     }
 
     public enum RespCode {

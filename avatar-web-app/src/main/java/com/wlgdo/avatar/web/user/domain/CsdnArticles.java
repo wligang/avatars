@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.web.domain;
+package com.wlgdo.avatar.web.user.domain;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]

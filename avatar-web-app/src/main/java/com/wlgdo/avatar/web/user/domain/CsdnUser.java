@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.web.domain;
+package com.wlgdo.avatar.web.user.domain;
 
 import java.util.ArrayList;
 import java.util.Date;

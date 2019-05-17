@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class User implements Serializable {
+public class User  implements Serializable {
 
     private Integer id;
 
@@ -19,7 +19,6 @@ public class User implements Serializable {
     private String accountNo;
 
     private Date updateTime;
-
 
 
     @Override
