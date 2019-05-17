@@ -14,7 +14,9 @@
     <contextName>wlgdo-avatar-web</contextName>
 
     <!--定义日志文件的存储地址 -->
-    <property name="LOG_HOME" value="logs"/>
+
+    <property name="APP_NAME" value="avatar-web"/>
+    <property name="LOG_HOME" value="logs/${APP_NAME}"/>
 
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
         <!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息-->
@@ -28,15 +30,13 @@
         </encoder>
     </appender>
 
-    <appender name="RollingFile"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>
         </filter>
         <!-- 可让每天产生一个日志文件，最多 180 个，自动回滚 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/avatar-web-%d{yyyy-MM-dd}.log
-            </fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/${APP_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- keep 180 days' worth of history capped at 50GB total size -->
             <maxHistory>180</maxHistory>
             <totalSizeCap>40MB</totalSizeCap>
@@ -53,13 +53,51 @@
         <includeCallerData>true</includeCallerData>
     </appender>
 
+    <!--new -->
+    <appender name="server" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/${APP_NAME}-%d{yyyy-MM-dd}.log.%i</fileNamePattern>
+            <MaxHistory>10</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>10kB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level --- [%file:%line][%thread] - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/${APP_NAME}-error-%d{yyyy-MM-dd}.log.%i</fileNamePattern>
+            <MaxHistory>5</MaxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>50MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level --- [%file:%line][%thread] - %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
     <!-- 输出到控制台和文件，可定义更多的 Appender -->
     <root level="INFO">
         <appender-ref ref="Console"/>
         <appender-ref ref="AsyncRollingFile"/>
+        <appender-ref ref="server"/>
+        <appender-ref ref="error"/>
     </root>
 
     <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+    <logger name="com.wlgdo.avatar" level="INFO"/>
     <logger name="org.mybatis" level="INFO"/>
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.apache" level="WARN"/>

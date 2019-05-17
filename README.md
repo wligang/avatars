@@ -24,7 +24,7 @@ Gradle(Multiple modules)、mybatisPlus、微信小程序等等。
 ### 后台前端[avatar-admin-web](https://github.com/wligang/avatars/tree/master/avatar-admin-web)
   使用nodeJs,vue框架搭设的后台框架
   
- ### 多数据源模块[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
+### 多数据源模块[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
 ### 操作说明
   1、因为项目是使用gradle构建的多模块以来项目，所以需要在开发环境具备gradle环境，如果不习惯或者不喜欢gradle,依然可以使用相关的命令来吧gradle构建装化成maven构建，相关的操作可以自行csdn了解一下。
   2、整个项目虽然是基于多模块依赖构成，但是项目架构本身是松耦合，所以可以根据自己的业务要求来选择需要保留的模块，灵活操作。

@@ -29,6 +29,7 @@ public class UserServiceImpl implements IUserService {
     public String getUserName() {
         logger.info("start get user name");
         User user = userMapper.findUser();
+        logger.error("this is a error log test:{}", System.currentTimeMillis());
         return user == null ? "My name is feify" : user.getName();
     }
 
