@@ -2,7 +2,7 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(':avatar-api')
-//    implementation 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
 
     implementation('mysql:mysql-connector-java')
     implementation 'com.alibaba:druid:1.0.11'
