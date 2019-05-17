@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.web;
+package com.wlgdo.avatar.monitor;
 
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;

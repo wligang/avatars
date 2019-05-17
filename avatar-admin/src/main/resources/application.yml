@@ -7,4 +7,4 @@ spring:
 mybatis:
    mapperLocations: classpath:/mapper/*.xml
 server:
-  port: 8083
+  port: 8084
