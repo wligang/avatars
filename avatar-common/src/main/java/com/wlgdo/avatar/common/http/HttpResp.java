@@ -51,8 +51,9 @@ public class HttpResp {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    public HttpResp setMsg(String msg) {
         this.msg = msg;
+        return this;
     }
 
     public Object getData() {

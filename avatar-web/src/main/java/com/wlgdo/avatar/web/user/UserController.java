@@ -14,10 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -30,11 +27,13 @@ public class UserController {
     @Reference
     private IUserService userService;
 
+    @ExceptionHandler
     @RequestMapping("index")
     public Object index() {
         Result<User> result = userService.getUser();
         User user = result.getObject();
         logger.info("user`s name is:{}", user);
+        int i = 1 / 0;
         return HttpResp.instance().setData(result.getObject());
     }
 
