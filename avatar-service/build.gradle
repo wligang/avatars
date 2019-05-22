@@ -29,9 +29,9 @@ processResources {
         exclude "**/*.java"
     }
 }
-//jar {
-//    from('src/main/java') {
-//        include "**/*"
-//        exclude "**/*.java"
-//    }
-//}
+jar {
+    from('src/main/java') {
+        include "**/*"
+        exclude "**/*.java"
+    }
+}
