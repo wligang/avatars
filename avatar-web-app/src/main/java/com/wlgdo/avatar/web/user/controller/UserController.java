@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.web.user;
+package com.wlgdo.avatar.web.user.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.wlgdo.avatar.dubbo.rpc.Resp;

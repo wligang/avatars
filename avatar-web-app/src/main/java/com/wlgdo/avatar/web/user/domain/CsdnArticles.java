@@ -1,10 +1,12 @@
 package com.wlgdo.avatar.web.user.domain;
 
+import java.io.Serializable;
+
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/5/4 20:39
  */
-public class CsdnArticles {
+public class CsdnArticles  implements Serializable {
 
     String href;
     String title;

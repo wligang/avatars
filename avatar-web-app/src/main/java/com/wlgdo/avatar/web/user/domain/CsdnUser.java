@@ -1,5 +1,6 @@
 package com.wlgdo.avatar.web.user.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/5/4 19:11
  */
-public class CsdnUser {
+public class CsdnUser  implements Serializable {
 
     private String grade;
 
