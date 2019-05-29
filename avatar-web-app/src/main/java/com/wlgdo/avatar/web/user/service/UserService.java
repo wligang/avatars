@@ -35,7 +35,12 @@ public class UserService {
         logger.info("{}", userMap);
 
         redisTemplate.opsForList().set("userListKye",0,csdnUser);
+        csdnUser.setNickname("test1");
+        redisTemplate.opsForList().leftPush("userListKye",csdnUser);
 
+        Object list = redisTemplate.opsForList().rightPop("userListKye");
+
+        logger.info("list-{}",list);
         return null;
     }
 
