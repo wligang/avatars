@@ -26,21 +26,20 @@ public class UserService {
 
     public List getUserOrderList() {
 
-        CsdnUser csdnUser = new CsdnUser();
-        csdnUser.setNickname("test");
+
         redisTemplate.opsForHash().get("user", "hashKey");
 
-        redisTemplate.opsForHash().put("user", csdnUser, csdnUser);
+        redisTemplate.opsForHash().put("user", "hashKey", new CsdnUser("hash"));
         Map<String, CsdnUser> userMap = redisTemplate.opsForHash().entries("user");
         logger.info("{}", userMap);
 
-        redisTemplate.opsForList().set("userListKye",0,csdnUser);
-        csdnUser.setNickname("test1");
-        redisTemplate.opsForList().leftPush("userListKye",csdnUser);
+        redisTemplate.opsForList().leftPush("userListKye", new CsdnUser("001"));
 
-        Object list = redisTemplate.opsForList().rightPop("userListKye");
+        redisTemplate.opsForList().leftPush("userListKye", new CsdnUser("002"));
 
-        logger.info("list-{}",list);
+        Object list = redisTemplate.opsForList().range("userListKye", 0, 10);
+
+        logger.info("list-{}", list);
         return null;
     }
 

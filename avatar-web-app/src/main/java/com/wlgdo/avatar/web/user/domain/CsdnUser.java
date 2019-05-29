@@ -9,7 +9,34 @@ import java.util.List;
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/5/4 19:11
  */
-public class CsdnUser  implements Serializable {
+
+public class CsdnUser implements Serializable {
+    private static final long serialVersionUID=-9166068087180141499L;
+
+    public CsdnUser() {
+
+    }
+
+    public CsdnUser(String nickname) {
+        this.nickname = nickname;
+        this.updateTime=new Date();
+        this.ranking=System.currentTimeMillis();
+
+    }
+
+    public CsdnUser(String userName, String nickname) {
+        this.userName = userName;
+        this.nickname = nickname;
+        this.avatarUrl = "http://img.wlgdo.com/avatar/no-body.png";
+        this.ranking = 0l;
+        this.integration = 0;
+        this.fansNum = 0;
+        this.grade = "0级";
+        this.integration = 0;
+        updateTime = new Date();
+        articles = new ArrayList<>();
+
+    }
 
     private String grade;
 
@@ -21,7 +48,7 @@ public class CsdnUser  implements Serializable {
 
     private String nickname;
 
-    private int ranking;
+    private Long ranking;
 
     private String userName;
 
@@ -47,22 +74,6 @@ public class CsdnUser  implements Serializable {
 
     List<CsdnArticles> articles;
 
-    public CsdnUser() {
-    }
-
-    public CsdnUser(String userName, String nickname) {
-        this.userName = userName;
-        this.nickname = nickname;
-        this.avatarUrl = "http://img.wlgdo.com/avatar/no-body.png";
-        this.ranking = 0;
-        this.integration = 0;
-        this.fansNum = 0;
-        this.grade = "0级";
-        this.integration = 0;
-        updateTime = new Date();
-        articles = new ArrayList<>();
-
-    }
 
     public String getGrade() {
         return grade;
@@ -104,11 +115,11 @@ public class CsdnUser  implements Serializable {
         this.nickname = nickname;
     }
 
-    public int getRanking() {
+    public Long getRanking() {
         return ranking;
     }
 
-    public void setRanking(int ranking) {
+    public void setRanking(Long ranking) {
         this.ranking = ranking;
     }
 
