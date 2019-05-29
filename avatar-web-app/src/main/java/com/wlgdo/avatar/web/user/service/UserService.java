@@ -43,12 +43,16 @@ public class UserService {
         logger.info("list-{}", list);
 
 
-        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s10"),10d);
-        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s13"),13d);
-        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s0"),0d);
-        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s6"),6d);
+       // redisTemplate.opsForSet().add("userSet", list);
+        Set userSet = redisTemplate.opsForSet().members("userSet");
+        logger.info("{}", userSet);
+
+        redisTemplate.opsForZSet().add("userList", new CsdnUser("s10"), 10d);
+        redisTemplate.opsForZSet().add("userList", new CsdnUser("s13"), 13d);
+        redisTemplate.opsForZSet().add("userList", new CsdnUser("s0"), 0d);
+        redisTemplate.opsForZSet().add("userList", new CsdnUser("s6"), 6d);
         Set sortList = redisTemplate.opsForZSet().range("userList", 0, 10);
-        logger.info("{}",sortList);
+        logger.info("{}", sortList);
         return null;
     }
 
