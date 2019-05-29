@@ -47,6 +47,10 @@ public class UserService {
         Set userSet = redisTemplate.opsForSet().members("userSet");
         logger.info("{}", userSet);
 
+        redisTemplate.opsForSet().add("userSet", new CsdnUser("set"));
+        Set userSet1 = redisTemplate.opsForSet().members("userSet");
+        logger.info("{}", userSet1);
+
         redisTemplate.opsForZSet().add("userList", new CsdnUser("s10"), 10d);
         redisTemplate.opsForZSet().add("userList", new CsdnUser("s13"), 13d);
         redisTemplate.opsForZSet().add("userList", new CsdnUser("s0"), 0d);
