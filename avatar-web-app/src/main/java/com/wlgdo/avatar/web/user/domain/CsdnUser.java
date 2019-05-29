@@ -138,4 +138,20 @@ public class CsdnUser implements Serializable {
     public void setIntegration(int integration) {
         this.integration = integration;
     }
+
+    @Override
+    public String toString() {
+        return "CsdnUser{" +
+                "grade='" + grade + '\'' +
+                ", fansNum=" + fansNum +
+                ", updateTime=" + updateTime +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", ranking=" + ranking +
+                ", userName='" + userName + '\'' +
+                ", integration=" + integration +
+                ", interview=" + interview +
+                ", articles=" + articles +
+                '}';
+    }
 }

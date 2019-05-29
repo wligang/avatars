@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
@@ -29,7 +30,7 @@ public class UserService {
 
         redisTemplate.opsForHash().get("user", "hashKey");
 
-        redisTemplate.opsForHash().put("user", "hashKey", new CsdnUser("hash"));
+        redisTemplate.opsForHash().put("user", "name", new CsdnUser("hash"));
         Map<String, CsdnUser> userMap = redisTemplate.opsForHash().entries("user");
         logger.info("{}", userMap);
 
@@ -40,6 +41,14 @@ public class UserService {
         Object list = redisTemplate.opsForList().range("userListKye", 0, 10);
 
         logger.info("list-{}", list);
+
+
+        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s10"),10d);
+        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s13"),13d);
+        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s0"),0d);
+        redisTemplate.opsForZSet().add("userList",     new CsdnUser("s6"),6d);
+        Set sortList = redisTemplate.opsForZSet().range("userList", 0, 10);
+        logger.info("{}",sortList);
         return null;
     }
 
