@@ -43,7 +43,7 @@ public class UserService {
         logger.info("list-{}", list);
 
 
-       // redisTemplate.opsForSet().add("userSet", list);
+        // redisTemplate.opsForSet().add("userSet", list);
         Set userSet = redisTemplate.opsForSet().members("userSet");
         logger.info("{}", userSet);
 
@@ -60,4 +60,18 @@ public class UserService {
         return null;
     }
 
+
+    public void sortedUserList(int size) {
+        size=10;
+        Long startTime = System.currentTimeMillis();
+        logger.info("Begin program:{}", startTime);
+        while (size > 0) {
+            redisTemplate.opsForZSet().incrementScore("userSet", size, 10);
+            size--;
+        }
+        Long numSize = redisTemplate.opsForZSet().size("userSet");
+        Set set = redisTemplate.opsForZSet().range("userSet", 0, 30);
+        logger.info("First 30 :[{}]", set);
+        logger.info("End program:{}[{}ms]", numSize, System.currentTimeMillis() - startTime);
+    }
 }

@@ -22,6 +22,7 @@ public class UserServiceTest {
     @Test
     public void getUserOrderList() {
 
-        userService.getUserOrderList();
+//        userService.getUserOrderList();
+        userService.sortedUserList(1000000);
     }
 }
