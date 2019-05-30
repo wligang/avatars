@@ -62,13 +62,12 @@ public class UserService {
 
 
     public void sortedUserList(int size) {
-        size=10;
+        size = 10;
         Long startTime = System.currentTimeMillis();
         logger.info("Begin program:{}", startTime);
-        while (size > 0) {
-            redisTemplate.opsForZSet().incrementScore("userSet", size, 10);
-            size--;
-        }
+        redisTemplate.opsForZSet().add("userSet", 2, 0);
+        Double score = redisTemplate.opsForZSet().score("userSet", 3);
+        logger.info("score:{}", score);
         Long numSize = redisTemplate.opsForZSet().size("userSet");
         Set set = redisTemplate.opsForZSet().range("userSet", 0, 30);
         logger.info("First 30 :[{}]", set);
