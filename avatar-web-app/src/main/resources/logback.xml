@@ -38,8 +38,8 @@
             <fileNamePattern>${LOG_HOME}/%d{yyyy-MM,aux}/avatar-app-%d{yyyy-MM-dd}.log
             </fileNamePattern>
             <!-- keep 180 days' worth of history capped at 50GB total size -->
-            <maxHistory>180</maxHistory>
-            <totalSizeCap>40MB</totalSizeCap>
+            <maxHistory>50</maxHistory>
+            <totalSizeCap>50MB</totalSizeCap>
         </rollingPolicy>
         <!-- 日志文件的格式 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -64,6 +64,6 @@
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.apache" level="WARN"/>
     <!--如果需要打印SQL,可以把下面的级别设置为DEBUG -->
-    <logger name="com.wlgdo.avatar.admin.dao" level="DEBUG"/>
+    <logger name="com.wlgdo.avatar.web" level="DEBUG"/>
 
 </configuration>
