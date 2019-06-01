@@ -28,10 +28,8 @@ public class UserController {
     @Value("${python.data.script.path}")
     private String pythonScriptPath;
 
-
     @Resource
     private StringRedisTemplate stringRedisTemplate;
-
 
     @Deprecated
     @GetMapping("index/{key}")
@@ -61,7 +59,7 @@ public class UserController {
             logger.info("data load end", line);
         } catch (Exception e) {
             logger.error("获取数据异常了:{}", e);
-            return "获取出错";
+            return new Resp("-1","获取用户的信息失败");
         }
 
         if (stringRedisTemplate.hasKey(CSDN_USER + key)) {
@@ -70,7 +68,5 @@ public class UserController {
             return new Resp(jsonObject);
         }
         return new Resp(new CsdnUser(key, "未命名"));
-
-
     }
 }
