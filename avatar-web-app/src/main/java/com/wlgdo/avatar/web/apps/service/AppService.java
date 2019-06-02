@@ -21,7 +21,7 @@ public class AppService {
     private RedisTemplate redisTemplate;
 
 
-    public boolean lock(long timeout, long expire, final TimeUnit unit) {
+    public boolean lock(String key, long timeout, long expire, final TimeUnit unit) {
         logger.info("开始查询状态");
         long beginTime = System.nanoTime();  // 用nanos、mills具体看需求.
         timeout = TimeUnit.SECONDS.toNanos(timeout);
@@ -29,9 +29,8 @@ public class AppService {
             // 在timeout的时间范围内不断轮询锁
             while (System.nanoTime() - beginTime < timeout) {
                 // 锁不存在的话，设置锁并设置锁过期时间，即加锁
-                if (redisTemplate.opsForValue().setIfAbsent(this.key, "1")) {
+                if (redisTemplate.opsForValue().setIfAbsent(key, "1")) {
                     redisTemplate.expire(key, expire, unit);//设置锁失效时间, 防止永久阻塞
-                    this.lock = true;
                     return true;
                 }
                 // 短暂休眠后轮询，避免可能的活锁
@@ -41,7 +40,6 @@ public class AppService {
         } catch (Exception e) {
             throw new RuntimeException("locking error", e);
         }
-        return false;
         return false;
     }
 
