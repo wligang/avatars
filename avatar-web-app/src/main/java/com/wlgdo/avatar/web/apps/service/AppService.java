@@ -35,8 +35,8 @@ public class AppService {
                     return true;
                 }
                 // 短暂休眠后轮询，避免可能的活锁
-                System.out.println("get lock waiting...");
-                Thread.sleep(30, RANDOM.nextInt(30));
+                logger.info("get lock waiting...");
+                Thread.sleep(30, Math.round(10));
             }
         } catch (Exception e) {
             throw new RuntimeException("locking error", e);
