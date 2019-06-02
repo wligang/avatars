@@ -1,5 +1,9 @@
 package com.wlgdo.avatar.web.apps.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,4 +12,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AppService {
+
+    Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+
+    public boolean locke() {
+        logger.info("开始查询状态");
+
+        return false;
+    }
+
 }
