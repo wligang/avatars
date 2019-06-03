@@ -27,7 +27,7 @@ public class UserController {
     public Object getUserInfo(@PathVariable Serializable id) {
 
         logger.info("Being get user :{}", id);
-        return new Resp(actorService.getById(1));
+        return new Resp(actorService.getById(id));
     }
 
 }
