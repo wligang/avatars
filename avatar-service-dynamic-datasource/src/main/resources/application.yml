@@ -26,8 +26,10 @@ spring:
 logging:
   level:
     com.baomidou: debug
+    com.wlgdo.avatar.service: debug
 
-mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com/wlgdo/avatar/service/model
-  configuration.cache-enabled: true
+
+mybatis-plus:
+  configuration:
+      cache-enabled: true
+      local-cache-scope: session
