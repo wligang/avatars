@@ -20,7 +20,7 @@ import java.util.List;
 
 @Service
 @Component
-public class UserServiceImpl implements IUserService {
+public abstract class UserServiceImpl implements IUserService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -28,7 +28,6 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @DS("master")
-    @Override
     public String getUserName() {
         logger.info("start get user name");
         User user = userMapper.findUser();
