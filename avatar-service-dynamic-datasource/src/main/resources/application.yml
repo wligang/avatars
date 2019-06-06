@@ -2,6 +2,7 @@ spring:
   datasource:
     dynamic:
       strict: false
+      primary: slave_1
       datasource:
         master:
           username: mkt
@@ -11,7 +12,7 @@ spring:
         slave_1:
           username: root
           password: root
-          url: jdbc:mysql://192.168.80.131:3306/mktdb1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          url: jdbc:mysql://192.168.80.131:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
           driver-class-name: com.mysql.jdbc.Driver
         slave_2:
           username: mkt
@@ -26,6 +27,7 @@ spring:
 logging:
   level:
     com.baomidou: debug
+    com.baomidou.dynamic: debug
     com.wlgdo.avatar.service: debug
 
 
@@ -33,3 +35,5 @@ mybatis-plus:
   configuration:
       cache-enabled: true
       local-cache-scope: session
+  mapper-locations: classpath:mapper/*Mapper.xml
+

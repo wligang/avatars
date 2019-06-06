@@ -2,6 +2,9 @@ package com.wlgdo.avatar.service.users.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -20,7 +23,7 @@ public class TActor {
     private static final long serialVersionUID=1L;
 
     @TableId("Id")
-    private String Id;
+    private Long Id;
 
     /**
      * 微信的openid

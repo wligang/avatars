@@ -40,4 +40,7 @@ public class TActorServiceImplTest {
         List<TActor> list = actorService.list();
         logger.info("the test result:{}", list);
     }
+
+
+
 }
