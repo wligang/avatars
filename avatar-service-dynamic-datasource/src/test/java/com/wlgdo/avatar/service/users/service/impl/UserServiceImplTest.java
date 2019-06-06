@@ -1,9 +1,10 @@
-package com.wlgdo.avatar.service.users;
+package com.wlgdo.avatar.service.users.service.impl;
 
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
 import com.wlgdo.avatar.dubbo.service.IUserService;
 import com.wlgdo.avatar.service.AvatarServiceApplicationTests;
+import com.wlgdo.avatar.service.users.service.UserService;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,7 +29,7 @@ public class UserServiceImplTest {
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @Before
     public void printStart() {

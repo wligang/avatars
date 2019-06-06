@@ -1,13 +1,17 @@
 package com.wlgdo.avatar.service.users.service.impl;
 
 
-
 import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
+import com.wlgdo.avatar.dubbo.response.Result;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.dubbo.service.IUserService;
+import com.wlgdo.avatar.service.users.entity.TActor;
+import com.wlgdo.avatar.service.users.mapper.TActorMapper;
 import com.wlgdo.avatar.service.users.mapper.UserMapper;
 import com.wlgdo.avatar.service.users.entity.User;
+import com.wlgdo.avatar.service.users.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +23,7 @@ import java.util.List;
 
 
 @Service
-@Component
-public abstract class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implements UserService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -32,6 +35,18 @@ public abstract class UserServiceImpl implements IUserService {
         logger.info("start get user name");
         User user = userMapper.findUser();
         return user == null ? "My name is feify" : user.getName();
+    }
+
+
+    @DS("master")
+    @Override
+    public Result getUser() {
+        logger.info("get user");
+        PageInfo list = getList(0, 10);
+        logger.info("{}", list);
+        Result<TActor> result = new Result<>();
+
+        return result;
     }
 
     @DS("slave_1")

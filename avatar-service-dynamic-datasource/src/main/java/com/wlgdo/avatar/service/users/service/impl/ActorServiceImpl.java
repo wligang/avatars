@@ -39,11 +39,13 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     public TActor getActorById(Serializable id) {
 
         TActor actor = getByIdMaster(id);
-        TActor actor1 = getByIdSlave1(id);
+        logger.info("actor:{}", actor);
 
-        logger.info("actor:{},\nactor1:{}", actor, actor1);
+        TActor actor1 = getByIdSlave1(id);
+        logger.info("actor:{}", actor1);
         return getByIdMaster(id);
     }
+
 
     @DS("master")
     public boolean saveMaster(TActor entity) {

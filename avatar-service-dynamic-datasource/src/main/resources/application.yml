@@ -1,8 +1,6 @@
 spring:
   datasource:
     dynamic:
-      strict: false
-      primary: slave_1
       datasource:
         master:
           username: mkt
