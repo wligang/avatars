@@ -3,11 +3,14 @@ package com.wlgdo.avatar.service.users.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.service.users.entity.TActor;
 import com.wlgdo.avatar.service.users.mapper.TActorMapper;
 import com.wlgdo.avatar.service.users.service.ActorService;
+import com.wlgdo.avatar.service.users.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -18,15 +21,17 @@ import java.time.LocalDateTime;
  * Date: 2019/5/13 22:12
  */
 @Service
-@DS("slave")
 public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implements ActorService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
+    @Autowired
+    private UserService userService;
+
     public boolean saveActor(TActor actor) {
         logger.info("保存Actor：{}", actor);
         actor.setNickName("master");
-//        saveMaster(actor);
+        saveMaster(actor);
 
         logger.info("save slave:{}", LocalDateTime.now());
 
@@ -40,11 +45,10 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     public TActor getActorById(Serializable id) {
 
         TActor actor = getByIdMaster(id);
+        PageInfo list = userService.getList(0, 10);
         logger.info("actor:{}", actor);
-
-        TActor actor1 = getByIdSlave1(id);
-        logger.info("actor:{}", actor1);
-        return getByIdMaster(id);
+        logger.info("list:{}", list);
+        return actor;
     }
 
 
@@ -54,7 +58,7 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
         return super.save(entity);
     }
 
-    @DS("slave_1")
+    @DS("slave")
     public boolean saveSlave1(TActor entity) {
         logger.info("save slave:{}", entity);
         return super.save(entity);
