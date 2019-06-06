@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.service.users;
 
 import com.wlgdo.avatar.dubbo.common.PageInfo;
+import com.wlgdo.avatar.dubbo.response.Result;
 import com.wlgdo.avatar.dubbo.service.IUserService;
 import com.wlgdo.avatar.service.AvatarServiceApplicationTests;
 import org.junit.After;
@@ -41,7 +42,7 @@ public class UserServiceImplTest {
 
     @Test
     public void getUserName() {
-        String userName = userService.getUserName();
+        Result userName = userService.getUser();
         logger.info("The test result:{}", userName);
     }
 
