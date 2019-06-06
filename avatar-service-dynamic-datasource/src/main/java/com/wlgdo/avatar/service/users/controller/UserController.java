@@ -4,7 +4,6 @@ import com.wlgdo.avatar.common.http.HttpResp;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.service.users.entity.TActor;
 import com.wlgdo.avatar.service.users.service.ActorService;
-import com.wlgdo.avatar.service.users.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

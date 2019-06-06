@@ -6,22 +6,12 @@ spring:
         master:
           username: mkt
           password: mkt_sit
-          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.jdbc.Driver
         slave_1:
           username: root
           password: root
-          url: jdbc:mysql://192.168.80.131:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-          driver-class-name: com.mysql.jdbc.Driver
-        slave_2:
-          username: mkt
-          password: mkt_sit
-          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
-          driver-class-name: com.mysql.jdbc.Driver
-        slave_3:
-          username: mkt
-          password: mkt_sit
-          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+          url: jdbc:mysql://192.168.80.131:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.jdbc.Driver
 logging:
   level:
