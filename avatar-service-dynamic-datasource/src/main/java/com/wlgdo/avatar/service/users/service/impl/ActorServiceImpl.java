@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
  * Date: 2019/5/13 22:12
  */
 @Service
+@DS("slave")
 public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implements ActorService {
 
     Logger logger = LoggerFactory.getLogger(getClass());

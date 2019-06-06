@@ -1,6 +1,7 @@
 spring:
   datasource:
     dynamic:
+      primary: master
       datasource:
         master:
           username: mkt
