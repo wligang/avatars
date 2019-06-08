@@ -39,8 +39,6 @@ public class ActorsController {
     @GetMapping("actor/{name}")
     public Object saveActor(@PathVariable String name) {
         TActor actor = new TActor();
-        actor.setNickName("华盛顿");
-        actor.setMobile("15501033589");
         actor.setName(name);
         actor.setCreateTime(LocalDateTime.now());
         boolean ret = actorService.saveActor(actor);

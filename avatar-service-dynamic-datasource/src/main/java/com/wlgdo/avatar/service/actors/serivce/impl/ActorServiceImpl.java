@@ -28,13 +28,11 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     @Autowired
     private UserService userService;
 
+
     public boolean saveActor(TActor actor) {
         logger.info("保存Actor：{}", actor);
         actor.setNickName("master");
         saveMaster(actor);
-        logger.info("save slave:{}", LocalDateTime.now());
-        actor.setNickName("slave_1");
-        saveSlave1(actor);
         logger.info("save :{}", LocalDateTime.now());
         return true;
     }
