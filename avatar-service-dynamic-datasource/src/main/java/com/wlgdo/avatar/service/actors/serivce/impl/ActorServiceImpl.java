@@ -29,7 +29,7 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     private UserService userService;
 
 
-    @DS("slave_1")
+    @DS("slave_2")
     public boolean saveActor(TActor actor) {
         logger.info("保存Actor：{}", actor);
         actor.setNickName("master");
