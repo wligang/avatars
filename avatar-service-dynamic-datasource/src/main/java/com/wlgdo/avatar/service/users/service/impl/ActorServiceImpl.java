@@ -32,18 +32,15 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
         logger.info("保存Actor：{}", actor);
         actor.setNickName("master");
         saveMaster(actor);
-
         logger.info("save slave:{}", LocalDateTime.now());
-
         actor.setNickName("slave_1");
         saveSlave1(actor);
-
+        logger.info("save :{}", LocalDateTime.now());
         return true;
     }
 
     @Override
     public TActor getActorById(Serializable id) {
-
         TActor actor = getByIdMaster(id);
         PageInfo list = userService.getList(0, 10);
         logger.info("actor:{}", actor);
