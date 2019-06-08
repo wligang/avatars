@@ -33,7 +33,7 @@ logging:
 
 mybatis-plus:
   configuration:
-      cache-enabled: true
+      cache-enabled: false
       local-cache-scope: session
   mapper-locations: classpath:mapper/*Mapper.xml
   
