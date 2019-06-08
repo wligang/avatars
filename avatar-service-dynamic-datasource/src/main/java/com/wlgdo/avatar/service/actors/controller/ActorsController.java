@@ -1,9 +1,14 @@
 package com.wlgdo.avatar.service.actors.controller;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.service.actors.entity.TActor;
 import com.wlgdo.avatar.service.actors.serivce.ActorService;
+import com.wlgdo.avatar.service.users.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +32,6 @@ public class ActorsController {
     @Autowired
     private ActorService actorService;
 
-
     @GetMapping("actors")
     public Object getUserInfo() {
 
@@ -46,8 +50,13 @@ public class ActorsController {
     }
 
 
-    @GetMapping("actors/get/{id}")
-    public Object getActor(@PathVariable Serializable id) {
-        return HttpResp.instance().setData(actorService.getActorById(id));
+    @GetMapping("actors/list")
+    public Object getActor() {
+
+        IPage<TActor> page = new Page<>(1, 10);
+        ((Page<TActor>) page).setOptimizeCountSql(true);
+        QueryWrapper<TActor> wrapQuery = new QueryWrapper<TActor>();
+        IPage<TActor> pageInfo = actorService.page(page, wrapQuery);
+        return HttpResp.instance().setData(pageInfo);
     }
 }

@@ -8,7 +8,7 @@ spring:
           password: mkt_sit
           url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.jdbc.Driver
-        master_2:
+        slave_3:
           username: root
           password: root
           url: jdbc:mysql://127.0.0.1:3306/mktdb1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
@@ -36,5 +36,7 @@ mybatis-plus:
       cache-enabled: false
       local-cache-scope: session
   mapper-locations: classpath:mapper/*Mapper.xml
+  global-config:
+    banner: false
   
 

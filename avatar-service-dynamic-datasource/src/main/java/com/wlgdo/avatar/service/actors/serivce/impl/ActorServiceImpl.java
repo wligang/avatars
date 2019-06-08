@@ -33,7 +33,8 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     public boolean saveActor(TActor actor) {
         logger.info("保存Actor：{}", actor);
         actor.setNickName("master");
-        saveMaster(actor);
+        save(actor);
+        //saveMaster(actor);
         logger.info("save :{}", LocalDateTime.now());
         return true;
     }
