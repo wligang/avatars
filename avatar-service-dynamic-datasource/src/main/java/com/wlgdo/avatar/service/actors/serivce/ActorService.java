@@ -1,8 +1,7 @@
-package com.wlgdo.avatar.service.users.service;
+package com.wlgdo.avatar.service.actors.serivce;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wlgdo.avatar.service.users.entity.TActor;
+import com.wlgdo.avatar.service.actors.entity.TActor;
 
 import java.io.Serializable;
 

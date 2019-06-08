@@ -1,7 +1,7 @@
 package com.wlgdo.avatar.service.users.service.impl;
 
-import com.wlgdo.avatar.service.users.entity.TActor;
-import com.wlgdo.avatar.service.users.service.ActorService;
+import com.wlgdo.avatar.service.actors.entity.TActor;
+import com.wlgdo.avatar.service.actors.serivce.ActorService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

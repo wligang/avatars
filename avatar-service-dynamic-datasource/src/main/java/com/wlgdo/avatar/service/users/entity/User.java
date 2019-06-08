@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.actors.entity;
+package com.wlgdo.avatar.service.users.entity;
 
 import lombok.Data;
 

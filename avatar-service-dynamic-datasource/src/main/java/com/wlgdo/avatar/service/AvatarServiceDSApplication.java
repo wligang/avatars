@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@MapperScan("com.wlgdo.avatar.service.users.mapper")
+@MapperScan("com.wlgdo.avatar.service.*.mapper")
 public class AvatarServiceDSApplication {
     public static void main(String[] args) {
         SpringApplication.run(AvatarServiceDSApplication.class, args);

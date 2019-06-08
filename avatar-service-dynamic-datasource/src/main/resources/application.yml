@@ -31,4 +31,5 @@ mybatis-plus:
       cache-enabled: true
       local-cache-scope: session
   mapper-locations: classpath:mapper/*Mapper.xml
+  
 

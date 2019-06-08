@@ -2,7 +2,7 @@ package com.wlgdo.avatar.service.users.service.impl;
 
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
-import com.wlgdo.avatar.service.actors.serivce.UserService;
+import com.wlgdo.avatar.service.users.service.UserService;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -50,9 +50,5 @@ public class UserServiceImplTest {
         logger.info("{}", page);
     }
 
-    @Test
-    public void addCsdnUserAccount() {
 
-        userService.addCsdnUserAccount();
-    }
 }

@@ -1,7 +1,7 @@
-package com.wlgdo.avatar.service.users.mapper;
+package com.wlgdo.avatar.service.actors.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wlgdo.avatar.service.users.entity.TActor;
+import com.wlgdo.avatar.service.actors.entity.TActor;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]

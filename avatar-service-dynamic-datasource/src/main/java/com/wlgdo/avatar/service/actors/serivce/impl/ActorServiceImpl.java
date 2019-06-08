@@ -1,13 +1,13 @@
-package com.wlgdo.avatar.service.users.service.impl;
+package com.wlgdo.avatar.service.actors.serivce.impl;
 
 
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
-import com.wlgdo.avatar.service.users.entity.TActor;
-import com.wlgdo.avatar.service.users.mapper.TActorMapper;
-import com.wlgdo.avatar.service.users.service.ActorService;
-import com.wlgdo.avatar.service.actors.serivce.UserService;
+import com.wlgdo.avatar.service.actors.entity.TActor;
+import com.wlgdo.avatar.service.actors.mapper.TActorMapper;
+import com.wlgdo.avatar.service.actors.serivce.ActorService;
+import com.wlgdo.avatar.service.users.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
