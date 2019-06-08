@@ -36,7 +36,7 @@ public class ActorsController {
         return HttpResp.instance().setData(list);
     }
 
-    @GetMapping("actor/{name}")
+    @GetMapping("actors/{name}")
     public Object saveActor(@PathVariable String name) {
         TActor actor = new TActor();
         actor.setName(name);
@@ -46,7 +46,7 @@ public class ActorsController {
     }
 
 
-    @GetMapping("actor/get/{id}")
+    @GetMapping("actors/get/{id}")
     public Object getActor(@PathVariable Serializable id) {
         return HttpResp.instance().setData(actorService.getActorById(id));
     }
