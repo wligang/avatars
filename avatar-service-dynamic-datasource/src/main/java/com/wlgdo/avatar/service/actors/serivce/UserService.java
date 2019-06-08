@@ -12,5 +12,4 @@ public interface UserService extends IService<TActor> {
 
     PageInfo getList(int pageIndex, int pageSize);
 
-    Object addCsdnUserAccount();
-}
+   }

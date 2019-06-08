@@ -58,13 +58,5 @@ public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implement
         return pageInfo;
     }
 
-    @Override
-    public Object addCsdnUserAccount() {
-
-        logger.info("stat add csdn user account");
-
-        return new Resp("ok");
-    }
-
 
 }
