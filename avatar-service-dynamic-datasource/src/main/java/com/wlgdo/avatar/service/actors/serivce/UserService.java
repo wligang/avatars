@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.users.service;
+package com.wlgdo.avatar.service.actors.serivce;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;

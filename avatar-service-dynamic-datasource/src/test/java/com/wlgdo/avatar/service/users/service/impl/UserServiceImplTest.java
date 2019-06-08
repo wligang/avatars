@@ -2,9 +2,7 @@ package com.wlgdo.avatar.service.users.service.impl;
 
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
-import com.wlgdo.avatar.dubbo.service.IUserService;
-import com.wlgdo.avatar.service.AvatarServiceApplicationTests;
-import com.wlgdo.avatar.service.users.service.UserService;
+import com.wlgdo.avatar.service.actors.serivce.UserService;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,8 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.*;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]

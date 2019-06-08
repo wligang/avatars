@@ -3,7 +3,7 @@
 <mapper namespace="com.wlgdo.avatar.service.actors.mapper.TActorMapper">
 
 
-    <select id="findActorUser" resultType="com.wlgdo.avatar.service.users.entity.User">
+    <select id="findActorUser" resultType="com.wlgdo.avatar.service.actors.entity.User">
 		select * from user limit 1
 	</select>
 

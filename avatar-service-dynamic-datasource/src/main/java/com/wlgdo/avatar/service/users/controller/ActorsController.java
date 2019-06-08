@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
  * Date: 2019/6/4 2:16
  */
 @RestController
-public class UserController {
+public class ActorsController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -27,7 +27,7 @@ public class UserController {
     private ActorService actorService;
 
 
-    @GetMapping("user/{id}")
+    @GetMapping("actors/{id}")
     public Object getUserInfo(@PathVariable Serializable id) {
 
         logger.info("Being get user :{}", id);
@@ -38,8 +38,9 @@ public class UserController {
     public Object saveActor(@PathVariable String name) {
         TActor actor = new TActor();
         actor.setNickName("华盛顿");
-        actor.setCreateTime(LocalDateTime.now());
         actor.setMobile("15501033589");
+        actor.setName(name);
+        actor.setCreateTime(LocalDateTime.now());
         boolean ret = actorService.saveActor(actor);
         return HttpResp.instance().setData(ret);
     }
