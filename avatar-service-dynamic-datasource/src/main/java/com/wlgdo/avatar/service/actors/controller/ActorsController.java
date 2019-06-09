@@ -52,7 +52,6 @@ public class ActorsController {
 
     @GetMapping("actors/list")
     public Object getActor() {
-
         IPage<TActor> page = new Page<>(1, 10);
         ((Page<TActor>) page).setOptimizeCountSql(true);
         QueryWrapper<TActor> wrapQuery = new QueryWrapper<TActor>();
