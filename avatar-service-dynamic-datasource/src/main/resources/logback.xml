@@ -68,7 +68,6 @@
     <!-- 输出到控制台和文件，可定义更多的 Appender -->
     <root level="INFO">
         <appender-ref ref="Console"/>
-        <!--<appender-ref ref="AsyncRollingFile"/>-->
         <appender-ref ref="server"/>
         <appender-ref ref="error"/>
     </root>
@@ -79,6 +78,6 @@
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.apache" level="WARN"/>
     <!--如果需要打印SQL,可以把下面的级别设置为DEBUG -->
-    <logger name="com.wlgdo.avatar.service.mapper" level="DEBUG"/>
+    <logger name="com.wlgdo.avatar.service.*.mapper" level="DEBUG"/>
 
 </configuration>
