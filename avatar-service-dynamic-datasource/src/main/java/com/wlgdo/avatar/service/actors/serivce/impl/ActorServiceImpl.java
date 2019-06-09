@@ -46,7 +46,6 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
         return actor;
     }
 
-
     @DS("master")
     public boolean saveMaster(TActor entity) {
         logger.info("save slave:{}", entity);

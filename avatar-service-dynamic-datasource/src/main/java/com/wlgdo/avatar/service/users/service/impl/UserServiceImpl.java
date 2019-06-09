@@ -35,7 +35,6 @@ public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implement
         return user == null ? "My name is feify" : user.getName();
     }
 
-
     @DS("master")
     @Override
     public Result getUser() {
@@ -43,7 +42,6 @@ public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implement
         PageInfo list = getList(0, 10);
         logger.info("{}", list);
         Result<TActor> result = new Result<>();
-
         return result;
     }
 
@@ -53,7 +51,6 @@ public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implement
         logger.info("stat get user list");
         List lists = userMapper.getList();
         PageInfo pageInfo = new PageInfo(lists);
-
         return pageInfo;
     }
 
