@@ -1,6 +1,16 @@
 package com.wlgdo.avatar.service.users.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wlgdo.avatar.dubbo.rpc.Resp;
+import com.wlgdo.avatar.service.users.entity.TUsers;
+import com.wlgdo.avatar.service.users.service.ITUsersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +25,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users/t-users")
 public class TUsersController {
+    @Autowired
+    private ITUsersService itUsersService;
 
+
+    @GetMapping("/{pageIndex}/{pageSize}")
+    public Object getList(@PathVariable Integer pageIndex, @PathVariable Integer pageSize) {
+        IPage<TUsers> page = new Page<>(pageIndex, pageSize);
+        Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
+        ((QueryWrapper<TUsers>) queryWrapper).isNotNull("contact_number");
+        IPage<TUsers> pageData = itUsersService.page(page, queryWrapper);
+
+        return new Resp(pageData);
+    }
 }
 
