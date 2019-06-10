@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-06-10
  */
 @RestController
-@RequestMapping("/users/t-users")
+@RequestMapping("/users/")
 public class TUsersController {
     @Autowired
     private ITUsersService itUsersService;
@@ -33,7 +33,7 @@ public class TUsersController {
     public Object getList(@PathVariable Integer pageIndex, @PathVariable Integer pageSize) {
         IPage<TUsers> page = new Page<>(pageIndex, pageSize);
         Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
-        ((QueryWrapper<TUsers>) queryWrapper).isNotNull("contact_number");
+        ((QueryWrapper<TUsers>) queryWrapper).like("nick_name","刚");
         IPage<TUsers> pageData = itUsersService.page(page, queryWrapper);
 
         return new Resp(pageData);
