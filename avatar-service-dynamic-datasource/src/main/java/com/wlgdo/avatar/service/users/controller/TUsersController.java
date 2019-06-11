@@ -25,15 +25,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/users/")
 public class TUsersController {
+
     @Autowired
     private ITUsersService itUsersService;
-
 
     @GetMapping("/{pageIndex}/{pageSize}")
     public Object getList(@PathVariable Integer pageIndex, @PathVariable Integer pageSize) {
         IPage<TUsers> page = new Page<>(pageIndex, pageSize);
         Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
-        ((QueryWrapper<TUsers>) queryWrapper).like("nick_name","刚");
+        ((QueryWrapper<TUsers>) queryWrapper).like("nick_name", "刚");
         IPage<TUsers> pageData = itUsersService.page(page, queryWrapper);
 
         return new Resp(pageData);
