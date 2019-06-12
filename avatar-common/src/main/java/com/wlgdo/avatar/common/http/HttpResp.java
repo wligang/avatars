@@ -2,7 +2,7 @@ package com.wlgdo.avatar.common.http;
 
 
 public class HttpResp {
-    public  HttpResp() {
+    public HttpResp() {
         this.code = RespCode.SERVER_ERROR.code;
         this.msg = RespCode.SERVER_ERROR.msg;
     }
@@ -16,12 +16,6 @@ public class HttpResp {
         this.code = respCode.code;
         this.msg = respCode.msg;
         this.data = data;
-    }
-
-
-    public HttpResp(RespCode respCode) {
-        this.code = respCode.code;
-        this.msg = respCode.msg;
     }
 
 
