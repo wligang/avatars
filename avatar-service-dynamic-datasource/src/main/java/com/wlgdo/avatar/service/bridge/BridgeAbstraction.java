@@ -1,16 +1,10 @@
 package com.wlgdo.avatar.service.bridge;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/6/12 23:36
  */
 public abstract class BridgeAbstraction {
-
-
 
     private UserInterface userInterface;
 

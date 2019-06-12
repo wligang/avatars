@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.service.bridge.AuthorUser;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
+import com.wlgdo.avatar.service.bridge.HidoUser;
 import com.wlgdo.avatar.service.users.entity.TUsers;
 import com.wlgdo.avatar.service.users.service.ITUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,16 +37,16 @@ public class TUsersController {
 
         BridgeBuilder bridgeBuilder = new BridgeBuilder();
         bridgeBuilder.setUserInterface(new AuthorUser());
-        bridgeBuilder.save("作者")；
-
+        bridgeBuilder.save("作者:李");
+        bridgeBuilder.setUserInterface(new HidoUser());
+        bridgeBuilder.save("平台：李");
         IPage<TUsers> page = new Page<>(pageIndex, pageSize);
         Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
-        ((QueryWrapper<TUsers>) queryWrapper).like("nick_name", "刚");
+        //((QueryWrapper<TUsers>) queryWrapper).like("nick_name", "wlgdo");
         IPage<TUsers> pageData = itUsersService.page(page, queryWrapper);
 
         return new Resp(pageData);
     }
-
 
 }
 

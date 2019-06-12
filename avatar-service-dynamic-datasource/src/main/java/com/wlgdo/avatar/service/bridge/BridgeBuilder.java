@@ -11,5 +11,4 @@ public class BridgeBuilder extends BridgeAbstraction {
         return super.getUserInterface().save(o);
     }
 
-
 }
