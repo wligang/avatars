@@ -14,7 +14,7 @@ import time
 
 import redis
 import urllib
-#import urllib.request
+
 from bs4 import BeautifulSoup
 
 print('This is a csdn blog data python application')
