@@ -1,14 +1,10 @@
 package com.wlgdo.avatar.service.users.service.impl;
 
-import com.wlgdo.avatar.service.actors.entity.TActor;
-import com.wlgdo.avatar.service.actors.serivce.ActorService;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -24,8 +20,7 @@ public class TActorServiceImplTest {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private ActorService actorService;
+
 
     @Before
     public void setUp() throws Exception {
@@ -35,11 +30,7 @@ public class TActorServiceImplTest {
     public void tearDown() throws Exception {
     }
 
-    @Test
-    public void getActor() {
-        List<TActor> list = actorService.list();
-        logger.info("the test result:{}", list);
-    }
+
 
 
 
