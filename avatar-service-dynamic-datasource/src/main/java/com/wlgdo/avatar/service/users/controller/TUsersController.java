@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
+import com.wlgdo.avatar.service.bridge.AuthorUser;
+import com.wlgdo.avatar.service.bridge.BridgeBuilder;
 import com.wlgdo.avatar.service.users.entity.TUsers;
 import com.wlgdo.avatar.service.users.service.ITUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,11 @@ public class TUsersController {
 
     @GetMapping("/{pageIndex}/{pageSize}")
     public Object getList(@PathVariable Integer pageIndex, @PathVariable Integer pageSize) {
+
+        BridgeBuilder bridgeBuilder = new BridgeBuilder();
+        bridgeBuilder.setUserInterface(new AuthorUser());
+        bridgeBuilder.save("作者")；
+
         IPage<TUsers> page = new Page<>(pageIndex, pageSize);
         Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
         ((QueryWrapper<TUsers>) queryWrapper).like("nick_name", "刚");

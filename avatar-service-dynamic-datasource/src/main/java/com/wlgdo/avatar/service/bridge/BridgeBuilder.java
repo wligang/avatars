@@ -8,6 +8,8 @@ public class BridgeBuilder extends BridgeAbstraction {
 
     @Override
     public Object save(Object o) {
-        return super.save(o);
+        return super.getUserInterface().save(o);
     }
+
+
 }
