@@ -1,10 +1,7 @@
 package com.wlgdo.avatar.service.users.service.impl;
 
-import com.wlgdo.avatar.dubbo.common.PageInfo;
-import com.wlgdo.avatar.dubbo.response.Result;
-import com.wlgdo.avatar.service.users.service.UserService;
+
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,8 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UserServiceImplTest {
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private UserService userService;
+
 
     @Before
     public void printStart() {
@@ -39,15 +35,10 @@ public class UserServiceImplTest {
 
     @Test
     public void getUserName() {
-        Result userName = userService.getUser();
-        logger.info("The test result:{}", userName);
     }
 
     @Test
     public void getList() {
-        PageInfo page = userService.getList(0, 2);
-        Assert.assertFalse(page == null);
-        logger.info("{}", page);
     }
 
 

@@ -5,17 +5,18 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wlgdo.avatar.common.http.HttpResp;
 import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.service.bridge.AuthorUser;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
 import com.wlgdo.avatar.service.bridge.HidoUser;
 import com.wlgdo.avatar.service.users.entity.TUsers;
 import com.wlgdo.avatar.service.users.service.ITUsersService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,15 +27,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-06-10
  */
 @RestController
-@RequestMapping("/users/")
 public class TUsersController {
 
     @Autowired
     private ITUsersService itUsersService;
 
-    @GetMapping("/{pageIndex}/{pageSize}")
-    public Object getList(@PathVariable Integer pageIndex, @PathVariable Integer pageSize) {
-
+    @GetMapping("/users")
+    public Object getUserList(@RequestParam Integer pageIndex, @RequestParam Integer pageSize) {
         BridgeBuilder bridgeBuilder = new BridgeBuilder();
         bridgeBuilder.setUserInterface(new AuthorUser());
         bridgeBuilder.save("作者:李");
@@ -45,8 +44,24 @@ public class TUsersController {
         //((QueryWrapper<TUsers>) queryWrapper).like("nick_name", "wlgdo");
         IPage<TUsers> pageData = itUsersService.page(page, queryWrapper);
 
-        return new Resp(pageData);
+        return HttpResp.instance().setData(pageData);
     }
+
+    @GetMapping("/users/list")
+    public Object getList(@RequestParam String nickName, @RequestParam String mobile) {
+
+        QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
+        if (StringUtils.isNotBlank(nickName)) {
+            queryWrapper.like("nick_name", nickName);
+        }
+        if (StringUtils.isNotBlank(mobile)) {
+            queryWrapper.like("contact_number", mobile);
+        }
+        List<TUsers> userlist = itUsersService.list(queryWrapper);
+
+        return HttpResp.instance().setData(userlist);
+    }
+
 
 }
 
