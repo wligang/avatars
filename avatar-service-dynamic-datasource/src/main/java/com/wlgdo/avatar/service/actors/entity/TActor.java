@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -80,8 +81,10 @@ public class TActor {
     /**
      * 创建时间
      */
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalDateTime createTime;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalDateTime updateTime;
 
     @Override

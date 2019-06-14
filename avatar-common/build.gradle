@@ -4,4 +4,5 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.6'
     annotationProcessor 'org.projectlombok:lombok:1.18.6'
 
+    compile group: 'net.sf.dozer', name: 'dozer', version: '5.5.1'
 }

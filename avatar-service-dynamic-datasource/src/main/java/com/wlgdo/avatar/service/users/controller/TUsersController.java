@@ -6,17 +6,32 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
-import com.wlgdo.avatar.dubbo.rpc.Resp;
+
+import com.wlgdo.avatar.service.actors.entity.TActor;
 import com.wlgdo.avatar.service.bridge.AuthorUser;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
 import com.wlgdo.avatar.service.bridge.HidoUser;
 import com.wlgdo.avatar.service.users.entity.TUsers;
 import com.wlgdo.avatar.service.users.service.ITUsersService;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.dozer.DozerBeanMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 /**
  * <p>
@@ -28,6 +43,8 @@ import java.util.List;
  */
 @RestController
 public class TUsersController {
+
+   static Logger logger = LoggerFactory.getLogger(TUsersController.class);
 
     @Autowired
     private ITUsersService itUsersService;
@@ -59,8 +76,32 @@ public class TUsersController {
         }
         List<TUsers> userlist = itUsersService.list(queryWrapper);
 
+        List<TUsers> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
+
+
+
+        List<String> openIds = list.stream().map(tUsers -> tUsers.getOpenId()).collect(Collectors.toList());
+
+        DozerBeanMapper mapper=new DozerBeanMapper();
+
+
+
+        List<Class<TActor>> aList = list.stream().map(e -> TActor.class).collect(Collectors.toList());
+
+
+        Optional<TUsers> firstUser = list.stream().findFirst();
+        TActor actor=new TActor();
+        try {
+            BeanUtils.copyProperties(firstUser.get(),actor);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
         return HttpResp.instance().setData(userlist);
     }
+
+
 
 
 }

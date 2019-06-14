@@ -3,6 +3,7 @@ package com.wlgdo.avatar.service.users.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -125,6 +126,7 @@ private static final long serialVersionUID=1L;
     /**
      * 创建时间
      */
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalDateTime createDate;
 
     /**
@@ -135,6 +137,7 @@ private static final long serialVersionUID=1L;
     /**
      * 更新时间
      */
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalDateTime updateTime;
 
     /**
