@@ -48,7 +48,7 @@ public class TUsersController {
     }
 
     @GetMapping("/users/list")
-    public Object getList(@RequestParam String nickName, @RequestParam String mobile) {
+    public Object getList(@RequestParam(required = false) String nickName, @RequestParam(required = false) String mobile) {
 
         QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
         if (StringUtils.isNotBlank(nickName)) {
