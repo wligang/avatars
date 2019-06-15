@@ -23,14 +23,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.InvocationTargetException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 /**
@@ -77,6 +72,8 @@ public class TUsersController {
         List<TUsers> userlist = itUsersService.list(queryWrapper);
 
         List<TUsers> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
+
+        List list1 = BeanMapper.mapList(list, TActor.class);
 
         List<String> openIds = list.stream().map(tUsers -> tUsers.getOpenId()).collect(Collectors.toList());
 

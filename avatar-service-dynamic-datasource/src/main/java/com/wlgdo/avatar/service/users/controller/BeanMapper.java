@@ -1,6 +1,7 @@
-package com.wlgdo.avatar.common.utils;
+package com.wlgdo.avatar.service.users.controller;
 
-import org.apache.commons.beanutils.BeanUtils;
+
+import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -14,19 +15,11 @@ import java.util.List;
 public class BeanMapper<T> {
 
     public static Object map(Object source, Object target) {
-        try {
-            BeanUtils.copyProperties(source, target);
-            target=target;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
+        BeanUtils.copyProperties(source, target);
         return target;
     }
 
-    public static Object mapList(Collection source, Class<?> target) {
+    public static List<?> mapList(Collection source, Class<?> target) {
 
         List<Object> targetList = new ArrayList(source.size());
 
