@@ -44,7 +44,7 @@ import java.util.stream.Stream;
 @RestController
 public class TUsersController {
 
-   static Logger logger = LoggerFactory.getLogger(TUsersController.class);
+    static Logger logger = LoggerFactory.getLogger(TUsersController.class);
 
     @Autowired
     private ITUsersService itUsersService;
@@ -78,21 +78,16 @@ public class TUsersController {
 
         List<TUsers> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
 
-
-
         List<String> openIds = list.stream().map(tUsers -> tUsers.getOpenId()).collect(Collectors.toList());
 
-        DozerBeanMapper mapper=new DozerBeanMapper();
-
-
+        DozerBeanMapper mapper = new DozerBeanMapper();
 
         List<Class<TActor>> aList = list.stream().map(e -> TActor.class).collect(Collectors.toList());
 
-
         Optional<TUsers> firstUser = list.stream().findFirst();
-        TActor actor=new TActor();
+        TActor actor = new TActor();
         try {
-            BeanUtils.copyProperties(firstUser.get(),actor);
+            BeanUtils.copyProperties(firstUser.get(), actor);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -100,8 +95,6 @@ public class TUsersController {
         }
         return HttpResp.instance().setData(userlist);
     }
-
-
 
 
 }
