@@ -8,7 +8,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.support.TransactionSynchronizationAdapter;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 public class LockService {
 
     @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisTemplate redisTemplate;
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -38,9 +38,10 @@ public class LockService {
 
         // 获得锁对象实例
         String lockKey = lock.lockKeyPrefix().getInfo() + lockKeySuffix;
-        RedisLock redisLock = new RedisLock(stringRedisTemplate, lockKey, String.valueOf(lock.expireTime()), lock.timeOut() * 1000 * 100);
+//        RedisLock redisLock = new RedisLock(stringRedisTemplate, lockKey, String.valueOf(lock.expireTime()), lock.timeOut() * 1000 * 100);
+        RedisLock redisLock=new RedisLock(redisTemplate,lockKey,lock.timeOut(),lock.expireTime());
         try {
-            if (redisLock.tryLock()) {
+            if (redisLock.lock()) {
                 return point.proceed(point.getArgs());
             } else {
                 logger.error("{}:获取redis锁失败,锁的key是 = {}", lock.description(), lockKey);
