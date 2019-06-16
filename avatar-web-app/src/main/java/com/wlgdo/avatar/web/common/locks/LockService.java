@@ -25,7 +25,7 @@ public class LockService {
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Pointcut("@annotation(com.choice.cloud.smp.basic.lock.Lock)")
+    @Pointcut("@annotation(com.wlgdo.avatar.web.common.locks.Lock)")
     public void lockPointcut() {
 
     }
