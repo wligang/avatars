@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/6/12 23:30
  */
-public class HidoUser implements UserInterface {
+public class HidoUserService implements UserInterface {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 

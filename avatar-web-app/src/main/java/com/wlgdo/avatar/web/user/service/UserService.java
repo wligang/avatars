@@ -27,7 +27,6 @@ public class UserService {
 
     public List getUserOrderList() {
 
-
         redisTemplate.opsForHash().get("user", "hashKey");
 
         redisTemplate.opsForHash().put("user", "name", new CsdnUser("hash"));
