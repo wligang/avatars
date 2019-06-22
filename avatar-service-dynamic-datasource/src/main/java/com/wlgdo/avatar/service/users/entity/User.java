@@ -29,4 +29,10 @@ public class User implements Serializable {
                 ", updateTime=" + updateTime +
                 '}';
     }
+
+
+    public boolean equals(Object object) {
+
+        return false;
+    }
 }
