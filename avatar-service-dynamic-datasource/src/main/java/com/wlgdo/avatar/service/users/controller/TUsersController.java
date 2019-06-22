@@ -8,9 +8,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
 
 import com.wlgdo.avatar.service.actors.entity.TActor;
-import com.wlgdo.avatar.service.bridge.AuthorUser;
+import com.wlgdo.avatar.service.bridge.AuthorUserService;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
-import com.wlgdo.avatar.service.bridge.HidoUser;
+import com.wlgdo.avatar.service.bridge.HidoUserService;
 import com.wlgdo.avatar.service.users.entity.TUsers;
 import com.wlgdo.avatar.service.users.service.ITUsersService;
 import org.apache.commons.beanutils.BeanUtils;
@@ -47,9 +47,9 @@ public class TUsersController {
     @GetMapping("/users")
     public Object getUserList(@RequestParam Integer pageIndex, @RequestParam Integer pageSize) {
         BridgeBuilder bridgeBuilder = new BridgeBuilder();
-        bridgeBuilder.setUserInterface(new AuthorUser());
+        bridgeBuilder.setUserInterface(new AuthorUserService());
         bridgeBuilder.save("作者:李");
-        bridgeBuilder.setUserInterface(new HidoUser());
+        bridgeBuilder.setUserInterface(new HidoUserService());
         bridgeBuilder.save("平台：李");
         IPage<TUsers> page = new Page<>(pageIndex, pageSize);
         Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
