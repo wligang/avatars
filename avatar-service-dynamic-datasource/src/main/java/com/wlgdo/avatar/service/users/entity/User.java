@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.jws.soap.SOAPBinding;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 @Data
 public class User implements Serializable {
@@ -40,5 +41,8 @@ public class User implements Serializable {
         return (user.getName().equals(this.name) && user.getAccountNo().equals(this.accountNo));
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName(), this.getAccountNo());
+    }
 }
