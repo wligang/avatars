@@ -31,6 +31,7 @@ public class User implements Serializable {
                 '}';
     }
 
+    @Override
     public boolean equals(Object object) {
         if (!(object instanceof User)) {
             return false;
@@ -38,4 +39,6 @@ public class User implements Serializable {
         User user = (User) object;
         return (user.getName().equals(this.name) && user.getAccountNo().equals(this.accountNo));
     }
+
+
 }
