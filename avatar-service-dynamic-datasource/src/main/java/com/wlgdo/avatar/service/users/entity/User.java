@@ -31,7 +31,6 @@ public class User implements Serializable {
                 '}';
     }
 
-
     public boolean equals(Object object) {
         if (!(object instanceof User)) {
             return false;
