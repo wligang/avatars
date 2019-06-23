@@ -2,6 +2,7 @@ package com.wlgdo.avatar.service.users.entity;
 
 import lombok.Data;
 
+import javax.jws.soap.SOAPBinding;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -32,7 +33,10 @@ public class User implements Serializable {
 
 
     public boolean equals(Object object) {
-
-        return false;
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User user = (User) object;
+        return (user.getName().equals(this.name) && user.getAccountNo().equals(this.accountNo));
     }
 }
