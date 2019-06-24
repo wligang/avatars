@@ -1,5 +1,6 @@
 package com.wlgdo.avatar.service.users.entity;
 
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -9,11 +10,10 @@ import java.util.TreeSet;
  */
 public class UserTest {
     public static void main(String args[]) {
-        User user = new User(1L);
 
         Set userSet = new TreeSet();
-        for (long i = 0; i < 100; i++) {
-            userSet.add(new User(i));
+        for (long i = 0; i < 10; i++) {
+            userSet.add(new User(i+"", i%3));
         }
 
         System.out.println(userSet);

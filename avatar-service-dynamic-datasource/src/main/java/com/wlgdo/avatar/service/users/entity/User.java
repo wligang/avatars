@@ -26,18 +26,22 @@ public class User implements Serializable, Comparable<User> {
 
     }
 
-    public User(Long rank) {
+    public User(String name,Long rank) {
+        this.name=name;
         this.rank = rank;
     }
+
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", rank=" + rank +
                 ", password='" + password + '\'' +
                 ", accountNo='" + accountNo + '\'' +
                 ", updateTime=" + updateTime +
+
                 '}';
     }
 
@@ -59,6 +63,6 @@ public class User implements Serializable, Comparable<User> {
 
     @Override
     public int compareTo(User o) {
-        return this.rank - o.getRank() > -1 ? -1 : 1;
+        return this.rank - o.getRank() > -1 ? 1 : -1;
     }
 }
