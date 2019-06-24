@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Data
-public class User implements Serializable {
+public class User implements Serializable, Comparable<User> {
 
     private Integer id;
 
@@ -20,6 +20,15 @@ public class User implements Serializable {
 
     private Date updateTime;
 
+    private Long rank;
+
+    private User() {
+
+    }
+
+    public User(Long rank) {
+        this.rank = rank;
+    }
 
     @Override
     public String toString() {
@@ -31,6 +40,7 @@ public class User implements Serializable {
                 ", updateTime=" + updateTime +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object object) {
@@ -44,5 +54,11 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(this.getName(), this.getAccountNo());
+    }
+
+
+    @Override
+    public int compareTo(User o) {
+        return this.rank - o.getRank() > -1 ? -1 : 1;
     }
 }
