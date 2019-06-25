@@ -99,6 +99,7 @@ public class TUsersController {
 
     @RequestMapping(value = "/excel", method = RequestMethod.GET)
     public void excel(HttpServletResponse response) throws Exception {
+        Long startTime = System.currentTimeMillis();
         QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
         List<TUsers> userlist = itUsersService.list(queryWrapper);
         ExcelData data = new ExcelData();
@@ -109,9 +110,9 @@ public class TUsersController {
         titles.add("C");
         data.setTitles(titles);
         List<List<Object>> rows = new ArrayList();
-
+        List<Object> row = null;
         for (TUsers u : userlist) {
-            List<Object> row = new ArrayList();
+            row = new ArrayList<>();
             row.add(u.getNickName());
             row.add(u.getOpenId());
             row.add(u.getPhone());
@@ -119,6 +120,7 @@ public class TUsersController {
         }
         data.setRows(rows);
         ExportExcelUtils.exportExcel(response, "hello.xlsx", data);
+        logger.info("Used time {}sm", (System.currentTimeMillis() - startTime) / 1000);
     }
 }
 
