@@ -100,30 +100,24 @@ public class TUsersController {
     @RequestMapping(value = "/excel", method = RequestMethod.GET)
     public void excel(HttpServletResponse response) throws Exception {
         QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
-
         List<TUsers> userlist = itUsersService.list(queryWrapper);
-
-
         ExcelData data = new ExcelData();
         data.setName("hello");
         List<String> titles = new ArrayList();
-        titles.add("昵称");
-        titles.add("微信OPENID");
-        titles.add("手机号码");
+        titles.add("A");
+        titles.add("B");
+        titles.add("C");
         data.setTitles(titles);
-
         List<List<Object>> rows = new ArrayList();
-        List<Object> row = new ArrayList();
+
         for (TUsers u : userlist) {
+            List<Object> row = new ArrayList();
             row.add(u.getNickName());
             row.add(u.getOpenId());
             row.add(u.getPhone());
             rows.add(row);
         }
-
-
         data.setRows(rows);
-
         ExportExcelUtils.exportExcel(response, "hello.xlsx", data);
     }
 }
