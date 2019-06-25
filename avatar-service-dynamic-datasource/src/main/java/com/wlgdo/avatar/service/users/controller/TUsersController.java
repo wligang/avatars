@@ -12,6 +12,8 @@ import com.wlgdo.avatar.service.bridge.AuthorUserService;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
 import com.wlgdo.avatar.service.bridge.HidoUserService;
 import com.wlgdo.avatar.service.users.entity.TUsers;
+import com.wlgdo.avatar.service.users.export.ExcelData;
+import com.wlgdo.avatar.service.users.export.ExportExcelUtils;
 import com.wlgdo.avatar.service.users.service.ITUsersService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +24,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -93,6 +97,34 @@ public class TUsersController {
         return HttpResp.instance().setData(userlist);
     }
 
+    @RequestMapping(value = "/excel", method = RequestMethod.GET)
+    public void excel(HttpServletResponse response) throws Exception {
+        QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
 
+        List<TUsers> userlist = itUsersService.list(queryWrapper);
+
+
+        ExcelData data = new ExcelData();
+        data.setName("hello");
+        List<String> titles = new ArrayList();
+        titles.add("昵称");
+        titles.add("微信OPENID");
+        titles.add("手机号码");
+        data.setTitles(titles);
+
+        List<List<Object>> rows = new ArrayList();
+        List<Object> row = new ArrayList();
+        for (TUsers u : userlist) {
+            row.add(u.getNickName());
+            row.add(u.getOpenId());
+            row.add(u.getPhone());
+            rows.add(row);
+        }
+
+
+        data.setRows(rows);
+
+        ExportExcelUtils.exportExcel(response, "hello.xlsx", data);
+    }
 }
 
