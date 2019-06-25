@@ -16,8 +16,9 @@ dependencies {
     //compile 'p6spy:p6spy:3.8.0'
 
     compile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
-    compile group: 'org.apache.poi', name: 'poi', version:'3.16'
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version:'3.16'
+    compile group: 'org.apache.poi', name: 'poi', version: '4.1.0'
+
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
 
