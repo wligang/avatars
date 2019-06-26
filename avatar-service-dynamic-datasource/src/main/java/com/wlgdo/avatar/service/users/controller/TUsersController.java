@@ -126,7 +126,7 @@ public class TUsersController {
     }
 
     @RequestMapping(value = "/import", method = RequestMethod.GET)
-    public void importExcel(MultipartFile file) {
+    public void importExcel(@RequestParam("file") MultipartFile file) {
 
         try {
 
