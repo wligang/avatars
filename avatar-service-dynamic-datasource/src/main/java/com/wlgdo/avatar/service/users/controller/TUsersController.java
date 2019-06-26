@@ -23,8 +23,10 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,5 +124,20 @@ public class TUsersController {
         ExportExcelUtils.exportExcel(response, "hello.xlsx", data);
         logger.info("Used time {}sm", (System.currentTimeMillis() - startTime) / 1000);
     }
+
+    @RequestMapping(value = "/import", method = RequestMethod.GET)
+    public void importExcel(MultipartFile file) {
+
+        try {
+
+            ExportExcelUtils.importDataFromExcel(TUsers.class, file.getInputStream(), file.getOriginalFilename());
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
+
+    }
+
 }
 
