@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.service.quartz.service;
 
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 
@@ -9,6 +10,6 @@ import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
  * E-mail:hxyHelloWorld@163.com
  * github:https://github.com/haoxiaoyong1014
  */
-public interface IJobAndTriggerService {
+public interface IJobAndTriggerService extends IService<JobAndTrigger> {
     PageInfo<JobAndTrigger> getJobAndTriggerDetails(Integer pageNum, Integer pageSize);
 }
