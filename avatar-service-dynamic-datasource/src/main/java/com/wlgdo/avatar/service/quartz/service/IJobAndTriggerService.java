@@ -2,7 +2,7 @@ package com.wlgdo.avatar.service.quartz.service;
 
 
 import com.wlgdo.avatar.dubbo.common.PageInfo;
-import com.wlgdo.avatar.service.quartz.model.JobAndTrigger;
+import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 
 /**
  * Created by haoxy on 2018/9/28.

@@ -1,7 +1,7 @@
-package com.wlgdo.avatar.service.quartz.dao;
+package com.wlgdo.avatar.service.quartz.mapper;
 
 
-import com.wlgdo.avatar.service.quartz.model.JobAndTrigger;
+import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

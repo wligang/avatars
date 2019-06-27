@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.quartz.model;
+package com.wlgdo.avatar.service.quartz.entity;
 
 import java.math.BigInteger;
 

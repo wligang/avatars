@@ -2,8 +2,8 @@ package com.wlgdo.avatar.service.quartz.controller;
 
 
 import com.wlgdo.avatar.dubbo.common.PageInfo;
-import com.wlgdo.avatar.service.quartz.model.JobAndTrigger;
-import com.wlgdo.avatar.service.quartz.model.JobInfo;
+import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
+import com.wlgdo.avatar.service.quartz.entity.JobInfo;
 import com.wlgdo.avatar.service.quartz.service.BaseJob;
 import com.wlgdo.avatar.service.quartz.service.IJobAndTriggerService;
 import com.wlgdo.avatar.service.quartz.tool.DateUnit;

@@ -3,6 +3,9 @@ spring:
     multipart:
       maxFileSize: -1
       maxRequestSize: -1
+  aop:
+    proxy-target-class: true
+    auto: true
   datasource:
     dynamic:
       primary: master
@@ -43,5 +46,6 @@ mybatis-plus:
   global-config:
     banner: false
 
-  
+quartz:
+  enabled: true
 

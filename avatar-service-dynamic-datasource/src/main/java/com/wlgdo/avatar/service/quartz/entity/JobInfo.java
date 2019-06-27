@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.quartz.model;
+package com.wlgdo.avatar.service.quartz.entity;
 
 /**
  * Created by haoxy on 2018/10/8.
@@ -19,7 +19,7 @@ public class JobInfo {
 
 
     public String getJobClassName() {
-        return "com.example.quartz.jobs."+jobClassName.trim();
+        return "com.wlgdo.avatar.service.quartz.jobs."+jobClassName.trim();
     }
 
     public void setJobClassName(String jobClassName) {
