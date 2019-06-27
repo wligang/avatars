@@ -49,7 +49,7 @@ public class JobController {
      */
     @PostMapping(value = "/addjob")
     public void addjob(@RequestBody JobInfo jobInfo) throws Exception {
-        if ("".equals(jobInfo.getJobClassName()) || "".equals(jobInfo.getJobGroupName()) || "".equals(jobInfo.getCronExpression())) {
+        if ("".equals(jobInfo.getJobClassName())  || "".equals(jobInfo.getCronExpression())) {
             return;
         }
         if (jobInfo.getTimeType() == null) {
