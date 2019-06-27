@@ -2,7 +2,6 @@ package com.wlgdo.avatar.service.quartz.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wlgdo.avatar.dubbo.common.PageInfo;
 
 import com.wlgdo.avatar.service.quartz.mapper.JobAndTriggerMapper;
 import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
@@ -18,16 +17,15 @@ import java.util.List;
  * github:https://github.com/haoxiaoyong1014
  */
 @Service
-public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper,JobAndTrigger> implements IJobAndTriggerService {
+public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, JobAndTrigger>implements IJobAndTriggerService {
 
     @Autowired
     private JobAndTriggerMapper jobAndTriggerMapper;
 
-    @Override
-    public PageInfo<JobAndTrigger> getJobAndTriggerDetails(Integer pageNum, Integer pageSize) {
 
-        List<JobAndTrigger> list = jobAndTriggerMapper.getJobAndTriggerDetails();
-        PageInfo<JobAndTrigger> page = new PageInfo<>(list);
-        return page;
+    @Override
+    public List<JobAndTrigger> getJobAndTriggerDetails(Integer pageNum, Integer pageSize) {
+
+        return jobAndTriggerMapper.getJobAndTriggerDetails();
     }
 }

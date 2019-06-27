@@ -1,7 +1,11 @@
 package com.wlgdo.avatar.service.quartz.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
+import com.wlgdo.avatar.service.actors.entity.TActor;
 import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 import com.wlgdo.avatar.service.quartz.entity.JobInfo;
 import com.wlgdo.avatar.service.quartz.service.BaseJob;
@@ -15,6 +19,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.quartz.DateBuilder.futureDate;
@@ -207,10 +212,13 @@ public class JobController {
      */
     @GetMapping(value = "/queryjob")
     public Map<String, Object> queryjob(@RequestParam(value = "pageNum") Integer pageNum, @RequestParam(value = "pageSize") Integer pageSize) {
-        PageInfo<JobAndTrigger> jobAndTrigger = iJobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
+        IPage<JobAndTrigger> page = new Page<>(pageNum, pageSize);
+        ((Page<JobAndTrigger>) page).setOptimizeCountSql(true);
+        QueryWrapper<JobAndTrigger> wrapQuery = new QueryWrapper<JobAndTrigger>();
+        List<JobAndTrigger> list = iJobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("JobAndTrigger", jobAndTrigger);
-        map.put("number", jobAndTrigger.getTotal());
+        map.put("JobAndTrigger", list);
+        map.put("number", list.size());
         return map;
     }
 
