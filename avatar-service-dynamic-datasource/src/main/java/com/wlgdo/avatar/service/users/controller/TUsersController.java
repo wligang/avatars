@@ -127,10 +127,8 @@ public class TUsersController {
 
     @RequestMapping(value = "/import", method = RequestMethod.GET)
     public void importExcel(@RequestParam("file") MultipartFile file) {
-
         try {
-
-            ExportExcelUtils.importDataFromExcel(TUsers.class, file.getInputStream(), file.getOriginalFilename());
+            ExportExcelUtils.importDataFromExcel(new TUsers(), file.getInputStream(), file.getOriginalFilename());
         } catch (IOException e) {
             e.printStackTrace();
 

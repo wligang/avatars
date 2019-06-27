@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      maxFileSize: -1
+      maxRequestSize: -1
   datasource:
     dynamic:
       primary: master
@@ -38,5 +42,6 @@ mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
   global-config:
     banner: false
+
   
 

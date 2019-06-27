@@ -21,8 +21,6 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 public class TUsers implements Serializable {
 
-private static final long serialVersionUID=1L;
-
     /**
      * 外部第三方ID
      */
