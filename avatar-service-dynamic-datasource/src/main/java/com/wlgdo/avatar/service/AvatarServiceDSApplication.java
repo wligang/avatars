@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.service;
 
 
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
@@ -20,5 +21,7 @@ public class AvatarServiceDSApplication {
     public static void main(String[] args) {
         SpringApplication.run(AvatarServiceDSApplication.class, args);
     }
+
+
 
 }

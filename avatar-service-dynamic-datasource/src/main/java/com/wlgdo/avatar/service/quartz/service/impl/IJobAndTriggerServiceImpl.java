@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.service.quartz.service.impl;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import com.wlgdo.avatar.service.quartz.mapper.JobAndTriggerMapper;
@@ -24,8 +25,9 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
 
     @Override
-    public List<JobAndTrigger> getJobAndTriggerDetails(Integer pageNum, Integer pageSize) {
+    public IPage<JobAndTrigger>  getJobAndTriggerDetails(Integer pageNum, Integer pageSize) {
 
-        return jobAndTriggerMapper.getJobAndTriggerDetails();
+        IPage<JobAndTrigger> page = jobAndTriggerMapper.getJobAndTriggerDetails();
+        return page;
     }
 }
