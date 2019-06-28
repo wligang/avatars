@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DateUnit {
 
-    public DateBuilder.IntervalUnit verification(Integer timeType) {
+    public static DateBuilder.IntervalUnit verification(Integer timeType) {
         switch (timeType) {
             case 1:
                 DateBuilder.IntervalUnit year = DateBuilder.IntervalUnit.YEAR;
