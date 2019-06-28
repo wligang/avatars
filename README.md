@@ -52,6 +52,5 @@ Gradle(Multiple modules)、mybatisPlus、微信小程序等等。
 
 如果觉得项目不错，可以点个Star哦😉😉😉
 
-想把python项目剔除
 
 
