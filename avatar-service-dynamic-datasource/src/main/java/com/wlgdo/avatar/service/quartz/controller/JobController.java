@@ -17,16 +17,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.quartz.DateBuilder.futureDate;
 
-/**
- * Created by haoxy on 2018/9/28.
- * E-mail:hxyHelloWorld@163.com
- * github:https://github.com/haoxiaoyong1014
- */
+
 @RestController
 @RequestMapping(value = "job")
 public class JobController {

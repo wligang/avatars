@@ -3,11 +3,7 @@ package com.wlgdo.avatar.service.quartz.tool;
 import org.quartz.DateBuilder;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by haoxy on 2018/10/8.
- * E-mail:hxyHelloWorld@163.com
- * github:https://github.com/haoxiaoyong1014
- */
+
 @Component
 public class DateUnit {
 
