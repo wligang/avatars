@@ -37,7 +37,9 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
             scheduler.start();
 
             //构建job信息
-            JobDetail jobDetail = JobBuilder.newJob((Class<? extends Job>) jobInfo.getClass())
+            BaseJob job = (BaseJob) Class.forName(jobInfo.getJobClassName()).newInstance();
+
+            JobDetail jobDetail = JobBuilder.newJob(job.getClass())
                     .withIdentity(jobInfo.getJobClassName(), jobInfo.getJobGroupName())
                     .build();
 
@@ -52,6 +54,12 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
         } catch (SchedulerException e) {
             log.error("创建定时任务失败:{}", e);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return jobInfo;
     }
@@ -62,12 +70,8 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
     public JobInfo addCronJob(JobInfo jobInfo) {
         try {
             // 启动调度器
-            scheduler.start();
-
             //构建job信息
             BaseJob job = (BaseJob) Class.forName(jobInfo.getJobClassName()).newInstance();
-
-
             JobDetail jobDetail = JobBuilder.newJob(job.getClass()).
                     withIdentity(jobInfo.getJobClassName(), jobInfo.getJobGroupName())
                     .build();
@@ -79,8 +83,6 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
                     withIdentity(jobInfo.getJobClassName(), jobInfo.getJobGroupName())
                     .withSchedule(scheduleBuilder)
                     .build();
-
-
             scheduler.scheduleJob(jobDetail, trigger);
         } catch (ClassNotFoundException e1) {
             e1.printStackTrace();

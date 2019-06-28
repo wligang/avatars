@@ -49,9 +49,11 @@ public class JobController {
             return null;
         }
         if (jobInfo.getTimeType() == null) {
-            return iJobAndTriggerService.addCronJob(jobInfo);
+            jobInfo = iJobAndTriggerService.addCronJob(jobInfo);
         }
-        return iJobAndTriggerService.addSimpleJob(jobInfo);
+        jobInfo = iJobAndTriggerService.addSimpleJob(jobInfo);
+
+        return jobInfo;
     }
 
 
@@ -102,9 +104,6 @@ public class JobController {
         iJobAndTriggerService.jobRefreshSchedule(jobClassName, jobGroupName, cronExpression);
     }
 
-    public void jobRefreshSchedule(String jobClassName, String jobGroupName, String cronExpression) throws Exception {
-
-    }
 
     /**
      * 删除任务
