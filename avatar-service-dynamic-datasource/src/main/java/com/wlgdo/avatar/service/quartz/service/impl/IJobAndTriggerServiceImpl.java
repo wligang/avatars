@@ -158,49 +158,50 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
     @Override
     public IPage<JobAndTrigger> pageJobAndTriggerDetails(IPage<JobAndTrigger> pageWrap, QueryWrapper<JobAndTrigger> wrapQuery) {
 
-            IPage<QrtzTriggers> pageT = new Page<>(pageWrap.getCurrent(), pageWrap.getSize());
-            IPage<QrtzTriggers> pageData = iQrtzTriggersService.page(pageT);
-            logger.info("{}", pageData);
+        IPage<QrtzTriggers> pageT = new Page<>(pageWrap.getCurrent(), pageWrap.getSize());
+        IPage<QrtzTriggers> pageData = iQrtzTriggersService.page(pageT);
+        logger.info("{}", pageData);
 
-            IPage<JobAndTrigger> page = jobAndTriggerMapper.pageJobAndTriggerDetails((Page<JobAndTrigger>) pageWrap);
+        IPage<JobAndTrigger> page = jobAndTriggerMapper.pageJobAndTriggerDetails((Page<JobAndTrigger>) pageWrap);
 
-            return page;
-        }
-
-        @Transactional
-        public void saveQuartzSechedulInfo (@NotNull JobInfo jobInfo){
-            String schedulName = jobInfo.getJobClassName();
-            String schedulGroup = jobInfo.getJobGroupName();
-            QrtzJobDetails jobDetailEntity = new QrtzJobDetails();
-            jobDetailEntity.setJobGroup(schedulGroup);
-            jobDetailEntity.setJobClassName(jobInfo.getJobClassName());
-            jobDetailEntity.setJobName(jobInfo.getJobClassName());
-            jobDetailEntity.setSchedName(schedulName);
-            jobDetailEntity.setIsDurable("1");
-            jobDetailEntity.setIsUpdateData("1");
-            jobDetailEntity.setIsNonconcurrent("1");
-            jobDetailEntity.setRequestsRecovery("");
-            jobDetailEntity.setJobData("");
-            iQrtzJobDetailsService.save(jobDetailEntity);
-
-            String triggerName = "";
-            QrtzTriggers triggersEntiy = new QrtzTriggers();
-            triggersEntiy.setJobGroup(schedulGroup);
-            triggersEntiy.setJobName(jobInfo.getJobClassName());
-            triggersEntiy.setSchedName(schedulName);
-            triggersEntiy.setTriggerState("0");
-            triggersEntiy.setTriggerType("Cron");
-            triggersEntiy.setTriggerName(triggerName);
-            triggersEntiy.setTriggerGroup(schedulGroup);
-            triggersEntiy.setStartTime(1000L);
-            iQrtzTriggersService.save(triggersEntiy);
-
-            QrtzCronTriggers cronEntity = new QrtzCronTriggers();
-            cronEntity.setCronExpression(jobInfo.getCronExpression());
-            cronEntity.setTriggerGroup(schedulGroup);
-            cronEntity.setSchedName(schedulName);
-            cronEntity.setTriggerName(triggerName);
-            iQrtzCronTriggersService.save(cronEntity);
-
-        }
+        return page;
     }
+
+    @Transactional
+    public void saveQuartzSechedulInfo(@NotNull JobInfo jobInfo) {
+        String schedulName = jobInfo.getJobClassName();
+        String schedulGroup = jobInfo.getJobGroupName();
+        String triggerName = "触发器名称";
+        QrtzJobDetails jobDetailEntity = new QrtzJobDetails();
+        jobDetailEntity.setJobGroup(schedulGroup);
+        jobDetailEntity.setJobClassName(jobInfo.getJobClassName());
+        jobDetailEntity.setJobName(jobInfo.getJobClassName());
+        jobDetailEntity.setSchedName(schedulName);
+        jobDetailEntity.setIsDurable("1");
+        jobDetailEntity.setIsUpdateData("1");
+        jobDetailEntity.setIsNonconcurrent("1");
+        jobDetailEntity.setRequestsRecovery("");
+        jobDetailEntity.setJobData("");
+        iQrtzJobDetailsService.save(jobDetailEntity);
+
+
+        QrtzTriggers triggersEntiy = new QrtzTriggers();
+        triggersEntiy.setJobGroup(schedulGroup);
+        triggersEntiy.setJobName(jobInfo.getJobClassName());
+        triggersEntiy.setSchedName(schedulName);
+        triggersEntiy.setTriggerState("0");
+        triggersEntiy.setTriggerType("Cron");
+        triggersEntiy.setTriggerName(triggerName);
+        triggersEntiy.setTriggerGroup(schedulGroup);
+        triggersEntiy.setStartTime(1000L);
+        iQrtzTriggersService.save(triggersEntiy);
+
+        QrtzCronTriggers cronEntity = new QrtzCronTriggers();
+        cronEntity.setCronExpression(jobInfo.getCronExpression());
+        cronEntity.setTriggerGroup(schedulGroup);
+        cronEntity.setSchedName(schedulName);
+        cronEntity.setTriggerName(triggerName);
+        iQrtzCronTriggersService.save(cronEntity);
+
+    }
+}
