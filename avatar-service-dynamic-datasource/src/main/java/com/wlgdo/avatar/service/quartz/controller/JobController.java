@@ -87,7 +87,9 @@ public class JobController {
     }
 
     public void jobresume(String jobClassName, String jobGroupName) throws Exception {
+
         scheduler.resumeJob(JobKey.jobKey(jobClassName, jobGroupName));
+        scheduler.start();
     }
 
     /**
@@ -137,7 +139,7 @@ public class JobController {
         IPage<JobAndTrigger> page = new Page<>(pageNum, pageSize);
         ((Page<JobAndTrigger>) page).setOptimizeCountSql(true);
         QueryWrapper<JobAndTrigger> wrapQuery = new QueryWrapper<JobAndTrigger>();
-        page = iJobAndTriggerService.getJobAndTriggerDetails(pageNum, pageSize);
+        page = iJobAndTriggerService.pageJobAndTriggerDetails(page, wrapQuery);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("JobAndTrigger", page);
         map.put("number", page.getTotal());

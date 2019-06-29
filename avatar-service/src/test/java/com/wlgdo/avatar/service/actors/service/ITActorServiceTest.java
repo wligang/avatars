@@ -1,7 +1,6 @@
 package com.wlgdo.avatar.service.actors.service;
 
-import com.wlgdo.avatar.service.actors.entity.TActor;
-import com.wlgdo.avatar.service.users.entity.User;
+
 import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Assert;
@@ -27,31 +26,31 @@ public class ITActorServiceTest {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private ITActorService actorServiceImpl;
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
-
-    @Test
-    public void testGetById() {
-        TActor user = actorServiceImpl.getById("00");
-        logger.info("the getById test result:{}", user);
-        Assert.assertTrue(user != null);
-
-        logger.info("this test pass");
-    }
-
-
-    @Test
-    public void getFindUser() {
-        User user = actorServiceImpl.findActorUser();
-        logger.info("The test result:{}", user);
-    }
+//    @Autowired
+//    private ITActorService actorServiceImpl;
+//
+//    @Before
+//    public void setUp() throws Exception {
+//    }
+//
+//    @After
+//    public void tearDown() throws Exception {
+//    }
+//
+//
+//    @Test
+//    public void testGetById() {
+//        TActor user = actorServiceImpl.getById("00");
+//        logger.info("the getById test result:{}", user);
+//        Assert.assertTrue(user != null);
+//
+//        logger.info("this test pass");
+//    }
+//
+//
+//    @Test
+//    public void getFindUser() {
+//        User user = actorServiceImpl.findActorUser();
+//        logger.info("The test result:{}", user);
+//    }
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wlgdo.avatar.service.quartz.mapper.JobAndTriggerMapper">
 
-    <select id="getJobAndTriggerDetails" resultType="com.wlgdo.avatar.service.quartz.entity.JobAndTrigger">
+    <select id="pageJobAndTriggerDetails" resultType="com.wlgdo.avatar.service.quartz.entity.JobAndTrigger">
         SELECT DISTINCT
         QRTZ_JOB_DETAILS.JOB_NAME,
         QRTZ_JOB_DETAILS.JOB_GROUP,

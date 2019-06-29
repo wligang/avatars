@@ -37,44 +37,44 @@
                 border
         >
             <el-table-column
-                    prop="job_NAME"
+                    prop="jobName"
                     label="任务名称"
                     sortable
                     show-overflow-tooltip>
             </el-table-column>
 
             <el-table-column
-                    prop="job_GROUP"
+                    prop="jobGroup"
                     label="任务所在组"
                     sortable>
             </el-table-column>
 
             <el-table-column
-                    prop="job_CLASS_NAME"
+                    prop="jobClassName"
                     label="任务类名"
                     sortable>
             </el-table-column>
 
             <el-table-column
-                    prop="trigger_NAME"
+                    prop="triggerName"
                     label="触发器名称"
                     sortable>
             </el-table-column>
 
             <el-table-column
-                    prop="trigger_GROUP"
+                    prop="triggerGroup"
                     label="触发器所在组"
                     sortable>
             </el-table-column>
 
             <el-table-column
-                    prop="cron_EXPRESSION"
+                    prop="cronExpression"
                     label="表达式"
                     sortable>
             </el-table-column>
 
             <el-table-column
-                    prop="time_ZONE_ID"
+                    prop="timeZoneId"
                     label="时区"
                     sortable>
             </el-table-column>
@@ -266,8 +266,8 @@
             loadData: function(pageNum, pageSize){
                 this.$http.get('job/queryjob?' + 'pageNum=' +  pageNum + '&pageSize=' + pageSize).then(function(res){
                     console.log(res)
-                    this.tableData = res.body.JobAndTrigger.list;
-                    this.totalCount = res.body.number;
+                    this.tableData = res.body.records;
+                    this.totalCount = res.body.total;
                 },function(){
                     console.log('failed');
                 });
@@ -275,7 +275,7 @@
 
             //单行删除
             handleDelete: function(index, row) {
-                this.$http.post('job/deletejob',{"jobClassName":row.job_NAME,"jobGroupName":row.job_GROUP},{emulateJSON: true}).then(function(res){
+                this.$http.post('job/deletejob',{"jobClassName":row.jobName,"jobGroupName":row.jobGroup},{emulateJSON: true}).then(function(res){
                     this.loadData( this.currentPage, this.pagesize);
                 },function(){
                     console.log('failed');
@@ -284,7 +284,7 @@
 
             //暂停任务
             handlePause: function(index, row){
-                this.$http.post('job/pausejob',{"jobClassName":row.job_NAME,"jobGroupName":row.job_GROUP},{emulateJSON: true}).then(function(res){
+                this.$http.post('job/pausejob',{"jobClassName":row.jobName,"jobGroupName":row.jobGroup},{emulateJSON: true}).then(function(res){
                     this.loadData( this.currentPage, this.pagesize);
                 },function(){
                     console.log('failed');
@@ -293,7 +293,7 @@
 
             //恢复任务
             handleResume: function(index, row){
-                this.$http.post('job/resumejob',{"jobClassName":row.job_NAME,"jobGroupName":row.job_GROUP},{emulateJSON: true}).then(function(res){
+                this.$http.post('job/resumejob',{"jobClassName":row.jobName,"jobGroupName":row.jobGroup},{emulateJSON: true}).then(function(res){
                     this.loadData( this.currentPage, this.pagesize);
                 },function(){
                     console.log('failed');
@@ -339,8 +339,8 @@
             handleUpdate: function(index, row){
                 console.log(row)
                 this.updateFormVisible = true;
-                this.updateform.jobName = row.job_CLASS_NAME;
-                this.updateform.jobGroup = row.job_GROUP;
+                this.updateform.jobName = row.jobClassName;
+                this.updateform.jobGroup = row.jobGroup;
             },
 
             //更新任务
