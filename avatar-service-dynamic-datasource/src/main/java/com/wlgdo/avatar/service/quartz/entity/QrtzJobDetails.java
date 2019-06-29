@@ -52,7 +52,7 @@ private static final long serialVersionUID=1L;
     private String requestsRecovery;
 
     @TableField("JOB_DATA")
-    private Blob jobData;
+    private String jobData;
 
 
 }

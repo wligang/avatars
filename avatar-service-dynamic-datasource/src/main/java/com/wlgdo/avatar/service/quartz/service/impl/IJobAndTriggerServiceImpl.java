@@ -5,24 +5,51 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
-import com.wlgdo.avatar.service.quartz.entity.JobInfo;
+import com.wlgdo.avatar.service.quartz.entity.*;
 import com.wlgdo.avatar.service.quartz.mapper.JobAndTriggerMapper;
-import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
-import com.wlgdo.avatar.service.quartz.service.BaseJob;
-import com.wlgdo.avatar.service.quartz.service.IJobAndTriggerService;
+import com.wlgdo.avatar.service.quartz.jobs.BaseJob;
+import com.wlgdo.avatar.service.quartz.service.*;
 import com.wlgdo.avatar.service.quartz.tool.DateUnit;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Blob;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+import static org.quartz.DateBuilder.evenMinuteDate;
 import static org.quartz.DateBuilder.futureDate;
 
 @Service
 public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, JobAndTrigger> implements IJobAndTriggerService {
 
     @Autowired
+    private IQrtzJobDetailsService iQrtzJobDetailsService;
+
+    @Autowired
+    private IQrtzCronTriggersService iQrtzCronTriggersService;
+
+    @Autowired
+    private IQrtzSchedulerStateService iQrtzSchedulerStateService;
+
+    @Autowired
+    private IQrtzTriggersService iQrtzTriggersService;
+
+    @Autowired
+    private IQrtzPausedTriggerGrpsService iQrtzPausedTriggerGrpsService;
+
+    @Autowired
+    private IQrtzLocksService iQrtzLocksService;
+
+    @Autowired
+    private IQrtzFiredTriggersService iQrtzFiredTriggersService;
+
+    @Autowired
     private JobAndTriggerMapper jobAndTriggerMapper;
+
 
     //加入Qulifier注解，通过名称注入bean
     @Autowired
@@ -30,6 +57,7 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
     private Scheduler scheduler;
 
     //Simple Trigger
+    @Transactional
     @Override
     public JobInfo addSimpleJob(JobInfo jobInfo) {
         // 启动调度器
@@ -50,6 +78,39 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
             scheduler.scheduleJob(jobDetail, simpleTrigger);
 
+            String schedulName = jobInfo.getJobClassName();
+            String schedulGroup = jobInfo.getJobGroupName();
+            QrtzJobDetails jobDetailEntity = new QrtzJobDetails();
+            jobDetailEntity.setJobGroup(schedulGroup);
+            jobDetailEntity.setJobClassName(jobInfo.getJobClassName());
+            jobDetailEntity.setJobName(jobInfo.getJobClassName());
+            jobDetailEntity.setSchedName(schedulName);
+            jobDetailEntity.setIsDurable("1");
+            jobDetailEntity.setIsUpdateData("1");
+            jobDetailEntity.setIsNonconcurrent("1");
+            jobDetailEntity.setRequestsRecovery("");
+            jobDetailEntity.setJobData("");
+            iQrtzJobDetailsService.save(jobDetailEntity);
+
+            String triggerName = "";
+            QrtzTriggers triggersEntiy = new QrtzTriggers();
+            triggersEntiy.setJobGroup(schedulGroup);
+            triggersEntiy.setJobName(jobInfo.getJobClassName());
+            triggersEntiy.setSchedName(schedulName);
+            triggersEntiy.setTriggerState("0");
+            triggersEntiy.setTriggerType("Cron");
+            triggersEntiy.setTriggerName(triggerName);
+            triggersEntiy.setStartTime(1000L);
+            iQrtzTriggersService.save(triggersEntiy);
+
+            QrtzCronTriggers cronEntity = new QrtzCronTriggers();
+            cronEntity.setCronExpression(jobInfo.getCronExpression());
+            cronEntity.setTriggerGroup(schedulGroup);
+            cronEntity.setSchedName(schedulName);
+            cronEntity.setTriggerName(triggerName);
+            iQrtzCronTriggersService.save(cronEntity);
+
+
         } catch (SchedulerException e) {
             log.error("创建定时任务失败:{}", e);
         } catch (InstantiationException e) {
@@ -64,6 +125,7 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
 
     //CronTrigger
+    @Transactional
     @Override
     public JobInfo addCronJob(JobInfo jobInfo) {
         try {
@@ -82,6 +144,40 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
                     .withSchedule(scheduleBuilder)
                     .build();
             scheduler.scheduleJob(jobDetail, trigger);
+
+            String schedulName = jobInfo.getJobClassName();
+            String schedulGroup = jobInfo.getJobGroupName();
+            QrtzJobDetails jobDetailEntity = new QrtzJobDetails();
+            jobDetailEntity.setJobGroup(schedulGroup);
+            jobDetailEntity.setJobClassName(jobInfo.getJobClassName());
+            jobDetailEntity.setJobName(jobInfo.getJobClassName());
+            jobDetailEntity.setSchedName(schedulName);
+            jobDetailEntity.setIsDurable("1");
+            jobDetailEntity.setIsUpdateData("1");
+            jobDetailEntity.setIsNonconcurrent("1");
+            jobDetailEntity.setRequestsRecovery("");
+            jobDetailEntity.setJobData("");
+            iQrtzJobDetailsService.save(jobDetailEntity);
+
+            String triggerName = "";
+            QrtzTriggers triggersEntiy = new QrtzTriggers();
+            triggersEntiy.setJobGroup(schedulGroup);
+            triggersEntiy.setJobName(jobInfo.getJobClassName());
+            triggersEntiy.setSchedName(schedulName);
+            triggersEntiy.setTriggerState("0");
+            triggersEntiy.setTriggerType("Cron");
+            triggersEntiy.setTriggerName(triggerName);
+            triggersEntiy.setTriggerGroup(schedulGroup);
+            triggersEntiy.setStartTime(1000L);
+            iQrtzTriggersService.save(triggersEntiy);
+
+            QrtzCronTriggers cronEntity = new QrtzCronTriggers();
+            cronEntity.setCronExpression(jobInfo.getCronExpression());
+            cronEntity.setTriggerGroup(schedulGroup);
+            cronEntity.setSchedName(schedulName);
+            cronEntity.setTriggerName(triggerName);
+            iQrtzCronTriggersService.save(cronEntity);
+
         } catch (ClassNotFoundException e1) {
             e1.printStackTrace();
         } catch (SchedulerException e) {
@@ -116,7 +212,9 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
     @Override
     public IPage<JobAndTrigger> getJobAndTriggerDetails(Integer pageNum, Integer pageSize) {
-        IPage<JobAndTrigger> page = jobAndTriggerMapper.getJobAndTriggerDetails();
+
+        Page pageWrap = new Page(pageNum, pageSize);
+        IPage<JobAndTrigger> page = jobAndTriggerMapper.getJobAndTriggerDetails(pageWrap);
         if (page == null) {
             return new Page<>();
         }

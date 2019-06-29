@@ -1,7 +1,6 @@
 package com.wlgdo.avatar.service.quartz.jobs;
 
 
-import com.wlgdo.avatar.service.quartz.service.BaseJob;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;

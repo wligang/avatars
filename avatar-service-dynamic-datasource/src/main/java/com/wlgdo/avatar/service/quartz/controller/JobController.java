@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 import com.wlgdo.avatar.service.quartz.entity.JobInfo;
-import com.wlgdo.avatar.service.quartz.service.BaseJob;
+import com.wlgdo.avatar.service.quartz.jobs.BaseJob;
 import com.wlgdo.avatar.service.quartz.service.IJobAndTriggerService;
 import com.wlgdo.avatar.service.quartz.tool.DateUnit;
 import org.quartz.*;

@@ -1,9 +1,11 @@
 package com.wlgdo.avatar.service;
 
 
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 
@@ -16,6 +18,9 @@ public class AvatarServiceDSApplication {
         SpringApplication.run(AvatarServiceDSApplication.class, args);
     }
 
-
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
 
 }

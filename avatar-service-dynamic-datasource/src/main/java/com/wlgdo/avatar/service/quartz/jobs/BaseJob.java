@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.quartz.service;
+package com.wlgdo.avatar.service.quartz.jobs;
 
 
 import org.quartz.Job;
