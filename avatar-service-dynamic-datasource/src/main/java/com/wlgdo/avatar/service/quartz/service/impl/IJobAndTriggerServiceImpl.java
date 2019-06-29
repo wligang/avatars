@@ -34,8 +34,6 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
     public JobInfo addSimpleJob(JobInfo jobInfo) {
         // 启动调度器
         try {
-            scheduler.start();
-
             //构建job信息
             BaseJob job = (BaseJob) Class.forName(jobInfo.getJobClassName()).newInstance();
 

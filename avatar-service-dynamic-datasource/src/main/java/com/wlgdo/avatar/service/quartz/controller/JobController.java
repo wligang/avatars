@@ -50,6 +50,7 @@ public class JobController {
         }
         if (jobInfo.getTimeType() == null) {
             jobInfo = iJobAndTriggerService.addCronJob(jobInfo);
+            return jobInfo;
         }
         jobInfo = iJobAndTriggerService.addSimpleJob(jobInfo);
 

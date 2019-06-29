@@ -9,15 +9,17 @@ import org.slf4j.LoggerFactory;
 import java.util.Date;
 
 
-public class NewJob implements BaseJob{
+public class NewJob implements BaseJob {
 
     private static Logger log = LoggerFactory.getLogger(NewJob.class);
 
     public NewJob() {
 
     }
+
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        log.info("Hello Job执行时间: " + new Date());
+        String jobName = context.getJobDetail().getKey().getName();
+        log.info("NewJob Job执行时间jobName:{}{}, ", jobName, new Date());
     }
 }
