@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.web.configure.utils;
+package com.wlgdo.avatar.service.common;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;

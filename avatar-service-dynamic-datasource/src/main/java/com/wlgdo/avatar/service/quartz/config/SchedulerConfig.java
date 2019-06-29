@@ -1,6 +1,10 @@
 package com.wlgdo.avatar.service.quartz.config;
 
-import org.quartz.Scheduler;
+
+import com.wlgdo.avatar.service.common.SpringUtil;
+import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
+import com.wlgdo.avatar.service.quartz.service.IJobAndTriggerService;
+import org.quartz.*;
 import org.quartz.ee.servlet.QuartzInitializerListener;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -19,7 +25,7 @@ import java.util.Properties;
 @Configuration
 public class SchedulerConfig {
 
-    @Bean(name="SchedulerFactory")
+    @Bean(name = "SchedulerFactory")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         factory.setQuartzProperties(quartzProperties());
@@ -38,19 +44,36 @@ public class SchedulerConfig {
     /**
      * quartz初始化监听器
      * 这个监听器可以监听到工程的启动，在工程停止再启动时可以让已有的定时任务继续进行。
+     *
      * @return
      */
     @Bean
     public QuartzInitializerListener executorListener() {
+//        try {
+//            IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
+//            List<JobAndTrigger> list = jobAndTriggerService.list();
+//            for (JobAndTrigger jat : list) {
+//                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
+//                CronTrigger trigger = TriggerBuilder.newTrigger().
+//                        withIdentity(jat.getJobClassName(), jat.getJobGroup())
+//                        .withSchedule(scheduleBuilder)
+//                        .build();
+//                scheduler().scheduleJob(trigger);
+//            }
+//            System.out.println("启动了");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
         return new QuartzInitializerListener();
     }
 
     /**
-     *
-     *通过SchedulerFactoryBean获取Scheduler的实例
+     * 通过SchedulerFactoryBean获取Scheduler的实例
      */
 
-    @Bean(name="Scheduler")
+    @Bean(name = "Scheduler")
     public Scheduler scheduler() throws IOException {
         return schedulerFactoryBean().getScheduler();
     }

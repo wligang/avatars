@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.service.quartz.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -20,11 +21,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
-import java.sql.Blob;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.List;
 
-import static org.quartz.DateBuilder.evenMinuteDate;
 import static org.quartz.DateBuilder.futureDate;
 
 @Service
@@ -165,6 +163,14 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
         IPage<JobAndTrigger> page = jobAndTriggerMapper.pageJobAndTriggerDetails((Page<JobAndTrigger>) pageWrap);
 
         return page;
+    }
+
+    @Override
+    public List<JobAndTrigger> list() {
+        JobAndTrigger jobAndTrigger = new JobAndTrigger();
+        Wrapper<JobAndTrigger> wrap = new QueryWrapper<>(jobAndTrigger);
+        List<JobAndTrigger> list = jobAndTriggerMapper.pageJobAndTriggerDetails(wrap);
+        return list;
     }
 
     @Transactional

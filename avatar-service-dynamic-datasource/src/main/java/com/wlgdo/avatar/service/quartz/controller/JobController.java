@@ -4,6 +4,7 @@ package com.wlgdo.avatar.service.quartz.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wlgdo.avatar.service.common.SpringUtil;
 import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 import com.wlgdo.avatar.service.quartz.entity.JobInfo;
 import com.wlgdo.avatar.service.quartz.jobs.BaseJob;
@@ -14,11 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
 
 @RestController
 @RequestMapping(value = "job")
@@ -143,6 +145,18 @@ public class JobController {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("JobAndTrigger", page);
         map.put("number", page.getTotal());
+
+        IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
+        List<JobAndTrigger> list = jobAndTriggerService.list();
+        for (JobAndTrigger jat : list) {
+            CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
+            CronTrigger trigger = TriggerBuilder.newTrigger().
+                    withIdentity(jat.getJobClassName(), jat.getJobGroup())
+                    .withSchedule(scheduleBuilder)
+                    .build();
+        }
+
+
         return page;
     }
 
@@ -159,5 +173,8 @@ public class JobController {
         Class<?> class1 = Class.forName(classname);
         return (BaseJob) class1.newInstance();
     }
+
+
+
 
 }
