@@ -2,22 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wlgdo.avatar.service.quartz.mapper.JobAndTriggerMapper">
 
-<!--    <select id="getJobAndTriggerDetails" resultType="com.example.quartz.model.JobAndTrigger">
-SELECT
-qrtz_job_details.JOB_NAME,
-qrtz_job_details.JOB_GROUP,
-qrtz_job_details.JOB_CLASS_NAME,
-qrtz_triggers.TRIGGER_NAME,
-qrtz_triggers.TRIGGER_GROUP,
-qrtz_simple_triggers.REPEAT_INTERVAL,
-qrtz_simple_triggers.TIMES_TRIGGERED
-FROM
-qrtz_job_details
-JOIN qrtz_triggers
-JOIN qrtz_simple_triggers ON qrtz_job_details.JOB_NAME = qrtz_triggers.JOB_NAME
-AND qrtz_triggers.TRIGGER_NAME = qrtz_simple_triggers.TRIGGER_NAME
-AND qrtz_triggers.TRIGGER_GROUP = qrtz_simple_triggers.TRIGGER_GROUP
-</select>-->
     <select id="getJobAndTriggerDetails" resultType="com.wlgdo.avatar.service.quartz.entity.JobAndTrigger">
         SELECT DISTINCT
         QRTZ_JOB_DETAILS.JOB_NAME,

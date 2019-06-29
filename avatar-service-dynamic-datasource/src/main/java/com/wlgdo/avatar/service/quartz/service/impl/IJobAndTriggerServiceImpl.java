@@ -215,9 +215,7 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
         Page pageWrap = new Page(pageNum, pageSize);
         IPage<JobAndTrigger> page = jobAndTriggerMapper.getJobAndTriggerDetails(pageWrap);
-        if (page == null) {
-            return new Page<>();
-        }
+
         return page;
     }
 }
