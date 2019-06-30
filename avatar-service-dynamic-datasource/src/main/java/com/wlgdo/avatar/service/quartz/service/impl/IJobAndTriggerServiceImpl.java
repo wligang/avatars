@@ -177,7 +177,7 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
     public void saveQuartzSechedulInfo(@NotNull JobInfo jobInfo) {
         String schedulName = jobInfo.getJobClassName();
         String schedulGroup = jobInfo.getJobGroupName();
-        String triggerName = "触发器名称";
+        String triggerName = "triggerNmme";
         QrtzJobDetails jobDetailEntity = new QrtzJobDetails();
         jobDetailEntity.setJobGroup(schedulGroup);
         jobDetailEntity.setJobClassName(jobInfo.getJobClassName());

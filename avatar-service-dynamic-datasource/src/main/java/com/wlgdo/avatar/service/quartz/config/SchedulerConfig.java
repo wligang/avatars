@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
+import static org.apache.xmlbeans.impl.schema.StscState.start;
+
 /**
  * Created by haoxy on 2018/9/28.
  * E-mail:hxyHelloWorld@163.com
@@ -29,6 +31,7 @@ public class SchedulerConfig {
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         factory.setQuartzProperties(quartzProperties());
+        factory.setStartupDelay(10);
         return factory;
     }
 
@@ -47,23 +50,25 @@ public class SchedulerConfig {
      *
      * @return
      */
-    @Bean
+//    @Bean
     public QuartzInitializerListener executorListener() {
-//        try {
-//            IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
-//            List<JobAndTrigger> list = jobAndTriggerService.list();
-//            for (JobAndTrigger jat : list) {
-//                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
-//                CronTrigger trigger = TriggerBuilder.newTrigger().
-//                        withIdentity(jat.getJobClassName(), jat.getJobGroup())
-//                        .withSchedule(scheduleBuilder)
-//                        .build();
-//                scheduler().scheduleJob(trigger);
-//            }
-//            System.out.println("启动了");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        QuartzInitializerListener quartzInitializerListener = new QuartzInitializerListener();
+
+        try {
+            IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
+            List<JobAndTrigger> list = jobAndTriggerService.list();
+            for (JobAndTrigger jat : list) {
+                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
+                CronTrigger trigger = TriggerBuilder.newTrigger().
+                        withIdentity(jat.getJobClassName(), jat.getJobGroup())
+                        .withSchedule(scheduleBuilder)
+                        .build();
+                scheduler().scheduleJob(trigger);
+            }
+            System.out.println("启动了");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         return new QuartzInitializerListener();
@@ -75,6 +80,8 @@ public class SchedulerConfig {
 
     @Bean(name = "Scheduler")
     public Scheduler scheduler() throws IOException {
+
+
         return schedulerFactoryBean().getScheduler();
     }
 

@@ -15,7 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -149,11 +148,13 @@ public class JobController {
         IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
         List<JobAndTrigger> list = jobAndTriggerService.list();
         for (JobAndTrigger jat : list) {
-            CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
-            CronTrigger trigger = TriggerBuilder.newTrigger().
-                    withIdentity(jat.getJobClassName(), jat.getJobGroup())
-                    .withSchedule(scheduleBuilder)
-                    .build();
+            if (CronExpression.isValidExpression(jat.getCronExpression())) {
+                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
+                CronTrigger trigger = TriggerBuilder.newTrigger().
+                        withIdentity(jat.getJobClassName(), jat.getJobGroup())
+                        .withSchedule(scheduleBuilder)
+                        .build();
+            }
         }
 
 
@@ -173,8 +174,6 @@ public class JobController {
         Class<?> class1 = Class.forName(classname);
         return (BaseJob) class1.newInstance();
     }
-
-
 
 
 }
