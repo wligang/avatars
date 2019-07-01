@@ -19,7 +19,6 @@ public class AvatarDSApplication {
         SpringApplication application = new SpringApplication(AvatarDSApplication.class);
         application.addListeners(new ApplicatonStartEventListener());
         application.addListeners(new ApplicatonCloseEventListener());
-
         application.run(args);
     }
 

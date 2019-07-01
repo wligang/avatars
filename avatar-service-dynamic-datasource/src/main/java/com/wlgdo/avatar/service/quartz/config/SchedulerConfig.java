@@ -6,6 +6,7 @@ import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
 import com.wlgdo.avatar.service.quartz.service.IJobAndTriggerService;
 import org.quartz.*;
 import org.quartz.ee.servlet.QuartzInitializerListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,9 @@ import static org.apache.xmlbeans.impl.schema.StscState.start;
  */
 @Configuration
 public class SchedulerConfig {
+
+    @Autowired
+    private  IJobAndTriggerService iJobAndTriggerService;
 
     @Bean(name = "SchedulerFactory")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
@@ -53,8 +57,8 @@ public class SchedulerConfig {
     @Bean
     public QuartzInitializerListener executorListener() {
         try {
-            IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
-            List<JobAndTrigger> list = jobAndTriggerService.list();
+
+            List<JobAndTrigger> list = iJobAndTriggerService.list();
             for (JobAndTrigger jat : list) {
                 CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
                 CronTrigger trigger = TriggerBuilder.newTrigger().
