@@ -50,10 +50,8 @@ public class SchedulerConfig {
      *
      * @return
      */
-//    @Bean
+    @Bean
     public QuartzInitializerListener executorListener() {
-        QuartzInitializerListener quartzInitializerListener = new QuartzInitializerListener();
-
         try {
             IJobAndTriggerService jobAndTriggerService = SpringUtil.getBean(IJobAndTriggerService.class);
             List<JobAndTrigger> list = jobAndTriggerService.list();
