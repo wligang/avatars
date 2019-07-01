@@ -3,6 +3,7 @@ package com.wlgdo.avatar.service.quartz.config;
 
 import com.wlgdo.avatar.service.common.SpringUtil;
 import com.wlgdo.avatar.service.quartz.entity.JobAndTrigger;
+import com.wlgdo.avatar.service.quartz.jobs.BaseJob;
 import com.wlgdo.avatar.service.quartz.service.IJobAndTriggerService;
 import org.quartz.*;
 import org.quartz.ee.servlet.QuartzInitializerListener;
@@ -13,12 +14,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-import static org.apache.xmlbeans.impl.schema.StscState.start;
 
 /**
  * Created by haoxy on 2018/9/28.
@@ -29,7 +28,7 @@ import static org.apache.xmlbeans.impl.schema.StscState.start;
 public class SchedulerConfig {
 
     @Autowired
-    private  IJobAndTriggerService iJobAndTriggerService;
+    private IJobAndTriggerService iJobAndTriggerService;
 
     @Bean(name = "SchedulerFactory")
     public SchedulerFactoryBean schedulerFactoryBean() throws IOException {
@@ -60,14 +59,24 @@ public class SchedulerConfig {
 
             List<JobAndTrigger> list = iJobAndTriggerService.list();
             for (JobAndTrigger jat : list) {
+                if (!CronExpression.isValidExpression(jat.getCronExpression())) {
+                    continue;
+                }
+                BaseJob job = (BaseJob) Class.forName(jat.getJobClassName()).newInstance();
+                JobDetail jobDetail = JobBuilder.newJob(job.getClass()).
+                        withIdentity(jat.getJobClassName(), jat.getTriggerGroup())
+                        .build();
+
+                //表达式调度构建器(即任务执行的时间)
                 CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(jat.getCronExpression());
+                //按新的cronExpression表达式构建一个新的trigger
                 CronTrigger trigger = TriggerBuilder.newTrigger().
-                        withIdentity(jat.getJobClassName(), jat.getJobGroup())
+                        withIdentity(jat.getJobClassName(), jat.getTriggerGroup())
                         .withSchedule(scheduleBuilder)
                         .build();
-                scheduler().scheduleJob(trigger);
+                scheduler().scheduleJob(jobDetail, trigger);
             }
-            System.out.println("启动了");
+            System.out.println("=========quartz jobs begined======");
         } catch (Exception e) {
             e.printStackTrace();
         }
