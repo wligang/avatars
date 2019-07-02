@@ -7,8 +7,8 @@
 # Avatars
 >Ps:为什么叫Avatar呢？其实简单，就是想提供一套灵活的，可以根据不用业务来‘画像’的轻应用框架。
 
-本项目使用目前主流微服务架构技术，用到Springboot、springbootAdmin、SpringbootActuator、Dubbo、mybaties、Vue、
-Gradle(Multiple modules)、mybatisPlus、微信小程序等等。
+本项目使用目前主流微服务架构技术，用到Springboot、springbootAdmin、SpringbootActuator、Dubbo、mybaties、Vue、Quartz集群
+Gradle(Multiple modules)、mybatisPlus、OAuth2.0授权服务（SaaS企业版）、微信小程序等等。
 项目还整合Redis,MQ,Jenkin部署等中间件及自动化构建部署技术，
 是一套完备的的企业级SOA架构，企业用户可以拿来即用，初学者可以逐级掌握的一套框架。（本次整合持续更行）
 
