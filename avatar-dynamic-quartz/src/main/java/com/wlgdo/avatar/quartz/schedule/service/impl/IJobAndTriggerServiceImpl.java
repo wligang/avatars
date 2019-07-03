@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.quartz.schedule.service.impl;
 
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -154,8 +155,8 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
 
     @Override
+    @DS("#header.tenantName")
     public IPage<JobAndTrigger> pageJobAndTriggerDetails(IPage<JobAndTrigger> pageWrap, QueryWrapper<JobAndTrigger> wrapQuery) {
-
         IPage<QrtzTriggers> pageT = new Page<>(pageWrap.getCurrent(), pageWrap.getSize());
         IPage<QrtzTriggers> pageData = iQrtzTriggersService.page(pageT);
         logger.info("{}", pageData);
@@ -167,6 +168,15 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
     @Override
     public List<JobAndTrigger> list() {
+        JobAndTrigger jobAndTrigger = new JobAndTrigger();
+        Wrapper<JobAndTrigger> wrap = new QueryWrapper<>(jobAndTrigger);
+        List<JobAndTrigger> list = jobAndTriggerMapper.pageJobAndTriggerDetails(wrap);
+        return list;
+    }
+
+    @Override
+    @DS("#tenantName")
+    public List<JobAndTrigger> list(String tenantName) {
         JobAndTrigger jobAndTrigger = new JobAndTrigger();
         Wrapper<JobAndTrigger> wrap = new QueryWrapper<>(jobAndTrigger);
         List<JobAndTrigger> list = jobAndTriggerMapper.pageJobAndTriggerDetails(wrap);

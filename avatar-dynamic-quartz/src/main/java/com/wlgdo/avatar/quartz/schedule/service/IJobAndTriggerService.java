@@ -13,7 +13,7 @@ import java.util.List;
 public interface IJobAndTriggerService extends IService<JobAndTrigger> {
 
 
-    List<JobAndTrigger> list();
+    List<JobAndTrigger> list(String tenantName);
 
     IPage<JobAndTrigger> pageJobAndTriggerDetails(IPage<JobAndTrigger> page, QueryWrapper<JobAndTrigger> wrapQuery);
 

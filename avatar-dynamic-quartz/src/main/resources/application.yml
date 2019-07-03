@@ -10,15 +10,20 @@ spring:
     dynamic:
       primary: master
       datasource:
-        master_1:
+        master:
           username: mkt
           password: mkt_sit
           url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.jdbc.Driver
-        slave_2:
+        tenant1_1:
+          username: mkt
+          password: mkt_sit
+          url: jdbc:mysql://127.0.0.1:3306/mktdb1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+          driver-class-name: com.mysql.jdbc.Driver
+        tenant1_2:
           username: root
           password: root
-          url: jdbc:mysql://127.0.0.1:3306/mktdb1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+          url: jdbc:mysql://127.0.0.1:3306/mktdb2?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.jdbc.Driver
 
 logging:
