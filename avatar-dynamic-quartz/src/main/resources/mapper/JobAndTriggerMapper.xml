@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wlgdo.avatar.quartz.schedule.mapper.JobAndTriggerMapper">
+
+    <select id="pageJobAndTriggerDetails" resultType="com.wlgdo.avatar.quartz.schedule.entity.JobAndTrigger">
+        SELECT DISTINCT
+        QRTZ_JOB_DETAILS.JOB_NAME,
+        QRTZ_JOB_DETAILS.JOB_GROUP,
+        QRTZ_JOB_DETAILS.JOB_CLASS_NAME,
+        QRTZ_TRIGGERS.TRIGGER_NAME,
+        QRTZ_TRIGGERS.TRIGGER_GROUP,
+        QRTZ_CRON_TRIGGERS.CRON_EXPRESSION,
+        QRTZ_CRON_TRIGGERS.TIME_ZONE_ID
+        FROM
+        QRTZ_JOB_DETAILS
+        INNER JOIN QRTZ_TRIGGERS ON QRTZ_TRIGGERS.TRIGGER_GROUP=QRTZ_JOB_DETAILS.JOB_GROUP
+        INNER JOIN QRTZ_CRON_TRIGGERS ON QRTZ_JOB_DETAILS.JOB_NAME = QRTZ_TRIGGERS.JOB_NAME
+        and QRTZ_TRIGGERS.TRIGGER_NAME = QRTZ_CRON_TRIGGERS.TRIGGER_NAME
+        and QRTZ_TRIGGERS.TRIGGER_GROUP = QRTZ_CRON_TRIGGERS.TRIGGER_GROUP
+    </select>
+
+</mapper>
+
+

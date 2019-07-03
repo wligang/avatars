@@ -1,0 +1,33 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    compile project(':avatar-api')
+    compile project(':avatar-common')
+    compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
+
+    compile 'com.baomidou:dynamic-datasource-spring-boot-starter:2.5.3'
+
+    compile 'com.baomidou:mybatis-plus-boot-starter:3.1.1'
+
+    implementation('mysql:mysql-connector-java')
+
+    compile 'org.projectlombok:lombok:1.18.6'
+    //compile 'p6spy:p6spy:3.8.0'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-quartz', version:'2.1.0.RELEASE'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
+
+}
+
+processResources {
+    from('src/main/java') {
+        include '**/*'
+        exclude "**/*.java"
+    }
+}
+//jar {
+//    from('src/main/java') {
+//        include "**/*"
+//        exclude "**/*.java"
+//    }
+//}

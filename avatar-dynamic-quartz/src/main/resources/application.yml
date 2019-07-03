@@ -1,0 +1,41 @@
+spring:
+  servlet:
+    multipart:
+      maxFileSize: -1
+      maxRequestSize: -1
+  aop:
+    proxy-target-class: true
+    auto: true
+  datasource:
+    dynamic:
+      primary: master
+      datasource:
+        master_1:
+          username: mkt
+          password: mkt_sit
+          url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_2:
+          username: root
+          password: root
+          url: jdbc:mysql://127.0.0.1:3306/mktdb1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+          driver-class-name: com.mysql.jdbc.Driver
+
+logging:
+  level:
+    com.baomidou: debug
+    com.baomidou.dynamic: debug
+    com.wlgdo.avatar.service: debug
+
+
+mybatis-plus:
+  configuration:
+      cache-enabled: false
+      local-cache-scope: session
+  mapper-locations: classpath:mapper/*Mapper.xml
+  global-config:
+    banner: false
+
+quartz:
+  enabled: true
+

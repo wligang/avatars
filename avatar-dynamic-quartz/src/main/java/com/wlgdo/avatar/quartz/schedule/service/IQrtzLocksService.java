@@ -1,7 +1,7 @@
-package com.wlgdo.avatar.service.quartz.service;
+package com.wlgdo.avatar.quartz.schedule.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wlgdo.avatar.service.quartz.entity.QrtzLocks;
+import com.wlgdo.avatar.quartz.schedule.entity.QrtzLocks;
 
 /**
  * <p>

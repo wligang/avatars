@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service;
+package com.wlgdo.avatar.quartz;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

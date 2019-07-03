@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.common;
+package com.wlgdo.avatar.quartz.common;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;

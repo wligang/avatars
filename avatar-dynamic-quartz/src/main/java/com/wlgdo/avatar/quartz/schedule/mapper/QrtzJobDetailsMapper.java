@@ -1,7 +1,7 @@
-package com.wlgdo.avatar.service.quartz.mapper;
+package com.wlgdo.avatar.quartz.schedule.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.wlgdo.avatar.service.quartz.entity.QrtzJobDetails;
+import com.wlgdo.avatar.quartz.schedule.entity.QrtzJobDetails;
 
 /**
  * <p>

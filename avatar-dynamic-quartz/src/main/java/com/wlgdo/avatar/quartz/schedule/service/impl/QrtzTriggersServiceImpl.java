@@ -1,9 +1,9 @@
-package com.wlgdo.avatar.service.quartz.service.impl;
+package com.wlgdo.avatar.quartz.schedule.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wlgdo.avatar.service.quartz.entity.QrtzTriggers;
-import com.wlgdo.avatar.service.quartz.mapper.QrtzTriggersMapper;
-import com.wlgdo.avatar.service.quartz.service.IQrtzTriggersService;
+import com.wlgdo.avatar.quartz.schedule.entity.QrtzTriggers;
+import com.wlgdo.avatar.quartz.schedule.mapper.QrtzTriggersMapper;
+import com.wlgdo.avatar.quartz.schedule.service.IQrtzTriggersService;
 import org.springframework.stereotype.Service;
 
 /**
