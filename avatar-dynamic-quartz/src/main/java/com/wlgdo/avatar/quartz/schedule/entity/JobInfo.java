@@ -15,7 +15,7 @@ public class JobInfo {
 
 
     public String getJobClassName() {
-        return "com.wlgdo.avatar.quartz.quartz.jobs."+jobClassName.trim();
+        return "com.wlgdo.avatar.quartz.schedule.jobs."+jobClassName.trim();
     }
 
     public void setJobClassName(String jobClassName) {
