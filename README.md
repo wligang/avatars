@@ -23,7 +23,8 @@ Gradle(Multiple modules)、mybatisPlus（多、动态数据源）、OAuth2.0授�
   
 ### 后台前端[avatar-admin-web](https://github.com/wligang/avatars/tree/master/avatar-admin-web)
   使用nodeJs容器,vue框架搭设的后台管理平台架构
-  
+### 任务调度中心[avatar-dynamic-quartz](https://github.com/wligang/avatars/tree/master/avatar-dynamic-quartz)
+
 ### 多数据源模块[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
    包括多数据源策略，动态数据源、读写分离、多租户、自定义quartz多数据源、多租户集群策略。
 ### 操作说明
