@@ -155,7 +155,6 @@ public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, 
 
 
     @Override
-    @DS("#header.tenantName")
     public IPage<JobAndTrigger> pageJobAndTriggerDetails(IPage<JobAndTrigger> pageWrap, QueryWrapper<JobAndTrigger> wrapQuery) {
         IPage<QrtzTriggers> pageT = new Page<>(pageWrap.getCurrent(), pageWrap.getSize());
         IPage<QrtzTriggers> pageData = iQrtzTriggersService.page(pageT);
