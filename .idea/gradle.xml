@@ -27,6 +27,11 @@
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/avatar-service" />
         <option name="gradleHome" value="E:/gradle-4.9" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/avatar-service" />
+          </set>
+        </option>
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
