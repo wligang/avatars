@@ -3,7 +3,7 @@
     <el-form autoComplete="on" :model="loginForm" :rules="loginRules" ref="loginForm" label-position="left"
              label-width="0px"
              class="card-box login-form">
-      <h3 class="title">后台管理系统</h3>
+      <h3 class="title">AVATAR DATA CENTER</h3>
       <el-form-item prop="username">
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user"/>
@@ -68,14 +68,14 @@
   @import "../../styles/mixin.scss";
   $bg: #2d3a4b;
   $dark_gray: #889aa4;
-  $light_gray: #eee;
+  $light_gray: #c0c4cc;
 
   .login-container {
     @include relative;
     height: 100vh;
     background-color: $bg;
     input:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0px 1000px #293444 inset !important;
+      -webkit-box-shadow: 0 0 0px 1000px #354150 inset !important;
       -webkit-text-fill-color: #fff !important;
     }
     input {
