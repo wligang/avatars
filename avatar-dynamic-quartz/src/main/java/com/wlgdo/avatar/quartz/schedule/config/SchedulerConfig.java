@@ -4,6 +4,7 @@ package com.wlgdo.avatar.quartz.schedule.config;
 import com.wlgdo.avatar.quartz.schedule.entity.JobAndTrigger;
 import com.wlgdo.avatar.quartz.schedule.jobs.BaseJob;
 import com.wlgdo.avatar.quartz.schedule.service.IJobAndTriggerService;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.quartz.ee.servlet.QuartzInitializerListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import java.util.Properties;
  * E-mail:hxyHelloWorld@163.com
  * github:https://github.com/haoxiaoyong1014
  */
+@Slf4j
 @Configuration
 public class SchedulerConfig {
 
@@ -75,7 +77,7 @@ public class SchedulerConfig {
                         .build();
                 scheduler().scheduleJob(jobDetail, trigger);
             }
-            System.out.println("=========quartz jobs begined======");
+            log.info("=========avatar.wlgdo|quartz jobs begined======");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,8 +92,6 @@ public class SchedulerConfig {
 
     @Bean(name = "Scheduler")
     public Scheduler scheduler() throws IOException {
-
-
         return schedulerFactoryBean().getScheduler();
     }
 
