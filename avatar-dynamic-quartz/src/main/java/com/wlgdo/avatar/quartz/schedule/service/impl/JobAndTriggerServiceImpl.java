@@ -27,7 +27,7 @@ import java.util.List;
 import static org.quartz.DateBuilder.futureDate;
 
 @Service
-public class IJobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, JobAndTrigger> implements IJobAndTriggerService {
+public class JobAndTriggerServiceImpl extends ServiceImpl<JobAndTriggerMapper, JobAndTrigger> implements IJobAndTriggerService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 

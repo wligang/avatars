@@ -19,6 +19,7 @@ public class AvatarDQApplication {
         SpringApplication application = new SpringApplication(AvatarDQApplication.class);
         application.addListeners(new ApplicatonStartEventListener());
         application.addListeners(new ApplicatonCloseEventListener());
+
         application.run(args);
     }
 
