@@ -10,7 +10,7 @@
 本项目使用目前主流微服务架构技术，用到Springboot、springbootAdmin、Actuator监控（支持自定义Endpoint）、Dubbo、mybaties、Vue前端、Quartz集群
 Gradle(Multiple modules)、mybatisPlus（多、动态数据源）、OAuth2.0授权服务（SaaS企业版）、微信小程序等等。
 项目还整合Redis,MQ,Jenkin部署等中间件及自动化构建部署技术，
-是一套完备的的企业级SOA架构，企业用户可以拿来即用，初学者可以逐级掌握的一套框架。（本次整合持续更行）
+是一套完备的的企业级SOA架构，企业用户可以拿来即用，初学者可以逐级掌握的一套框架[持续支持]。
 
 ### 中台服务[avatar-service](https://github.com/wligang/avatars/tree/master/avatar-service)
  提供大中台支持、Rpc提供者、DB持久化等等核心服务
