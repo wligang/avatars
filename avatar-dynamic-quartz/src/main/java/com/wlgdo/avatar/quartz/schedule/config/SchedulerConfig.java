@@ -57,7 +57,6 @@ public class SchedulerConfig {
     @Bean
     public QuartzInitializerListener executorListener() {
         try {
-
             List<JobAndTrigger> list = iJobAndTriggerService.list();
             for (JobAndTrigger jat : list) {
                 if (!CronExpression.isValidExpression(jat.getCronExpression())) {
@@ -81,8 +80,6 @@ public class SchedulerConfig {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return new QuartzInitializerListener();
     }
 
