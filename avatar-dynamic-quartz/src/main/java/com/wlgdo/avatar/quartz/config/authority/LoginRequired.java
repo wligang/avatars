@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.quartz.config;
+package com.wlgdo.avatar.quartz.config.authority;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

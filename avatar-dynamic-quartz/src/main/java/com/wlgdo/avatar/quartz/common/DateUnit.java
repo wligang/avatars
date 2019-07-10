@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.quartz.schedule.tool;
+package com.wlgdo.avatar.quartz.common;
 
 import org.quartz.DateBuilder;
 import org.springframework.stereotype.Component;

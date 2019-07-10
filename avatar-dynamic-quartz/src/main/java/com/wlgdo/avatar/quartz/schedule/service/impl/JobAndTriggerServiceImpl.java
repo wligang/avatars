@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wlgdo.avatar.quartz.schedule.mapper.JobAndTriggerMapper;
 import com.wlgdo.avatar.quartz.schedule.jobs.BaseJob;
 import com.wlgdo.avatar.quartz.schedule.service.*;
-import com.wlgdo.avatar.quartz.schedule.tool.DateUnit;
+import com.wlgdo.avatar.quartz.common.DateUnit;
 import com.wlgdo.avatar.quartz.schedule.entity.*;
 import org.quartz.*;
 import org.slf4j.Logger;

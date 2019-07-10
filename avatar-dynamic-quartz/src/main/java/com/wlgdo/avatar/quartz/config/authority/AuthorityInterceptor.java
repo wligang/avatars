@@ -1,14 +1,12 @@
-package com.wlgdo.avatar.quartz.config;
+package com.wlgdo.avatar.quartz.config.authority;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
-import java.util.Enumeration;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]

@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.quartz.config;
+package com.wlgdo.avatar.quartz.config.authority;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

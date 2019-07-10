@@ -9,7 +9,7 @@ import com.wlgdo.avatar.quartz.schedule.entity.JobAndTrigger;
 import com.wlgdo.avatar.quartz.schedule.entity.JobInfo;
 import com.wlgdo.avatar.quartz.schedule.jobs.BaseJob;
 import com.wlgdo.avatar.quartz.schedule.service.IJobAndTriggerService;
-import com.wlgdo.avatar.quartz.schedule.tool.DateUnit;
+import com.wlgdo.avatar.quartz.common.DateUnit;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

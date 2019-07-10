@@ -8,7 +8,7 @@
 >Ps:为什么叫Avatar呢？其实简单，就是想提供一套灵活的，可以针对不同的业务需求“画像”的轻应用框架。
 
 本项目使用目前主流微服务架构技术，用到Springboot、springbootAdmin、Actuator监控（支持自定义Endpoint）、Dubbo、mybaties、Vue前端、Quartz集群
-Gradle(Multiple modules)、mybatisPlus（多、动态数据源）、OAuth2.0授权服务（SaaS企业版）、微信小程序等等。
+,Gradle(Multiple-Modules-Build)、mybatisPlus（多、动态数据源）、OAuth2.0授权服务（SaaS企业版）、微信小程序等等。
 项目还整合Redis,MQ,Jenkin部署等中间件及自动化构建部署技术，
 是一套完备的的企业级SOA架构，企业用户可以拿来即用，初学者可以逐级掌握的一套框架[持续支持]。
 
@@ -28,8 +28,8 @@ Gradle(Multiple modules)、mybatisPlus（多、动态数据源）、OAuth2.0授�
 ### 多数据源模块[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
    包括多数据源策略，动态数据源、读写分离、多租户、自定义quartz多数据源、多租户集群策略。
 ### 操作说明
-  1、因为项目是使用gradle构建的多模块以来项目，所以需要在开发环境具备gradle环境，如果不习惯或者不喜欢gradle,依然可以使用相关的命令来吧gradle构建装化成maven构建，相关的操作可以自行csdn了解一下。
-  2、整个项目虽然是基于多模块依赖构成，但是项目架构本身是松耦合，所以可以根据自己的业务要求来选择需要保留的模块，灵活操作。
+  - 因为项目是使用gradle构建的多模块以来项目，所以需要在开发环境具备gradle环境，如果不习惯或者不喜欢gradle,依然可以使用相关的命令来吧gradle构建装化成maven构建，相关的操作可以自行csdn了解一下。
+  - 整个项目虽然是基于多模块依赖构成，但是项目架构本身是松耦合，所以可以根据自己的业务要求来选择需要保留的模块，灵活操作。
 
 ### Hido互联
 
