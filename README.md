@@ -15,7 +15,7 @@
 ### 中台服务[avatar-service](https://github.com/wligang/avatars/tree/master/avatar-service)
  提供大中台支持、Rpc提供者、DB持久化等等核心服务
 
-### 前台PAI服务[avatar-web-x](https://github.com/wligang/avatars/tree/master/avatar-web)
+### 前台API服务[avatar-web-x](https://github.com/wligang/avatars/tree/master/avatar-web)
   提供各微应用API服务,如MQ消费者、RPC消费者、TCP、HTTP等等
 
 ### 后台服务[avatar-admin](https://github.com/wligang/avatars/tree/master/avatar-admin)
@@ -32,11 +32,11 @@
   - 整个项目基于多模块依赖构成，但是项目架构本身是松耦合，可以根据自己的业务要求来选择需要保留的模块。
   - 项目会持续更新新功能
 
-### Hido互联
+###  Hido互联
 
-这个工程已经发布完成了一个简单版本，在微信小程序搜索“Hido互联”或者扫描下面的小程序码,即可体验
+发布完成了一个简单应用Hido互联，在微信小程序搜索“Hido互联”或者扫描下面的小程序码,即可体验Avatar架构下得小程序应用
 
-###下面是运行的效果
+### 下面是运行的效果
 
 <img src="https://img-blog.csdnimg.cn/20190506121130640.jpg" width = "180" height = "300" div align="left"/>
 
