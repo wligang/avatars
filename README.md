@@ -25,8 +25,10 @@
   使用nodeJs容器,vue框架搭设的后台管理平台架构
 ### 任务调度中心[avatar-dynamic-quartz](https://github.com/wligang/avatars/tree/master/avatar-dynamic-quartz)
   使用多租户技术，做到分布式任务调度管理，动态数据源切换，任务调度管理与配置中心
-### 数据处理中心【多数据源模块】[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
+### 数据处理中心【多数据源模块】[avatar-web-monitor](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
    包括多数据源策略，动态数据源、读写分离、多租户、自定义quartz多数据源、多租户集群策略,可以做数据中心，后期考虑加入数据处理，如加密解密、报表处理等等。
+### 任务调度中心[avatar-dynamic-quartz](https://github.com/wligang/avatars/tree/master/avatar-web-monitor)  
+   监控各应用接口数据，系统性能参数，健康指数等等，支持自定义端点切入
 ### 操作说明
   - 因为项目是使用gradle构建的多模块以来项目，所以需要在开发环境具备gradle环境，如果不习惯或者不喜欢gradle,依然可以使用相关的命令来把gradle构建转成maven构建，操作简单。
   - 整个项目基于多模块依赖构成，但是项目架构本身是松耦合，可以根据自己的业务要求来选择需要保留的模块。

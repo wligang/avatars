@@ -4,3 +4,10 @@
 /avatar-service/build/
 /avatar-service-dynamic-datasource/out/
 /.idea/
+.gradle/
+avatar-admin/build/
+avatar-api/build/
+avatar-common/build/
+avatar-dynamic-quartz/build/
+avatar-dynamic-quartz/logs/
+
