@@ -28,8 +28,9 @@
 ### 多数据源模块[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
    包括多数据源策略，动态数据源、读写分离、多租户、自定义quartz多数据源、多租户集群策略。
 ### 操作说明
-  - 因为项目是使用gradle构建的多模块以来项目，所以需要在开发环境具备gradle环境，如果不习惯或者不喜欢gradle,依然可以使用相关的命令来吧gradle构建装化成maven构建，相关的操作可以自行csdn了解一下。
-  - 整个项目虽然是基于多模块依赖构成，但是项目架构本身是松耦合，所以可以根据自己的业务要求来选择需要保留的模块，灵活操作。
+  - 因为项目是使用gradle构建的多模块以来项目，所以需要在开发环境具备gradle环境，如果不习惯或者不喜欢gradle,依然可以使用相关的命令来把gradle构建转成maven构建，操作简单。
+  - 整个项目基于多模块依赖构成，但是项目架构本身是松耦合，可以根据自己的业务要求来选择需要保留的模块。
+  - 项目会持续更新新功能
 
 ### Hido互联
 
