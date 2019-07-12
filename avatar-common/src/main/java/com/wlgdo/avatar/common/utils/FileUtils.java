@@ -20,9 +20,8 @@ public class FileUtils {
         String[] pathArray = filePath.split(",");
         List<String> logLists = new ArrayList();
         for (String path : pathArray) {
-            //资源自动释放，依赖与实现接口AutoCloseable，否则没有效果
-            try (
-                    FileReader reader = new FileReader(path);
+           try (
+                    FileReader reader = new FileReader(path); //资源自动释放，依赖与实现接口AutoCloseable，否则没有效果
                     BufferedReader br = new BufferedReader(reader)
             ) {
                 String line;
@@ -43,14 +42,13 @@ public class FileUtils {
      * @Date:
      */
     public static void writeFile() {
-
         try {
             File writeName = new File("d://relations.txt");
             writeName.createNewFile();
             try (FileWriter writer = new FileWriter(writeName);
                  BufferedWriter out = new BufferedWriter(writer)
             ) {
-                out.write("xxxxxxxxxxx1\r\n"); // \r\n即为换行
+                    out.write("xxxxxxxxxxx1\r\n"); // \r\n即为换行
                 out.write("ssssssssssss\r\n"); // \r\n即为换行
                 out.flush(); // 把缓存区内容压入文件
             }

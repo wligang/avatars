@@ -17,6 +17,8 @@ dependencies {
 
     compile 'org.apache.commons:commons-lang3:3.9'
     compile 'com.alibaba:fastjson:1.2.57'
+    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.11'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.9'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
