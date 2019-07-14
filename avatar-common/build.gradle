@@ -1,6 +1,4 @@
 dependencies {
-    compile 'org.apache.commons:commons-lang3:3.9'
-
     compileOnly 'org.projectlombok:lombok:1.18.6'
     annotationProcessor 'org.projectlombok:lombok:1.18.6'
 

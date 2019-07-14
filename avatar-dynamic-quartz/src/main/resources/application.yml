@@ -11,8 +11,8 @@ spring:
       primary: master
       datasource:
         master:
-          username: mkt
-          password: mkt_sit
+          username: root
+          password: root
           url: jdbc:mysql://127.0.0.1:3306/mktdb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
           driver-class-name: com.mysql.jdbc.Driver
         tenant1_1:

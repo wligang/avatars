@@ -9,19 +9,25 @@ package com.wlgdo.avatar.web.common;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.wlgdo.avatar.common.utils.GZIPUtils;
+import com.wlgdo.avatar.dubbo.rpc.apps.AppInfo;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 
@@ -95,13 +101,38 @@ public class HttpUtil {
         return response;
     }
 
-
     public static void main(String[] args) {
+        AppInfo appInfo = new AppInfo("HIdo互联");
+        appInfo.setAppId("12313123");
+        appInfo.setAppKey("safasdfasdf");
+        appInfo.setAppKey("HidoNet");
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpPost post = new HttpPost("http://localhost:8000/apps/info");
+        post.setHeader("Content-Type", "application/json;charset=utf-8");
+        post.setHeader("Accept", "application/json");
+        post.setHeader("Content-Encoding", "gzip");
+        String body = JSONObject.toJSONString(appInfo);
+        byte[] gzipEncrypt = GZIPUtils.compress(body);
+        post.setEntity(new InputStreamEntity(new ByteArrayInputStream(gzipEncrypt), gzipEncrypt.length));
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpClient.execute(post);
+
+            int code = httpResponse.getStatusLine().getStatusCode();
+            HttpEntity response = httpResponse.getEntity();
+            System.out.println("请求状态码：" + code);
+            System.out.println("请求返回结果：" + EntityUtils.toString(response));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void main_(String[] args) {
 
         JSONObject json = new JSONObject();
         json.put("x", "xxxxxx");
 //        JSONObject response = doPost("http://localhost:8083/api/test", json);
-//
 //        System.out.println(response);
 
         String result = doPostWithObject("http://localhost:8083/api/test", json);
