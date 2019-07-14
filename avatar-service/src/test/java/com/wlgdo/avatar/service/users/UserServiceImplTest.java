@@ -3,7 +3,6 @@ package com.wlgdo.avatar.service.users;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
 import com.wlgdo.avatar.dubbo.service.IUserService;
-import com.wlgdo.avatar.service.AvatarServiceApplicationTests;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

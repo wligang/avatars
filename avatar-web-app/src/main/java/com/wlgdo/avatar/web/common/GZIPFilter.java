@@ -13,7 +13,7 @@ import java.io.IOException;
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/7/14 17:33
  */
-@WebFilter(filterName = "GZIPFilter", urlPatterns = "/*")
+@WebFilter(filterName = "GZIPFilter", urlPatterns = "/gzip/*")
 @Order(1)
 public class GZIPFilter implements Filter {
     Logger logger = LoggerFactory.getLogger(getClass());

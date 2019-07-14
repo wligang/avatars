@@ -3,6 +3,7 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(':avatar-api')
+    compile project(':avatar-common')
     compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
     compile 'com.alibaba:fastjson:1.2.57'
 
