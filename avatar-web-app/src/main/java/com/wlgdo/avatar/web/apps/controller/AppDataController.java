@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import java.util.List;
 import java.util.Set;
@@ -24,14 +25,17 @@ public class AppDataController {
     private StringRedisTemplate stringRedisTemplate;
 
     @RequestMapping("blog")
-    public Object index() {
+    public Object index(HttpServletResponse response) {
 
         List<JSONObject> lists = Lists.newArrayList();
-        Set<String> keys = stringRedisTemplate.keys(CSDN_USER+"*");
+        Set<String> keys = stringRedisTemplate.keys(CSDN_USER + "*");
         keys.stream().forEach(k -> {
             lists.add(JSONObject.parseObject(stringRedisTemplate.opsForValue().get(k)));
         });
-        return lists;
+
+        return GZIPUtils.compress(lists.toString());
+
+
     }
 
 
