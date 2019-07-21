@@ -12,4 +12,17 @@
 <body>
 
 </body>
+<script>
+    JSZipUtils.getBinaryContent('http://localhost:8000/blog', function(err, data) {
+        if(err) {
+            throw err; // or handle err
+        }
+
+        JSZip.loadAsync(data).then(function () {
+            console.log(data);
+        });
+    });
+
+</script>
+
 </html>
