@@ -10,7 +10,9 @@
 This project uses the current mainstream micro-service architecture technology, using Springboot, springbootAdmin, Actuator monitoring (supporting custom Endpoint), Dubbo, mybaties, Vue front-end, Quartz cluster
 , Gradle (Multiple-Modules-Build), mybatisPlus (multiple, dynamic data source), OAuth2.0 authorization service (SaaS Enterprise Edition), WeChat applet, etc.
 The project also integrates middleware and automated build deployment technologies such as Redis, MQ, and Jenkin deployment.
-It is a complete enterprise-level SOA architecture, which can be used by enterprise users. A set of frameworks that beginners can master step by step [continuous support].
+It is a complete enterprise-level SOA architecture, which can be used by enterprise users. A set of frameworks that beginners can master step by step [continuous support]  
+
+[中文版](https://github.com/wligang/avatars/edit/master/README_CN.md)  
 
 ### Centrl Service[avatar-service](https://github.com/wligang/avatars/tree/master/avatar-service)
  Provide core services such as large and medium platform support, Rpc provider, DB persistence, etc.
