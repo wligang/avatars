@@ -26,6 +26,10 @@ public class Resp {
 		this.msg = msg;
 	}
 
+	public static Resp instance(){
+		this.code = RespCode.SERVER_ERROR.code;
+		this.msg = RespCode.SERVER_ERROR.msg;
+	}
 	String code;
 	String msg;
 	Object data;
