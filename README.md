@@ -12,25 +12,25 @@ This project uses the current mainstream micro-service architecture technology, 
 The project also integrates middleware and automated build deployment technologies such as Redis, MQ, and Jenkin deployment.
 It is a complete enterprise-level SOA architecture, which can be used by enterprise users. A set of frameworks that beginners can master step by step [continuous support].
 
-### 中台服务[avatar-service](https://github.com/wligang/avatars/tree/master/avatar-service)
+### Centrl Service[avatar-service](https://github.com/wligang/avatars/tree/master/avatar-service)
  Provide core services such as large and medium platform support, Rpc provider, DB persistence, etc.
 
-### Front-end API service [avatar-web-x] (https://github.com/wligang/avatars/tree/master/avatar-web)
+### Front-end API service [avatar-web-x](https://github.com/wligang/avatars/tree/master/avatar-web)
   Provide micro-application API services such as MQ Consumer, RPC Consumer, TCP, HTTP, etc.
 
 ### Background Service [avatar-admin](https://github.com/wligang/avatars/tree/master/avatar-admin)
   Provide large background management, permission verification, role configuration, monitoring, etc.
   
-### Backend [avatar-admin-web] (https://github.com/wligang/avatars/tree/master/avatar-admin-web)
+### Backend [avatar-admin-web](https://github.com/wligang/avatars/tree/master/avatar-admin-web)
   Using the nodeJs container, the background management platform architecture set up by the vue framework
   
-### Task Scheduling Center [avatar-dynamic-quartz] (https://github.com/wligang/avatars/tree/master/avatar-dynamic-quartz)
+### Task Scheduling Center [avatar-dynamic-quartz](https://github.com/wligang/avatars/tree/master/avatar-dynamic-quartz)
   Use multi-tenancy technology to achieve distributed task scheduling management, dynamic data source switching, task scheduling management and configuration center
 
-### Data Processing Center [Multi Data Source Module] [avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource)
+### Data Processing Center [Multi Data Source Module] [avatar-service-dynamic-datasource(https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource)
    Including multi-data source strategy, dynamic data source, read-write separation, multi-tenancy, custom quartz multi-data source, multi-tenant cluster strategy, can be used as data center, and later consider adding data processing, such as encryption and decryption, report processing and so on.
 
-### Monitoring background [avatar-web-monitor] (https://github.com/wligang/avatars/tree/master/avatar-web-monitor)
+### Monitoring background [avatar-web-monitor](https://github.com/wligang/avatars/tree/master/avatar-web-monitor)
    Monitor application interface data, system performance parameters, health index, etc., support custom endpoint cut-in
 
 ### Instructions
