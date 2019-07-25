@@ -12,7 +12,7 @@ This project uses the current mainstream micro-service architecture technology, 
 The project also integrates middleware and automated build deployment technologies such as Redis, MQ, and Jenkin deployment.
 It is a complete enterprise-level SOA architecture, which can be used by enterprise users. A set of frameworks that beginners can master step by step [continuous support]  
 
-[中文版](https://github.com/wligang/avatars/edit/master/README_CN.md)  
+[中文版](https://github.com/wligang/avatars/blob/master/README_CN.md)  
 
 ### Centrl Service[avatar-service](https://github.com/wligang/avatars/tree/master/avatar-service)
  Provide core services such as large and medium platform support, Rpc provider, DB persistence, etc.
@@ -40,7 +40,7 @@ It is a complete enterprise-level SOA architecture, which can be used by enterpr
   - The entire project is based on multi-module dependencies, but the project architecture itself is loosely coupled and can be selected based on its own business requirements.
   - The project will continuously update new features
 
-### Hido Interconnect
+### Hido Application
 
 The release completes a simple application Hido interconnection, search for "Hido interconnection" in WeChat applet or scan the small program code below to experience the small program application under Avatar architecture.
 
