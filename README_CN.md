@@ -5,7 +5,7 @@
 </p>
 
 # Avatars
->Ps:为什么叫Avatar呢？其实简单，就是想提供一套灵活的，可以针对不同的业务需求“画像”的轻应用框架。
+>Ps:为什么叫Avatar呢？其实简单，就是想提供一套灵活的，可以针对不同的业务需求“画像”的轻应用框架，用户可以直接拿全部或者其中部分内容来应用于自己项目。
 
 本项目使用目前主流微服务架构技术，用到Springboot、springbootAdmin、Actuator监控（支持自定义Endpoint）、Dubbo、mybaties、Vue前端、Quartz集群
 ,Gradle(Multiple-Modules-Build)、mybatisPlus（多、动态数据源）、OAuth2.0授权服务（SaaS企业版）、微信小程序等等。
