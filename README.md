@@ -56,9 +56,9 @@ The release completes a simple application Hido interconnection, search for "Hid
 
 
 
-### MINI Program by Wechat
+### MINI Program in Wechat
 ![https://img-blog.csdnimg.cn/20190505115944855.jpg](https://img-blog.csdnimg.cn/20190505115944855.jpg)
 
 
 
-If you think the project is good, you can order a Star.
+If you like the project and it is works in your job, you can order a Star.
