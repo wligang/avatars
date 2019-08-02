@@ -32,7 +32,6 @@ public class UserService {
         redisTemplate.opsForHash().put("user", "name", new CsdnUser("hash"));
         Map<String, CsdnUser> userMap = redisTemplate.opsForHash().entries("user");
         logger.info("{}", userMap);
-
         redisTemplate.opsForList().leftPush("userListKye", new CsdnUser("001"));
 
         redisTemplate.opsForList().leftPush("userListKye", new CsdnUser("002"));
