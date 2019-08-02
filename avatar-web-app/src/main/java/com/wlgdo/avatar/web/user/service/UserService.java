@@ -37,10 +37,6 @@ public class UserService {
         redisTemplate.opsForList().leftPush("userListKye", new CsdnUser("002"));
 
         Object list = redisTemplate.opsForList().range("userListKye", 0, 10);
-
-        logger.info("list-{}", list);
-
-
         // redisTemplate.opsForSet().add("userSet", list);
         Set userSet = redisTemplate.opsForSet().members("userSet");
         logger.info("{}", userSet);
