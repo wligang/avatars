@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
@@ -22,7 +21,7 @@ public class UserServiceTest {
     @Test
     public void getUserOrderList() {
 
-//        userService.getUserOrderList();
+//      userService.getUserOrderList();
         userService.sortedUserList(1000000);
     }
 }
