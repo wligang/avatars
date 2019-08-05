@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.common.utils;
+package com.wlgdo.avatar.web;
 
 import java.util.ArrayList;
 import java.util.List;
