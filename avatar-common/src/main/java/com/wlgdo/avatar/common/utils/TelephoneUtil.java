@@ -15,7 +15,6 @@ public class TelephoneUtil {
      *
      * @param telePhoneNum
      * @return String
-     * @author Ligang.Wang[wlgchun@163.com]
      * @date 2017年8月22日下午6:39:03
      */
     public static String mosaic(String telePhoneNum) {
@@ -32,7 +31,6 @@ public class TelephoneUtil {
      *
      * @param telePhoneNum
      * @return String
-     * @author Ligang.Wang[wlgchun@163.com]
      * @date 2017年8月22日下午6:39:14
      */
     public static String format(String telePhoneNum) {
@@ -49,7 +47,6 @@ public class TelephoneUtil {
      *
      * @param telePhoneNum
      * @return boolean
-     * @author Ligang.Wang[wlgchun@163.com]
      * @date 2017年8月22日下午6:39:32
      */
     public static boolean isAlpha(String telePhoneNum) {
@@ -65,8 +62,6 @@ public class TelephoneUtil {
      *
      * @param telphoneNum
      * @return String
-     * @author Ligang.Wang[wlgchun@163.com]
-     * @date 2017年8月22日下午6:39:49
      */
     public static String encrypt(String telphoneNum) {
         if (!isAlpha(telphoneNum)) {
@@ -85,8 +80,6 @@ public class TelephoneUtil {
      *
      * @param telphoneNum
      * @return String
-     * @author Ligang.Wang[wlgchun@163.com]
-     * @date 2017年8月22日下午6:39:58
      */
     public static String decrypt(String telphoneNum) {
         if (!isAlpha(telphoneNum)) {
