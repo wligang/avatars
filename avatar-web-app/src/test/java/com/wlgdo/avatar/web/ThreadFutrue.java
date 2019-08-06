@@ -45,33 +45,30 @@ public class ThreadFutrue {
     }
 
 
-
     public static void main(String[] args) {
-        ExecutorService exec = Executors.newCachedThreadPool();
-
-        List<Future<String>> futures = new ArrayList<>();
+        List<Future<String>> futureTaskList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Future<String> results = exec.submit(new CallableFutrue("Helloworld-" + i));
-            futures.add(results);
+            FutureTask futureTask = new FutureTask(new CallableFutrue(String.format(" \t [H-%s]", i)));
+            futureTaskList.add(futureTask);
+            Thread worker = new Thread(futureTask, "慢速累加器线程" + i);
+            worker.start();
         }
-
-        for (Future<String> ft : futures) {
-            if (ft.isDone()) {
-                try {
-                    System.out.println("完成的线程：" + ft.get());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                System.out.println("未完成的线程：" + ft);
+        StringBuffer stringBuffer = new StringBuffer();
+        for (Future<String> futureTask : futureTaskList) {
+            try {
+                stringBuffer.append(futureTask.get()); // get() 方法会阻塞直到获得结果
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
             }
         }
-        exec.shutdown();
-
+        System.out.println(String.format("最后的结果是：[%s]", stringBuffer));
     }
 
+    /**
+     * 有返回值的多线程任务
+     */
     static class CallableFutrue implements Callable<String> {
         String result;
 
