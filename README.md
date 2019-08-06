@@ -26,13 +26,13 @@ It is a complete enterprise-level SOA architecture, which can be used by enterpr
 ### Backend [avatar-admin-web](https://github.com/wligang/avatars/tree/master/avatar-admin-web)
   Using the nodeJs container, the background management platform architecture set up by the vue framework
   
-### Task Scheduling Center[avatar-dynamic-quartz](https://github.com/wligang/avatars/tree/master/avatar-dynamic-quartz)
+### Task Scheduling Center [avatar-dynamic-quartz](https://github.com/wligang/avatars/tree/master/avatar-dynamic-quartz)
   Use multi-tenancy technology to achieve distributed task scheduling management, dynamic data source switching, task scheduling management and configuration center
 
-### Data Processing Center[avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
+### Data Processing Center [avatar-service-dynamic-datasource](https://github.com/wligang/avatars/tree/master/avatar-service-dynamic-datasource) 
    Including multi-data source strategy, dynamic data source, read-write separation, multi-tenancy, custom quartz multi-data source, multi-tenant cluster strategy, can be used as data center, and later consider adding data processing, such as encryption and decryption, report processing and so on.
 
-### Monitoring background[avatar-web-monitor](https://github.com/wligang/avatars/tree/master/avatar-web-monitor)
+### Monitoring background [avatar-web-monitor](https://github.com/wligang/avatars/tree/master/avatar-web-monitor)
    Monitor application interface data, system performance parameters, health index, etc., support custom endpoint cut-in
 
 ### Instructions
