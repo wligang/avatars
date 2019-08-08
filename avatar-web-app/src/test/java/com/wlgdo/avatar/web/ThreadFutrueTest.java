@@ -9,29 +9,25 @@ import java.util.concurrent.*;
  * @author: Ligang.Wang[wangligang@eglagame.com]
  * @create: 2019-07-26 12:10
  **/
-public class ThreadFutrue {
+public class ThreadFutrueTest {
 
     public static void main_(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(3);
 
         for (int i = 0; i < 100; i++) {
-
             System.out.println(i);
-
             new Thread("I Am " + i) {
                 @Override
                 public void run() {
                     System.out.println(String.format("This Thread is 【%s】", this.getName()));
                 }
             }.start();
-
             new Thread(new RunnerService("You Are" + i)).start();
         }
     }
 
 
     static class RunnerService implements Runnable {
-
         String runableName;
 
         RunnerService(String runableName) {
