@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: avatar-dynamic-quartz
   servlet:
     multipart:
       maxFileSize: -1

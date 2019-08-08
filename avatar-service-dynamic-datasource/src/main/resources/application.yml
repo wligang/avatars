@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: avatar-service-dynamic-ds
   servlet:
     multipart:
       maxFileSize: -1

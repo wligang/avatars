@@ -24,7 +24,7 @@ public class AppManagerController {
 
     @GetMapping("apps/info/{key}")
     public Object index(@PathVariable String key) {
-        log.info("获取应用信息:{}", key, key, key, key, key, key);
+        log.info("获取应用信息:{}", key);
         JSONObject respData = new JSONObject();
         if (stringRedisTemplate.hasKey(APP_NAME_KEY + key)) {
             JSONObject jsonObject = JSONObject.parseObject(stringRedisTemplate.opsForValue().get(APP_NAME_KEY + key));
