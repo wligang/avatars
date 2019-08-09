@@ -35,7 +35,7 @@ public class UserController {
     @GetMapping("index/{key}")
     public Object index(@PathVariable String key) {
         if (stringRedisTemplate.hasKey(CSDN_USER + key)) {
-            JSONObject jsonObject = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
+            JSONObject jsonObject = JSONObject.parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
             logger.info("userInfo:{}", jsonObject);
             return new Resp(jsonObject);
         }
@@ -63,7 +63,7 @@ public class UserController {
         }
 
         if (stringRedisTemplate.hasKey(CSDN_USER + key)) {
-            JSONObject jsonObject = new JSONObject().parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
+            JSONObject jsonObject = JSONObject.parseObject(stringRedisTemplate.opsForValue().get(CSDN_USER + key));
             logger.info("userInfo:{}", jsonObject);
             return new Resp(jsonObject);
         }
