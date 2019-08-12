@@ -99,8 +99,8 @@
     <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
     <logger name="com.wlgdo.avatar" level="INFO"/>
     <logger name="org.mybatis" level="INFO"/>
-    <logger name="org.springframework" level="WARN"/>
-    <logger name="org.apache" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
     <!--如果需要打印SQL,可以把下面的级别设置为DEBUG -->
     <logger name="com.wlgdo.avatar.admin.dao" level="DEBUG"/>
 
