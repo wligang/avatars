@@ -67,7 +67,7 @@ public class UserController {
             logger.info("userInfo:{}", jsonObject);
             return new Resp(jsonObject);
         }
-        logger.error("获取数据异常了:{}",key);
+        logger.error("获取数据异常了key:{}",key);
         return new Resp(new CsdnUser(key, "未命名"));
     }
 }
