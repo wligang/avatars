@@ -1,6 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 
-/avatar-service/out/
+/out/
 /avatar-service/build/
 /avatar-service-dynamic-datasource/out/
 /.idea/
@@ -11,3 +11,4 @@ avatar-common/build/
 avatar-dynamic-quartz/build/
 avatar-dynamic-quartz/logs/
 
+/*/out/
