@@ -9,6 +9,7 @@ avatar-admin/build/
 avatar-api/build/
 avatar-common/build/
 avatar-dynamic-quartz/build/
-avatar-dynamic-quartz/logs/
+*/logs/
 
 /*/out/
+/avatar-web-monitor/logs/
