@@ -5,10 +5,10 @@ dependencies {
     compile project(':avatar-api')
     compile project(':avatar-common')
 
-    compile 'org.springframework.boot:spring-boot-starter-web:2.1.0.RELEASE'
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     implementation 'com.alibaba.spring.boot:dubbo-spring-boot-starter:2.0.0'
     compile 'com.101tec:zkclient:0.10'
-    compile 'org.springframework.boot:spring-boot-starter-data-redis:2.1.4.RELEASE'
+    compile "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
 
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'de.codecentric:spring-boot-admin-starter-client:2.1.4'
@@ -24,5 +24,5 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE'
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
 }

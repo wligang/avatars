@@ -17,5 +17,5 @@ dependencies {
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compile "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
-    testCompile "org.springframework.boot:spring-boot-starter-test${springBootVersion}"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
 }
