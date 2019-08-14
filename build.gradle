@@ -31,13 +31,14 @@ allprojects {
         springBootVersion = '2.1.4.RELEASE'
 
     }
+    [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 }
 
 subprojects {
 
-    [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+
 
     repositories {
         mavenLocal()
