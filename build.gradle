@@ -17,6 +17,7 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    
     }
 }
 
@@ -27,10 +28,7 @@ allprojects {
     
     group 'com.wlgdo.avatar'
     version '1.0-SNAPSHOT'
-    ext {
-        springBootVersion = '2.1.4.RELEASE'
 
-    }
     [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -38,7 +36,10 @@ allprojects {
 
 subprojects {
 
+    ext {
+        springBootVersion = '2.1.4.RELEASE'
 
+    }
 
     repositories {
         mavenLocal()
