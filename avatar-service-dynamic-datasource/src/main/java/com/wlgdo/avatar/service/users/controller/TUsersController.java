@@ -83,6 +83,9 @@ public class TUsersController {
 
         List<String> openIds = list.stream().map(tUsers -> tUsers.getOpenId()).collect(Collectors.toList());
 
+        List<TActor> tacts = list.stream().map(tUsers -> tUsers.build(1)).collect(Collectors.toList());
+
+
         DozerBeanMapper mapper = new DozerBeanMapper();
 
         List<Class<TActor>> aList = list.stream().map(e -> TActor.class).collect(Collectors.toList());

@@ -1,5 +1,6 @@
 package com.wlgdo.avatar.service.users.entity;
 
+import com.wlgdo.avatar.service.actors.entity.TActor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -159,4 +160,11 @@ public class TUsers implements Serializable {
     private Integer memberBonus;
 
 
+
+    public TActor build(int i) {
+        TActor tActor = new TActor();
+        tActor.setOrgId(i + "");
+        tActor.setId(System.currentTimeMillis() / 1000);
+        return tActor;
+    }
 }
