@@ -40,6 +40,9 @@ public class UserController {
     @RequestMapping("list/{pageNo}/{pageSize}")
     public Object list(@PathVariable int pageNo, @PathVariable int pageSize) {
         PageInfo page = userService.getList(pageNo, pageSize);
+
+
+
         return page;
     }
 

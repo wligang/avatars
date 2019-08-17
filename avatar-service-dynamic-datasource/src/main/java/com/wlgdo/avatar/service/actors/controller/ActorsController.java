@@ -1,14 +1,11 @@
 package com.wlgdo.avatar.service.actors.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
-import com.wlgdo.avatar.dubbo.rpc.Resp;
 import com.wlgdo.avatar.service.actors.entity.TActor;
 import com.wlgdo.avatar.service.actors.serivce.ActorService;
-import com.wlgdo.avatar.service.users.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -56,6 +52,7 @@ public class ActorsController {
         ((Page<TActor>) page).setOptimizeCountSql(true);
         QueryWrapper<TActor> wrapQuery = new QueryWrapper<TActor>();
         IPage<TActor> pageInfo = actorService.page(page, wrapQuery);
+
         return HttpResp.instance().setData(pageInfo);
     }
 }
