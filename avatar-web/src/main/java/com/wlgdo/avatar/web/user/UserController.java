@@ -32,21 +32,16 @@ public class UserController {
     public Object index() {
         Result<User> result = userService.getUser();
         User user = result.getObject();
-        logger.info("user`s name is:{}", user);
-        int i = 1 / 0;
         return HttpResp.instance().setData(result.getObject());
     }
 
-    @RequestMapping("list/{pageNo}/{pageSize}")
+    @GetMapping("list")
     public Object list(@PathVariable int pageNo, @PathVariable int pageSize) {
         PageInfo page = userService.getList(pageNo, pageSize);
-
-
-
         return page;
     }
 
-    @GetMapping("msg/{msg}")
+    @RequestMapping("msg/{msg}")
     public Object getMessage(@PathVariable String msg) {
         boolean isOk = false;
         if (StringUtils.isNotBlank(msg)) {
