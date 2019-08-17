@@ -3,7 +3,6 @@ package com.wlgdo.avatar.web.user;
 import com.alibaba.dubbo.config.annotation.Reference;
 
 import com.wlgdo.avatar.common.http.HttpResp;
-import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
 import com.wlgdo.avatar.dubbo.service.IUserService;
 import com.wlgdo.avatar.dubbo.users.User;
@@ -31,23 +30,20 @@ public class UserController {
     @RequestMapping("index")
     public Object index() {
         Result<User> result = userService.getUser();
-        User user = result.getObject();
         return HttpResp.instance().setData(result.getObject());
     }
 
     @GetMapping("list")
     public Object list(@PathVariable int pageNo, @PathVariable int pageSize) {
-        PageInfo page = userService.getList(pageNo, pageSize);
-        return page;
+        return userService.getList(pageNo, pageSize);
     }
 
     @RequestMapping("msg/{msg}")
     public Object getMessage(@PathVariable String msg) {
+        logger.info("开始发送消息{}", msg);
         boolean isOk = false;
         if (StringUtils.isNotBlank(msg)) {
-
             isOk = KafkaProducer.instance().send(msg);
-
         }
         return new HttpResp(isOk);
     }
