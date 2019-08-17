@@ -43,8 +43,8 @@ public class ActorsController {
 
 
     @GetMapping("actors/list")
-    public Object getActor() {
-        LambdaQueryWrapper<TActor> wrapQuery = new LambdaQueryWrapper<>();
+    public Object getActor(TActor actor) {
+        LambdaQueryWrapper<TActor> wrapQuery = new LambdaQueryWrapper<>(actor);
         wrapQuery.eq(TActor::getStatus, SocketFlow.Status.OK);
         List<TActor> list = actorService.list(wrapQuery);
         Long orgId = 0L;
@@ -58,6 +58,9 @@ public class ActorsController {
         });
         //Lambda
         boolean b = list.stream().anyMatch(a -> orgId.equals(a.getId()));
+
+
+
 
         return HttpResp.instance().setData(list);
     }
