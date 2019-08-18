@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.service.users.service.impl;
+package com.wlgdo.avatar.quartz.users.service.impl;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
