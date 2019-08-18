@@ -59,7 +59,7 @@ public class AppOauthController {
         }
         if (StringUtils.isNotBlank(access_token)) {
             stringRedisTemplate.opsForValue().set("access_token", accessToken);
-            String redirectUrl = redirect_uri + "?" + accessToken;
+            String redirectUrl = redirect_uri +  accessToken;
             log.info("获取到的授权是：{}", redirectUrl);
             response.sendRedirect(redirectUrl);
         }
