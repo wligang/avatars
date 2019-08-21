@@ -10,7 +10,7 @@ import com.wlgdo.avatar.service.actors.entity.TActor;
 import com.wlgdo.avatar.service.bridge.AuthorUserService;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
 import com.wlgdo.avatar.service.bridge.HidoUserService;
-import com.wlgdo.avatar.service.users.entity.TUsers;
+import com.wlgdo.avatar.service.users.entity.Users;
 import com.wlgdo.avatar.service.users.export.ExcelData;
 import com.wlgdo.avatar.service.users.export.ExportExcelUtils;
 import com.wlgdo.avatar.service.users.service.IUsersService;
@@ -64,9 +64,9 @@ public class UsersController {
         bridgeBuilder.save("作者:李");
         bridgeBuilder.setUserInterface(new HidoUserService());
         bridgeBuilder.save("平台：李");
-        IPage<TUsers> page = new Page<>(pageIndex, pageSize);
-        Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
-        IPage<TUsers> pageData = usersService.page(page, queryWrapper);
+        IPage<Users> page = new Page<>(pageIndex, pageSize);
+        Wrapper<Users> queryWrapper = new QueryWrapper<>();
+        IPage<Users> pageData = usersService.page(page, queryWrapper);
 
         return HttpResp.instance().setData(pageData);
     }
@@ -74,29 +74,29 @@ public class UsersController {
     @GetMapping("/users/list")
     public Object getList(@RequestParam(required = false) String nickName, @RequestParam(required = false) String mobile) {
 
-        QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
+        QueryWrapper queryWrapper = new QueryWrapper<Users>();
         if (StringUtils.isNotBlank(nickName)) {
             queryWrapper.like("nick_name", nickName);
         }
         if (StringUtils.isNotBlank(mobile)) {
             queryWrapper.like("contact_number", mobile);
         }
-        List<TUsers> userlist = usersService.list(queryWrapper);
+        List<Users> userlist = usersService.list(queryWrapper);
 
-        List<TUsers> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
+        List<Users> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
 
         List list1 = BeanMapper.mapList(list, TActor.class);
 
-        List<String> openIds = list.stream().map(tUsers -> tUsers.getOpenId()).collect(Collectors.toList());
+        List<String> openIds = list.stream().map(users -> users.getOpenId()).collect(Collectors.toList());
 
-        List<TActor> tacts = list.stream().map(tUsers -> tUsers.build(1)).collect(Collectors.toList());
+        List<TActor> tacts = list.stream().map(users -> users.build(1)).collect(Collectors.toList());
 
 
         DozerBeanMapper mapper = new DozerBeanMapper();
 
         List<Class<TActor>> aList = list.stream().map(e -> TActor.class).collect(Collectors.toList());
 
-        Optional<TUsers> firstUser = list.stream().findFirst();
+        Optional<Users> firstUser = list.stream().findFirst();
         TActor actor = new TActor();
         BeanUtils.copyProperties(actor, firstUser.get());
 
@@ -112,8 +112,8 @@ public class UsersController {
     @RequestMapping(value = "/excel", method = RequestMethod.GET)
     public void excel(HttpServletResponse response) throws Exception {
         Long startTime = System.currentTimeMillis();
-        QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
-        List<TUsers> userlist = usersService.list(queryWrapper);
+        QueryWrapper queryWrapper = new QueryWrapper<Users>();
+        List<Users> userlist = usersService.list(queryWrapper);
         ExcelData data = new ExcelData();
         data.setName("hello");
         List<String> titles = new ArrayList();
@@ -123,7 +123,7 @@ public class UsersController {
         data.setTitles(titles);
         List<List<Object>> rows = new ArrayList();
         List<Object> row = null;
-        for (TUsers u : userlist) {
+        for (Users u : userlist) {
             row = new ArrayList<>();
             row.add(u.getNickName());
             row.add(u.getOpenId());
@@ -138,7 +138,7 @@ public class UsersController {
     @RequestMapping(value = "/import", method = RequestMethod.GET)
     public void importExcel(@RequestParam("file") MultipartFile file) {
         try {
-            ExportExcelUtils.importDataFromExcel(new TUsers(), file.getInputStream(), file.getOriginalFilename());
+            ExportExcelUtils.importDataFromExcel(new Users(), file.getInputStream(), file.getOriginalFilename());
         } catch (IOException e) {
             e.printStackTrace();
 

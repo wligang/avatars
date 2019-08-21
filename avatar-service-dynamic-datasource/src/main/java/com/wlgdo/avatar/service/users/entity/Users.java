@@ -1,5 +1,6 @@
 package com.wlgdo.avatar.service.users.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.wlgdo.avatar.service.actors.entity.TActor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,7 +21,8 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class TUsers implements Serializable {
+@TableName("t_users")
+public class Users implements Serializable {
 
     /**
      * 外部第三方ID

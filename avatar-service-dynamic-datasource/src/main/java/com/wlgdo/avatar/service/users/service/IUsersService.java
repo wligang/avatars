@@ -1,7 +1,7 @@
 package com.wlgdo.avatar.service.users.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wlgdo.avatar.service.users.entity.TUsers;
+import com.wlgdo.avatar.service.users.entity.Users;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.wlgdo.avatar.service.users.entity.TUsers;
  * @author Ligang.Wang[wlgchun@163.com]
  * @since 2019-06-10
  */
-public interface IUsersService extends IService<TUsers> {
+public interface IUsersService extends IService<Users> {
 
 }
