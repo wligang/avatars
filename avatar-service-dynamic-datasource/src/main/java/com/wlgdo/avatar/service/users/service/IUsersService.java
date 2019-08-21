@@ -11,6 +11,6 @@ import com.wlgdo.avatar.service.users.entity.TUsers;
  * @author Ligang.Wang[wlgchun@163.com]
  * @since 2019-06-10
  */
-public interface ITUsersService extends IService<TUsers> {
+public interface IUsersService extends IService<TUsers> {
 
 }

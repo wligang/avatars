@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
-
 import com.wlgdo.avatar.service.actors.entity.TActor;
 import com.wlgdo.avatar.service.bridge.AuthorUserService;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
@@ -14,20 +13,18 @@ import com.wlgdo.avatar.service.bridge.HidoUserService;
 import com.wlgdo.avatar.service.users.entity.TUsers;
 import com.wlgdo.avatar.service.users.export.ExcelData;
 import com.wlgdo.avatar.service.users.export.ExportExcelUtils;
-import com.wlgdo.avatar.service.users.service.ITUsersService;
-import org.apache.commons.beanutils.BeanUtils;
+import com.wlgdo.avatar.service.users.service.IUsersService;
 import org.apache.commons.lang3.StringUtils;
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.lang.reflect.InvocationTargetException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -43,15 +40,25 @@ import java.util.stream.Collectors;
  * @since 2019-06-10
  */
 @RestController
-public class TUsersController {
+public class UsersController {
 
-    static Logger logger = LoggerFactory.getLogger(TUsersController.class);
+    static Logger logger = LoggerFactory.getLogger(UsersController.class);
 
     @Autowired
-    private ITUsersService itUsersService;
+    private IUsersService usersService;
 
+    /**
+     * 该方法只是一个示例
+     *
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
     @GetMapping("/users")
     public Object getUserList(@RequestParam Integer pageIndex, @RequestParam Integer pageSize) {
+        /**
+         * 这是一个桥接器的应用示例
+         */
         BridgeBuilder bridgeBuilder = new BridgeBuilder();
         bridgeBuilder.setUserInterface(new AuthorUserService());
         bridgeBuilder.save("作者:李");
@@ -59,8 +66,7 @@ public class TUsersController {
         bridgeBuilder.save("平台：李");
         IPage<TUsers> page = new Page<>(pageIndex, pageSize);
         Wrapper<TUsers> queryWrapper = new QueryWrapper<>();
-        //((QueryWrapper<TUsers>) queryWrapper).like("nick_name", "wlgdo");
-        IPage<TUsers> pageData = itUsersService.page(page, queryWrapper);
+        IPage<TUsers> pageData = usersService.page(page, queryWrapper);
 
         return HttpResp.instance().setData(pageData);
     }
@@ -75,7 +81,7 @@ public class TUsersController {
         if (StringUtils.isNotBlank(mobile)) {
             queryWrapper.like("contact_number", mobile);
         }
-        List<TUsers> userlist = itUsersService.list(queryWrapper);
+        List<TUsers> userlist = usersService.list(queryWrapper);
 
         List<TUsers> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
 
@@ -92,21 +98,22 @@ public class TUsersController {
 
         Optional<TUsers> firstUser = list.stream().findFirst();
         TActor actor = new TActor();
-        try {
-            BeanUtils.copyProperties(firstUser.get(), actor);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
+        BeanUtils.copyProperties(actor, firstUser.get());
+
         return HttpResp.instance().setData(userlist);
     }
 
+    /**
+     * 导出excel数据
+     *
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping(value = "/excel", method = RequestMethod.GET)
     public void excel(HttpServletResponse response) throws Exception {
         Long startTime = System.currentTimeMillis();
         QueryWrapper queryWrapper = new QueryWrapper<TUsers>();
-        List<TUsers> userlist = itUsersService.list(queryWrapper);
+        List<TUsers> userlist = usersService.list(queryWrapper);
         ExcelData data = new ExcelData();
         data.setName("hello");
         List<String> titles = new ArrayList();
@@ -124,8 +131,8 @@ public class TUsersController {
             rows.add(row);
         }
         data.setRows(rows);
-        ExportExcelUtils.exportExcel(response, "hello.xlsx", data);
-        logger.info("Used time {}sm", (System.currentTimeMillis() - startTime) / 1000);
+        ExportExcelUtils.exportExcel(response, "TEST.xlsx", data);
+        logger.info("Total used time {}sm", (System.currentTimeMillis() - startTime) / 1000);
     }
 
     @RequestMapping(value = "/import", method = RequestMethod.GET)
