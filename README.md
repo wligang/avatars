@@ -59,6 +59,6 @@ The release completes a simple application Hido interconnection, search for "Hid
 ### MINI Program in Wechat
 ![https://img-blog.csdnimg.cn/20190505115944855.jpg](https://img-blog.csdnimg.cn/20190505115944855.jpg)
 
-
+<img src="http://img.wlgdo.com/avatar/avatar-wechat.png" width = "260" height = "350" div align="right" />
 
 If you like the project and it is works in your job, you can order a Star.
