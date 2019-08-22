@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <head>
-        <meta charset="UTF-8">
-        <script src="/jszip.min.js"></script>
-        <script src="/jszip-utils.min.js"></script>
-    </head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
     <title>Title</title>
 </head>
 <body>
-
-</body>
+<a href="javascript:testApp('avatar://')" class="dl-btn" id="download">打开APP</a>
 <script>
-    JSZipUtils.getBinaryContent('http://localhost:8000/blog', function(err, data) {
-        if(err) {
-            throw err; // or handle err
+    var userAgent = window.navigator.userAgent;
+    if (userAgent.match(这里用来区别用户是在浏览器打开还是App内打开) == null) {//当用户在浏览器中打开时
+        document.getElementById("app_button").style.display = "block";//下载打开按钮显示出来
+        if (userAgent.match(/MicroMessenger/) != null) {//用微信扫描时
+            document.getElementById("weixin").style.display = "block";
+            //下面根据不同的手机显示不同的提示语
+            if (mui.os.ios) {
+                document.getElementById("addroid_weixin").style.display = "none";
+                document.getElementById("ios_weixin").style.display = "inline";
+            } else if (mui.os.android) {
+                document.getElementById("ios_weixin").style.display = "none";
+                document.getElementById("addroid_weixin").style.display = "inline";
+            }
+            document.getElementById("app_button").style.display = "none";
         }
-
-        JSZip.loadAsync(data).then(function () {
-            console.log(data);
-        });
+    }
+    var parameter = window.location.href;
+    var ios_parmeter = parameter.substring(7, parameter.length);
+    document.getElementById("open_app").addEventListener('tap', function () {
+        if (mui.os.ios) {
+            window.location.href = "打开IOS的名字://" + ios_parmeter;
+        } else if (mui.os.android) {
+            window.location.href = "打开App的名字://hrst.com/android?data=" + parameter;
+        }
     });
-
+    document.getElementById("download_upgrade").addEventListener('tap', function () {
+        if (mui.os.ios) {
+            //跳转IOS下载商城地址
+            window.location.href = "https://itunes.apple.com/cn/app/";
+        } else if (mui.os.android) {
+            var downLoad = '@ViewBag.downLoad';
+            window.location.href = "android的下载地址";
+        }
+    });
 </script>
-
+</body>
 </html>
