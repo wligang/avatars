@@ -2,6 +2,7 @@ package com.wlgdo.avatar.service.users.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -81,20 +82,24 @@ public class UsersController {
         if (StringUtils.isNotBlank(mobile)) {
             queryWrapper.like("contact_number", mobile);
         }
+
+        LambdaQueryWrapper<Users> lmbda = new LambdaQueryWrapper<>();
+        lmbda.eq(Users::getOpenId, "openId");
+        List<Users> list1 = usersService.list(lmbda);
+
         List<Users> userlist = usersService.list(queryWrapper);
 
         List<Users> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
-
-        List list1 = BeanMapper.mapList(list, TActor.class);
 
         List<String> openIds = list.stream().map(users -> users.getOpenId()).collect(Collectors.toList());
 
         List<TActor> tacts = list.stream().map(users -> users.build(1)).collect(Collectors.toList());
 
-
         DozerBeanMapper mapper = new DozerBeanMapper();
 
         List<Class<TActor>> aList = list.stream().map(e -> TActor.class).collect(Collectors.toList());
+
+        List<TActor> collect = list.stream().map(e -> new TActor()).collect(Collectors.toList());
 
         Optional<Users> firstUser = list.stream().findFirst();
         TActor actor = new TActor();
