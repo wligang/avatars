@@ -8,7 +8,8 @@
 // * Date: 2019/6/15 2:25
 // */
 //public class BeanMapping {
-//    public static <S, D> void map(Collection<S> source, Collection<D> destination, Class<D> dstClass, BiConsumer<S, D> biConsumer) {
+//
+//    public static <S, D> void map(Collection<S> source, Collection<D> destination, Class<D> dstClass, BiConsumer<S, D> biConsumer) throws Exception {
 //        for (S s : source) {
 //            destination.add(map(s, dstClass, biConsumer));
 //        }
@@ -25,8 +26,7 @@
 //            }
 //            return dstObject;
 //        } catch (Exception e) {
-//            logger.error("对象映射出错, 原对象类型: {}, 目标对象类型: {}", source.getClass(), dstClass);
-//            throw new Exception(e);
+//            throw new Exception(String.format("对象映射出错, 原对象类型:%s, 目标对象类型:%s", source.getClass(), dstClass), e);
 //        }
 //    }
 //}
