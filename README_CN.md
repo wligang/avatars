@@ -56,7 +56,7 @@
 
 ### 小程序码
 ![https://img-blog.csdnimg.cn/20190505115944855.jpg](https://img-blog.csdnimg.cn/20190505115944855.jpg)
-<img src="http://img.wlgdo.com/avatar/avatar-wechat.png" width = "260" height = "350"/>
+<img src="http://img.wlgdo.com/avatar/avatar-wechat.png" width = "260" height = "350" div align="right" />
 
 
 
