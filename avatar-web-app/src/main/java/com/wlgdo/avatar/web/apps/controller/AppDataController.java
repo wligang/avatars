@@ -1,7 +1,6 @@
 package com.wlgdo.avatar.web.apps.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.wlgdo.avatar.common.utils.GZIPUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,8 +38,9 @@ public class AppDataController {
                 .collect(Collectors.toList());
 
 
-        return GZIPUtils.compress(lists.toString());
+//        return GZIPUtils.compress(lists.toString());
 
+        return collect;
 
     }
 

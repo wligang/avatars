@@ -1,8 +1,8 @@
 package com.wlgdo.avatar.web.apps.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.wlgdo.avatar.dubbo.rpc.Resp;
-import com.wlgdo.avatar.dubbo.rpc.apps.AppInfo;
+import com.wlgdo.avatar.web.apps.domain.AppInfo;
+import com.wlgdo.avatar.web.common.Resp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
