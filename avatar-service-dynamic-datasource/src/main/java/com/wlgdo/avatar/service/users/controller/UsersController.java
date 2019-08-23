@@ -7,10 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
-import com.wlgdo.avatar.service.actors.entity.Actor;
-import com.wlgdo.avatar.service.bridge.AuthorUserService;
-import com.wlgdo.avatar.service.bridge.BridgeBuilder;
-import com.wlgdo.avatar.service.bridge.HidoUserService;
 import com.wlgdo.avatar.service.users.entity.Users;
 import com.wlgdo.avatar.service.users.export.ExcelData;
 import com.wlgdo.avatar.service.users.export.ExportExcelUtils;
@@ -57,14 +53,7 @@ public class UsersController {
      */
     @GetMapping("/users")
     public Object getUserList(@RequestParam Integer pageIndex, @RequestParam Integer pageSize) {
-        /**
-         * 这是一个桥接器的应用示例
-         */
-        BridgeBuilder bridgeBuilder = new BridgeBuilder();
-        bridgeBuilder.setUserInterface(new AuthorUserService());
-        bridgeBuilder.save("作者:李");
-        bridgeBuilder.setUserInterface(new HidoUserService());
-        bridgeBuilder.save("平台：李");
+
         IPage<Users> page = new Page<>(pageIndex, pageSize);
         Wrapper<Users> queryWrapper = new QueryWrapper<>();
         IPage<Users> pageData = usersService.page(page, queryWrapper);
@@ -93,16 +82,16 @@ public class UsersController {
 
         List<String> openIds = list.stream().map(users -> users.getOpenId()).collect(Collectors.toList());
 
-        List<Actor> tacts = list.stream().map(users -> users.build(1)).collect(Collectors.toList());
+        List<Users> tacts = list.stream().map(users -> users).collect(Collectors.toList());
 
         DozerBeanMapper mapper = new DozerBeanMapper();
 
-        List<Class<Actor>> aList = list.stream().map(e -> Actor.class).collect(Collectors.toList());
+        List<Class<Users>> aList = list.stream().map(e -> Users.class).collect(Collectors.toList());
 
-        List<Actor> collect = list.stream().map(e -> new Actor()).collect(Collectors.toList());
+        List<Users> collect = list.stream().map(e -> new Users()).collect(Collectors.toList());
 
         Optional<Users> firstUser = list.stream().findFirst();
-        Actor actor = new Actor();
+        Users actor = new Users();
         BeanUtils.copyProperties(actor, firstUser.get());
 
         return HttpResp.instance().setData(userlist);
