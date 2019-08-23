@@ -4,8 +4,8 @@ package com.wlgdo.avatar.service.actors.serivce.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
-import com.wlgdo.avatar.service.actors.entity.TActor;
-import com.wlgdo.avatar.service.actors.mapper.TActorMapper;
+import com.wlgdo.avatar.service.actors.entity.Actor;
+import com.wlgdo.avatar.service.actors.mapper.ActorMapper;
 import com.wlgdo.avatar.service.actors.serivce.ActorService;
 import com.wlgdo.avatar.service.users.service.UserService;
 import org.slf4j.Logger;
@@ -21,14 +21,14 @@ import java.time.LocalDateTime;
  * Date: 2019/5/13 22:12
  */
 @Service
-public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implements ActorService {
+public class ActorServiceImpl extends ServiceImpl<ActorMapper, Actor> implements ActorService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private UserService userService;
 
-    public boolean saveActor(TActor actor) {
+    public boolean saveActor(Actor actor) {
         logger.info("保存Actor：{}", actor);
         actor.setNickName("master");
         save(actor);
@@ -38,8 +38,8 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     }
 
     @Override
-    public TActor getActorById(Serializable id) {
-        TActor actor = getByIdMaster(id);
+    public Actor getActorById(Serializable id) {
+        Actor actor = getByIdMaster(id);
         PageInfo list = userService.getList(0, 10);
         logger.info("actor:{}", actor);
         logger.info("list:{}", list);
@@ -47,25 +47,25 @@ public class ActorServiceImpl extends ServiceImpl<TActorMapper, TActor> implemen
     }
 
     @DS("master")
-    public boolean saveMaster(TActor entity) {
+    public boolean saveMaster(Actor entity) {
         logger.info("save slave:{}", entity);
         return super.save(entity);
     }
 
     @DS("slave")
-    public boolean saveSlave1(TActor entity) {
+    public boolean saveSlave1(Actor entity) {
         logger.info("save slave:{}", entity);
         return super.save(entity);
     }
 
 
     @DS("master")
-    public TActor getByIdMaster(Serializable id) {
+    public Actor getByIdMaster(Serializable id) {
         return super.getById(id);
     }
 
     @DS("slave_1")
-    public TActor getByIdSlave1(Serializable id) {
+    public Actor getByIdSlave1(Serializable id) {
         return super.getById(id);
     }
 }

@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wlgdo.avatar.common.http.HttpResp;
-import com.wlgdo.avatar.service.actors.entity.TActor;
+import com.wlgdo.avatar.service.actors.entity.Actor;
 import com.wlgdo.avatar.service.bridge.AuthorUserService;
 import com.wlgdo.avatar.service.bridge.BridgeBuilder;
 import com.wlgdo.avatar.service.bridge.HidoUserService;
@@ -93,16 +93,16 @@ public class UsersController {
 
         List<String> openIds = list.stream().map(users -> users.getOpenId()).collect(Collectors.toList());
 
-        List<TActor> tacts = list.stream().map(users -> users.build(1)).collect(Collectors.toList());
+        List<Actor> tacts = list.stream().map(users -> users.build(1)).collect(Collectors.toList());
 
         DozerBeanMapper mapper = new DozerBeanMapper();
 
-        List<Class<TActor>> aList = list.stream().map(e -> TActor.class).collect(Collectors.toList());
+        List<Class<Actor>> aList = list.stream().map(e -> Actor.class).collect(Collectors.toList());
 
-        List<TActor> collect = list.stream().map(e -> new TActor()).collect(Collectors.toList());
+        List<Actor> collect = list.stream().map(e -> new Actor()).collect(Collectors.toList());
 
         Optional<Users> firstUser = list.stream().findFirst();
-        TActor actor = new TActor();
+        Actor actor = new Actor();
         BeanUtils.copyProperties(actor, firstUser.get());
 
         return HttpResp.instance().setData(userlist);

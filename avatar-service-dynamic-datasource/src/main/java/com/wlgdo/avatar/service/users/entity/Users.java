@@ -1,7 +1,7 @@
 package com.wlgdo.avatar.service.users.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wlgdo.avatar.service.actors.entity.TActor;
+import com.wlgdo.avatar.service.actors.entity.Actor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -163,10 +163,10 @@ public class Users implements Serializable {
 
 
 
-    public TActor build(int i) {
-        TActor tActor = new TActor();
-        tActor.setOrgId(i + "");
-        tActor.setId(System.currentTimeMillis() / 1000);
-        return tActor;
+    public Actor build(int i) {
+        Actor actor = new Actor();
+        actor.setOrgId(i + "");
+        actor.setId(System.currentTimeMillis() / 1000);
+        return actor;
     }
 }

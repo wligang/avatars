@@ -2,7 +2,7 @@ package com.wlgdo.avatar.service.actors.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.wlgdo.avatar.common.http.HttpResp;
-import com.wlgdo.avatar.service.actors.entity.TActor;
+import com.wlgdo.avatar.service.actors.entity.Actor;
 import com.wlgdo.avatar.service.actors.serivce.ActorService;
 import jdk.net.SocketFlow;
 import lombok.AllArgsConstructor;
@@ -28,13 +28,13 @@ public class ActorsController {
 
     @GetMapping("actors")
     public Object getUserInfo() {
-        List<TActor> list = actorService.list();
+        List<Actor> list = actorService.list();
         return HttpResp.instance().setData(list);
     }
 
     @GetMapping("actors/{name}")
     public Object saveActor(@PathVariable String name) {
-        TActor actor = new TActor();
+        Actor actor = new Actor();
         actor.setName(name);
         actor.setCreateTime(LocalDateTime.now());
         boolean ret = actorService.saveActor(actor);
@@ -43,10 +43,10 @@ public class ActorsController {
 
 
     @GetMapping("actors/list")
-    public Object getActor(TActor actor) {
-        LambdaQueryWrapper<TActor> wrapQuery = new LambdaQueryWrapper<>(actor);
-        wrapQuery.eq(TActor::getStatus, SocketFlow.Status.OK);
-        List<TActor> list = actorService.list(wrapQuery);
+    public Object getActor(Actor actor) {
+        LambdaQueryWrapper<Actor> wrapQuery = new LambdaQueryWrapper<>(actor);
+        wrapQuery.eq(Actor::getStatus, SocketFlow.Status.OK);
+        List<Actor> list = actorService.list(wrapQuery);
         Long orgId = 0L;
         //传统
         AtomicBoolean flag = new AtomicBoolean(false);

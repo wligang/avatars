@@ -3,6 +3,7 @@ package com.wlgdo.avatar.service.actors.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
@@ -19,7 +20,8 @@ import org.springframework.format.annotation.DateTimeFormat;
  */
 @Data
 @Accessors(chain = true)
-public class TActor {
+@TableName("t_actor")
+public class Actor {
 
     private static final long serialVersionUID=1L;
 
@@ -89,7 +91,7 @@ public class TActor {
 
     @Override
     public String toString() {
-        return "TActor{" +
+        return "Actor{" +
                 "Id='" + Id + '\'' +
                 ", openid='" + openid + '\'' +
                 ", mobile='" + mobile + '\'' +

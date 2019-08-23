@@ -5,8 +5,8 @@ import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
-import com.wlgdo.avatar.service.actors.entity.TActor;
-import com.wlgdo.avatar.service.actors.mapper.TActorMapper;
+import com.wlgdo.avatar.service.actors.entity.Actor;
+import com.wlgdo.avatar.service.actors.mapper.ActorMapper;
 import com.wlgdo.avatar.service.users.mapper.UserMapper;
 import com.wlgdo.avatar.service.users.entity.User;
 import com.wlgdo.avatar.service.users.service.UserService;
@@ -21,7 +21,7 @@ import java.util.List;
 
 
 @Service
-public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implements UserService {
+public class UserServiceImpl extends ServiceImpl<ActorMapper, Actor> implements UserService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -41,7 +41,7 @@ public class UserServiceImpl extends ServiceImpl<TActorMapper, TActor> implement
         logger.info("get user");
         PageInfo list = getList(0, 10);
         logger.info("{}", list);
-        Result<TActor> result = new Result<>();
+        Result<Actor> result = new Result<>();
         return result;
     }
 
