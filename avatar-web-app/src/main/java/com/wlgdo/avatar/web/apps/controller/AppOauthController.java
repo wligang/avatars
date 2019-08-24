@@ -29,9 +29,21 @@ public class AppOauthController {
     private StringRedisTemplate stringRedisTemplate;
 
     @RequestMapping("github")
-    public Object callback(@RequestParam(required = false) String code, @RequestParam(required = false) String access_token,
+    public Object callback(@RequestParam(required = false) String code,
+                           @RequestParam(required = false) String state,
+                           @RequestParam(required = false) String scope, HttpServletResponse response) throws IOException {
+        log.info("开始获取授权信息:code: {},code :{}", code, state);
+        response.sendRedirect("http://img.wlgdo.com/avatar/index.html?code=" + code + "&state=" + state + "&t=" + System.currentTimeMillis() / 1000);
+        log.info("授权信息发送完毕:code: {},state :{}", code, state);
+        return null;
+    }
+
+
+    public Object callback(@RequestParam(required = false) String code,
+                           @RequestParam(required = false) String state,
                            @RequestParam(required = false) String scope,
-                           @RequestParam(required = false) String state, HttpServletResponse response) throws IOException {
+                           @RequestParam(required = false) String access_token,
+                           HttpServletResponse response) throws IOException {
 
         log.info("获取到的token是: [{} , {}]", code, scope);
         String accessToken = null;
@@ -49,7 +61,9 @@ public class AppOauthController {
                 stringRedisTemplate.opsForValue().set("access_token", accessToken);
                 String redirectUrl = redirect_uri + "?" + accessToken;
                 log.info("获取到的授权是：{}", redirectUrl);
-                response.sendRedirect("index.html?" + accessToken);
+//                response.sendRedirect("index.html?" + accessToken);
+                response.sendRedirect("http://img.wlgdo.com/avatar/index.html?" + accessToken + "&t=" + System.currentTimeMillis() / 1000);
+                return null;
             }
             return "授权失败" + accessTokenStr;
         }
@@ -57,13 +71,15 @@ public class AppOauthController {
             stringRedisTemplate.opsForValue().set("access_token", access_token);
             String redirectUrl = redirect_uri + "?access_token=" + access_token;
             log.info("获取到的授权是：{}", redirectUrl);
-            response.sendRedirect("index.html?access_token=" + access_token);
+            response.sendRedirect("http://img.wlgdo.com/avatar/index.html?access_token=" + access_token + "&t=" + System.currentTimeMillis() / 1000);
             return null;
         }
 
         if (StringUtils.isNotBlank(access_token)) {
             stringRedisTemplate.opsForValue().set("access_token", accessToken);
         }
+        http:
+//img.wlgdo.com/avatar/index.html?access_token=925808ac406a05e684a6043b40da087042c1de0c&t=1566623850
         return String.format("授权失败[%s]", code, access_token);
     }
 
