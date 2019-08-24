@@ -49,15 +49,16 @@ public class AppOauthController {
                 stringRedisTemplate.opsForValue().set("access_token", accessToken);
                 String redirectUrl = redirect_uri + "?" + accessToken;
                 log.info("获取到的授权是：{}", redirectUrl);
-                response.sendRedirect(redirectUrl);
+                response.sendRedirect("index.html?" + accessToken);
             }
             return "授权失败" + accessTokenStr;
         }
         if (StringUtils.isNotBlank(access_token)) {
-            stringRedisTemplate.opsForValue().set("access_token", accessToken);
-            String redirectUrl = redirect_uri + accessToken;
+            stringRedisTemplate.opsForValue().set("access_token", access_token);
+            String redirectUrl = redirect_uri + "?access_token=" + access_token;
             log.info("获取到的授权是：{}", redirectUrl);
-            response.sendRedirect(redirectUrl);
+            response.sendRedirect("index.html?access_token=" + access_token);
+            return null;
         }
 
         if (StringUtils.isNotBlank(access_token)) {
