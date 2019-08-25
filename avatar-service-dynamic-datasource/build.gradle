@@ -11,7 +11,7 @@ dependencies {
 
     implementation('mysql:mysql-connector-java')
 
-    testCompile 'org.projectlombok:lombok:1.18.6'
+    compileOnly 'org.projectlombok:lombok:1.18.6'
 //    compile 'com.sargeraswang.util:excel-util:1.2.4'
     //compile 'p6spy:p6spy:3.8.0'
 
