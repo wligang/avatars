@@ -5,10 +5,9 @@ import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wlgdo.avatar.dubbo.common.PageInfo;
 import com.wlgdo.avatar.dubbo.response.Result;
-import com.wlgdo.avatar.service.actors.entity.Actor;
-import com.wlgdo.avatar.service.actors.mapper.ActorMapper;
-import com.wlgdo.avatar.service.users.mapper.UserMapper;
-import com.wlgdo.avatar.service.users.entity.User;
+
+import com.wlgdo.avatar.service.users.entity.Users;
+import com.wlgdo.avatar.service.users.mapper.UsersMapper;
 import com.wlgdo.avatar.service.users.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,18 +20,18 @@ import java.util.List;
 
 
 @Service
-public class UserServiceImpl extends ServiceImpl<ActorMapper, Actor> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements UserService {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @Resource
-    private UserMapper userMapper;
+    private UsersMapper userMapper;
 
     @DS("master")
     public String getUserName() {
         logger.info("start get user name");
-        User user = userMapper.findUser();
-        return user == null ? "My name is feify" : user.getName();
+        Users user = userMapper.selectById(1L);
+        return user == null ? "My name is feify" : user.getUserFrom();
     }
 
     @DS("master")
@@ -41,16 +40,14 @@ public class UserServiceImpl extends ServiceImpl<ActorMapper, Actor> implements 
         logger.info("get user");
         PageInfo list = getList(0, 10);
         logger.info("{}", list);
-        Result<Actor> result = new Result<>();
-        return result;
+        return Result.newSuccess(list);
     }
 
     @DS("slave_1")
     @Override
     public PageInfo getList(int pageIndex, int pageSize) {
         logger.info("stat get user list");
-        List lists = userMapper.getList();
-        PageInfo pageInfo = new PageInfo(lists);
+        PageInfo pageInfo = this.getList(pageIndex, pageSize);
         return pageInfo;
     }
 

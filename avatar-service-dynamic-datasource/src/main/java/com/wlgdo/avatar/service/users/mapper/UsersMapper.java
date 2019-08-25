@@ -11,6 +11,6 @@ import com.wlgdo.avatar.service.users.entity.Users;
  * @author Ligang.Wang[wlgchun@163.com]
  * @since 2019-06-10
  */
-public interface TUsersMapper extends BaseMapper<Users> {
+public interface UsersMapper extends BaseMapper<Users> {
 
 }
