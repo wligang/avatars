@@ -103,7 +103,7 @@ public class UsersController {
      * @param response
      * @throws Exception
      */
-    @RequestMapping(value = "/excel", method = RequestMethod.GET)
+    @RequestMapping(value = "/export", method = RequestMethod.GET)
     public void excel(HttpServletResponse response) throws Exception {
         Long startTime = System.currentTimeMillis();
         QueryWrapper queryWrapper = new QueryWrapper<Users>();
@@ -135,10 +135,7 @@ public class UsersController {
             ExportExcelUtils.importDataFromExcel(new Users(), file.getInputStream(), file.getOriginalFilename());
         } catch (IOException e) {
             e.printStackTrace();
-
         }
-
-
     }
 
 }
