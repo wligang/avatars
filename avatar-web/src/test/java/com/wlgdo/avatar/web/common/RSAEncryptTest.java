@@ -2,8 +2,6 @@ package com.wlgdo.avatar.web.common;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
  * Date: 2019/6/5 16:35

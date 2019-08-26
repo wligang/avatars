@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.web.common;
+package com.wlgdo.avatar.web.configure.utils;
 
 /**
  * Author: Ligang.Wang[wlgchun@l63.com]
