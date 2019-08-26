@@ -157,8 +157,6 @@ public class JobController {
                         .build();
             }
         }
-
-
         return page;
     }
 
