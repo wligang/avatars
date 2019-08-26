@@ -10,6 +10,7 @@ import com.wlgdo.avatar.quartz.schedule.entity.JobInfo;
 import com.wlgdo.avatar.quartz.schedule.jobs.BaseJob;
 import com.wlgdo.avatar.quartz.schedule.service.IJobAndTriggerService;
 import com.wlgdo.avatar.quartz.common.DateUnit;
+import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,11 +22,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping(value = "job")
 public class JobController {
 
-    private static Logger log = LoggerFactory.getLogger(JobController.class);
 
     @Autowired
     private IJobAndTriggerService iJobAndTriggerService;
