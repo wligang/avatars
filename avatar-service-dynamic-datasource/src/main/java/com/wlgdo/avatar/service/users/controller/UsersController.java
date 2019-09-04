@@ -10,13 +10,13 @@ import com.wlgdo.avatar.common.http.HttpResp;
 import com.wlgdo.avatar.service.users.entity.Users;
 import com.wlgdo.avatar.service.users.export.ExcelData;
 import com.wlgdo.avatar.service.users.export.ExportExcelUtils;
-import com.wlgdo.avatar.service.users.service.IUsersService;
+import com.wlgdo.avatar.service.users.service.UsersService;
+import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.dozer.DozerBeanMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,13 +36,13 @@ import java.util.stream.Collectors;
  * @author Ligang.Wang[wlgchun@163.com]
  * @since 2019-06-10
  */
+@AllArgsConstructor
 @RestController
 public class UsersController {
 
     static Logger logger = LoggerFactory.getLogger(UsersController.class);
 
-    @Autowired
-    private IUsersService usersService;
+    private UsersService userService;
 
     /**
      * 该方法只是一个示例
@@ -56,7 +56,7 @@ public class UsersController {
 
         IPage<Users> page = new Page<>(pageIndex, pageSize);
         Wrapper<Users> queryWrapper = new QueryWrapper<>();
-        IPage<Users> pageData = usersService.page(page, queryWrapper);
+        IPage<Users> pageData = userService.page(page, queryWrapper);
 
         return HttpResp.instance().setData(pageData);
     }
@@ -74,9 +74,9 @@ public class UsersController {
 
         LambdaQueryWrapper<Users> lmbda = new LambdaQueryWrapper<>();
         lmbda.eq(Users::getOpenId, "openId");
-        List<Users> list1 = usersService.list(lmbda);
+        List<Users> list1 = userService.list(lmbda);
 
-        List<Users> userlist = usersService.list(queryWrapper);
+        List<Users> userlist = userService.list(queryWrapper);
 
         List<Users> list = userlist.stream().filter(e -> e.getSex() == 1).collect(Collectors.toList());
 
@@ -107,7 +107,7 @@ public class UsersController {
     public void excel(HttpServletResponse response) throws Exception {
         Long startTime = System.currentTimeMillis();
         QueryWrapper queryWrapper = new QueryWrapper<Users>();
-        List<Users> userlist = usersService.list(queryWrapper);
+        List<Users> userlist = userService.list(queryWrapper);
         ExcelData data = new ExcelData();
         data.setName("hello");
         List<String> titles = new ArrayList();

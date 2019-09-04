@@ -51,3 +51,5 @@ mybatis-plus:
 quartz:
   enabled: true
 
+server:
+  port: 8083
