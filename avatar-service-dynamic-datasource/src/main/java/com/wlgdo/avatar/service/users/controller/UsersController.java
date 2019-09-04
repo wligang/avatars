@@ -1,21 +1,20 @@
 package com.wlgdo.avatar.service.users.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.collect.Lists;
 import com.wlgdo.avatar.common.http.HttpResp;
 import com.wlgdo.avatar.service.users.entity.Users;
 import com.wlgdo.avatar.service.users.export.ExcelData;
 import com.wlgdo.avatar.service.users.export.ExportExcelUtils;
 import com.wlgdo.avatar.service.users.service.UsersService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.dozer.DozerBeanMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,11 +35,10 @@ import java.util.stream.Collectors;
  * @author Ligang.Wang[wlgchun@163.com]
  * @since 2019-06-10
  */
+@Slf4j
 @AllArgsConstructor
 @RestController
 public class UsersController {
-
-    static Logger logger = LoggerFactory.getLogger(UsersController.class);
 
     private UsersService userService;
 
@@ -55,10 +53,15 @@ public class UsersController {
     public Object getUserList(@RequestParam Integer pageIndex, @RequestParam Integer pageSize) {
 
         IPage<Users> page = new Page<>(pageIndex, pageSize);
-        Wrapper<Users> queryWrapper = new QueryWrapper<>();
-        IPage<Users> pageData = userService.page(page, queryWrapper);
+        QueryWrapper<Users> queryWrapper = new QueryWrapper<>();
+        List<String> openIdAndUnionIdList = Lists.newArrayList("1-2", "2-2");
+        queryWrapper.in("concat(open_id,'-',union_id)", openIdAndUnionIdList);
+        List<Users> list = userService.list(queryWrapper);
+        log.info("result:{}", list);
 
-        return HttpResp.instance().setData(pageData);
+//        IPage<Users> pageData = userService.page(page, queryWrapper);
+
+        return HttpResp.instance().setData(list);
     }
 
     @GetMapping("/users/list")
@@ -126,7 +129,7 @@ public class UsersController {
         }
         data.setRows(rows);
         ExportExcelUtils.exportExcel(response, "TEST.xlsx", data);
-        logger.info("Total used time {}sm", (System.currentTimeMillis() - startTime) / 1000);
+        log.info("Total used time {}sm", (System.currentTimeMillis() - startTime) / 1000);
     }
 
     @RequestMapping(value = "/import", method = RequestMethod.GET)
