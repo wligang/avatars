@@ -56,6 +56,7 @@ public class UsersController {
         QueryWrapper<Users> queryWrapper = new QueryWrapper<>();
         List<String> openIdAndUnionIdList = Lists.newArrayList("1-2", "2-2");
         queryWrapper.in("concat(open_id,'-',union_id)", openIdAndUnionIdList);
+        queryWrapper.eq("open_id", 1);
         List<Users> list = userService.list(queryWrapper);
         log.info("result:{}", list);
 
