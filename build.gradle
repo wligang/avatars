@@ -17,7 +17,7 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    
+
     }
 }
 
@@ -25,7 +25,7 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'io.spring.dependency-management'
-    
+
     group 'com.wlgdo.avatar'
     version '1.0-SNAPSHOT'
 
@@ -35,10 +35,8 @@ allprojects {
 }
 
 subprojects {
-
     ext {
         springBootVersion = '2.1.4.RELEASE'
-
     }
 
     repositories {
@@ -50,12 +48,7 @@ subprojects {
             url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
         }
     }
-    
-    ext {
-        springBootVersion = '2.1.4.RELEASE'
 
-    }
-    
     dependencies {
         //这里如果配置了jar包依赖，所有子项目共享，使用了gradle的依赖传递特性。
         implementation 'org.apache.commons:commons-lang3:3.9'
