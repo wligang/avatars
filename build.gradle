@@ -50,7 +50,6 @@ subprojects {
     }
 
     dependencies {
-        //这里如果配置了jar包依赖，所有子项目共享，使用了gradle的依赖传递特性。
         implementation 'org.apache.commons:commons-lang3:3.9'
         implementation 'com.google.guava:guava:28.0-jre'
         testCompile group: 'junit', name: 'junit', version: '4.12'
