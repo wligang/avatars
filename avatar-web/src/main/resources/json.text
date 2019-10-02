@@ -1,0 +1,814 @@
+{
+    "name": "请假流程",
+    "revision": 1,
+    "description": "内置请假流程。",
+    "modelId": "1",
+    "model": {
+        "resourceId": "1",
+        "properties": {
+            "process_id": "LeaveBill",
+            "name": "LeaveBill",
+            "documentation": "",
+            "process_author": "made by pigx",
+            "process_version": "",
+            "process_namespace": "http://www.activiti.org/processdef",
+            "executionlisteners": "",
+            "eventlisteners": "",
+            "signaldefinitions": "",
+            "messagedefinitions": ""
+        },
+        "stencil": {
+            "id": "BPMNDiagram"
+        },
+        "childShapes": [
+            {
+                "resourceId": "sid-3AC5E563-E6E3-4777-B446-0476D884C11D",
+                "properties": {
+                    "overrideid": "start",
+                    "name": "开始",
+                    "documentation": "",
+                    "executionlisteners": "",
+                    "initiator": "",
+                    "formkeydefinition": "",
+                    "formproperties": ""
+                },
+                "stencil": {
+                    "id": "StartNoneEvent"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-2BCFC616-7D8A-4141-AF3F-8AC18EA100DF"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 75,
+                        "y": 115.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 45,
+                        "y": 85.00000000000003
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA",
+                "properties": {
+                    "overrideid": "user",
+                    "name": "用户提交",
+                    "documentation": "",
+                    "asynchronousdefinition": "false",
+                    "exclusivedefinition": "false",
+                    "executionlisteners": null,
+                    "multiinstance_type": "None",
+                    "multiinstance_cardinality": "",
+                    "multiinstance_collection": "",
+                    "multiinstance_variable": "",
+                    "multiinstance_condition": "",
+                    "isforcompensation": "false",
+                    "usertaskassignment": "",
+                    "formkeydefinition": "",
+                    "duedatedefinition": "",
+                    "prioritydefinition": "",
+                    "formproperties": "",
+                    "tasklisteners": {
+                        "taskListeners": [
+                            {
+                                "event": "create",
+                                "implementation": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "className": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "expression": "",
+                                "delegateExpression": ""
+                            }
+                        ]
+                    }
+                },
+                "stencil": {
+                    "id": "UserTask"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-EFC485F1-AEC9-4569-B401-D16DE58F6737"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 220,
+                        "y": 140.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 120,
+                        "y": 60.00000000000003
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-35ADF006-57C0-47E0-9B5B-AF424E0A7E4E",
+                "properties": {
+                    "overrideid": "pm",
+                    "name": "组长审批",
+                    "documentation": "",
+                    "asynchronousdefinition": "false",
+                    "exclusivedefinition": "false",
+                    "executionlisteners": null,
+                    "multiinstance_type": "None",
+                    "multiinstance_cardinality": "",
+                    "multiinstance_collection": "",
+                    "multiinstance_variable": "",
+                    "multiinstance_condition": "",
+                    "isforcompensation": "false",
+                    "usertaskassignment": "",
+                    "formkeydefinition": "",
+                    "duedatedefinition": "",
+                    "prioritydefinition": "",
+                    "formproperties": "",
+                    "tasklisteners": {
+                        "taskListeners": [
+                            {
+                                "event": "create",
+                                "implementation": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "className": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "expression": "",
+                                "delegateExpression": ""
+                            }
+                        ]
+                    }
+                },
+                "stencil": {
+                    "id": "UserTask"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-84BB2405-8E02-4DB9-8F29-E9BBB032C0D9"
+                    },
+                    {
+                        "resourceId": "sid-54B35C23-018B-4FBA-96C2-7EF45D014DDD"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 365,
+                        "y": 140.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 265,
+                        "y": 60
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-2BCFC616-7D8A-4141-AF3F-8AC18EA100DF",
+                "properties": {
+                    "overrideid": "",
+                    "name": "",
+                    "documentation": "",
+                    "conditionsequenceflow": "",
+                    "executionlisteners": null,
+                    "defaultflow": "false"
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 119.15625,
+                        "y": 100.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 75.609375,
+                        "y": 100.00000000000003
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 15,
+                        "y": 15
+                    },
+                    {
+                        "x": 50,
+                        "y": 40
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA"
+                }
+            },
+            {
+                "resourceId": "sid-EFC485F1-AEC9-4569-B401-D16DE58F6737",
+                "properties": {
+                    "overrideid": "",
+                    "name": "审批",
+                    "documentation": "",
+                    "conditionsequenceflow": "",
+                    "executionlisteners": null,
+                    "defaultflow": "false"
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-35ADF006-57C0-47E0-9B5B-AF424E0A7E4E"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 264.15625,
+                        "y": 100.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 220.84375,
+                        "y": 100.00000000000003
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 50,
+                        "y": 40
+                    },
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-35ADF006-57C0-47E0-9B5B-AF424E0A7E4E"
+                }
+            },
+            {
+                "resourceId": "sid-7D3BA0CC-0E14-401A-997B-E5B57798D600",
+                "properties": {
+                    "overrideid": "",
+                    "name": "",
+                    "documentation": "",
+                    "asynchronousdefinition": "false",
+                    "exclusivedefinition": "false",
+                    "sequencefloworder": ""
+                },
+                "stencil": {
+                    "id": "ExclusiveGateway"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-B0AD2E8E-6641-4472-9D13-F882DA3AF9D5"
+                    },
+                    {
+                        "resourceId": "sid-AD927630-75ED-4D77-87CF-ED033073EAC6"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 450,
+                        "y": 120.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 410,
+                        "y": 80.00000000000003
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-D191DB7D-10B8-4AE7-8284-E0931287237C",
+                "properties": {
+                    "overrideid": "",
+                    "name": "经理审批",
+                    "documentation": "",
+                    "asynchronousdefinition": "false",
+                    "exclusivedefinition": "false",
+                    "executionlisteners": "",
+                    "multiinstance_type": "None",
+                    "multiinstance_cardinality": "",
+                    "multiinstance_collection": "",
+                    "multiinstance_variable": "",
+                    "multiinstance_condition": "",
+                    "isforcompensation": "false",
+                    "usertaskassignment": "",
+                    "formkeydefinition": "",
+                    "duedatedefinition": "",
+                    "prioritydefinition": "",
+                    "formproperties": "",
+                    "tasklisteners": {
+                        "taskListeners": [
+                            {
+                                "event": "create",
+                                "implementation": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "className": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "expression": "",
+                                "delegateExpression": ""
+                            }
+                        ]
+                    }
+                },
+                "stencil": {
+                    "id": "UserTask"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-03D60074-0783-4C3B-8CE0-73B43EFC5180"
+                    },
+                    {
+                        "resourceId": "sid-61F782E2-0A2E-41D2-80B7-8160A92DAC99"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 595,
+                        "y": 140.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 495,
+                        "y": 60
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-A13A9AA8-CC8F-4B33-8166-EF7757F6ABDB",
+                "properties": {
+                    "overrideid": "",
+                    "name": "人力报备",
+                    "documentation": "",
+                    "asynchronousdefinition": "false",
+                    "exclusivedefinition": "false",
+                    "executionlisteners": "",
+                    "multiinstance_type": "None",
+                    "multiinstance_cardinality": "",
+                    "multiinstance_collection": "",
+                    "multiinstance_variable": "",
+                    "multiinstance_condition": "",
+                    "isforcompensation": "false",
+                    "usertaskassignment": "",
+                    "formkeydefinition": "",
+                    "duedatedefinition": "",
+                    "prioritydefinition": "",
+                    "formproperties": "",
+                    "tasklisteners": {
+                        "taskListeners": [
+                            {
+                                "event": "create",
+                                "implementation": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "className": "com.pig4cloud.pigx.act.listener.LeaveProcessTaskListener",
+                                "expression": "",
+                                "delegateExpression": ""
+                            }
+                        ]
+                    }
+                },
+                "stencil": {
+                    "id": "UserTask"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-B00A2A82-3A15-4945-B401-8DE4DD872A88"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 740,
+                        "y": 140.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 640,
+                        "y": 60
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-BA76EC1F-B75E-4F28-B898-FE0666B681BF",
+                "properties": {
+                    "overrideid": "",
+                    "name": "",
+                    "documentation": "",
+                    "executionlisteners": ""
+                },
+                "stencil": {
+                    "id": "EndNoneEvent"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 813,
+                        "y": 114
+                    },
+                    "upperLeft": {
+                        "x": 785,
+                        "y": 86
+                    }
+                },
+                "dockers": [
+
+                ]
+            },
+            {
+                "resourceId": "sid-B00A2A82-3A15-4945-B401-8DE4DD872A88",
+                "properties": {
+                    "overrideid": "",
+                    "name": "审批",
+                    "documentation": "",
+                    "conditionsequenceflow": "",
+                    "executionlisteners": "",
+                    "defaultflow": "false"
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-BA76EC1F-B75E-4F28-B898-FE0666B681BF"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 784.375,
+                        "y": 100
+                    },
+                    "upperLeft": {
+                        "x": 740.390625,
+                        "y": 100
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    },
+                    {
+                        "x": 14,
+                        "y": 14.000000000000002
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-BA76EC1F-B75E-4F28-B898-FE0666B681BF"
+                }
+            },
+            {
+                "resourceId": "sid-AD927630-75ED-4D77-87CF-ED033073EAC6",
+                "properties": {
+                    "overrideid": "",
+                    "name": "",
+                    "documentation": "",
+                    "conditionsequenceflow": "${days<=10}",
+                    "executionlisteners": "",
+                    "defaultflow": "false",
+                    "showdiamondmarker": false
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-A13A9AA8-CC8F-4B33-8166-EF7757F6ABDB"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 690,
+                        "y": 192.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 430.5,
+                        "y": 120.08593750000003
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 20.5,
+                        "y": 20.5
+                    },
+                    {
+                        "x": 430.5,
+                        "y": 192.00000000000003
+                    },
+                    {
+                        "x": 690,
+                        "y": 192.00000000000003
+                    },
+                    {
+                        "x": 50,
+                        "y": 79.00000000000006
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-A13A9AA8-CC8F-4B33-8166-EF7757F6ABDB"
+                }
+            },
+            {
+                "resourceId": "sid-B0AD2E8E-6641-4472-9D13-F882DA3AF9D5",
+                "properties": {
+                    "overrideid": "",
+                    "name": "",
+                    "documentation": "",
+                    "conditionsequenceflow": "${days>10}",
+                    "executionlisteners": "",
+                    "defaultflow": "false"
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-D191DB7D-10B8-4AE7-8284-E0931287237C"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 494.80079078438814,
+                        "y": 100.41360197940784
+                    },
+                    "upperLeft": {
+                        "x": 450.28514671561186,
+                        "y": 100.21921052059221
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 20.5,
+                        "y": 20.5
+                    },
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-D191DB7D-10B8-4AE7-8284-E0931287237C"
+                }
+            },
+            {
+                "resourceId": "sid-61F782E2-0A2E-41D2-80B7-8160A92DAC99",
+                "properties": {
+                    "overrideid": "",
+                    "name": "驳回",
+                    "documentation": "",
+                    "conditionsequenceflow": "${flag.equals('驳回')}",
+                    "executionlisteners": "",
+                    "defaultflow": "false",
+                    "showdiamondmarker": false
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 545,
+                        "y": 60.00000000000003
+                    },
+                    "upperLeft": {
+                        "x": 170,
+                        "y": 29
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 50,
+                        "y": 1
+                    },
+                    {
+                        "x": 545,
+                        "y": 29
+                    },
+                    {
+                        "x": 170,
+                        "y": 29
+                    },
+                    {
+                        "x": 50,
+                        "y": 1
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA"
+                }
+            },
+            {
+                "resourceId": "sid-84BB2405-8E02-4DB9-8F29-E9BBB032C0D9",
+                "properties": {
+                    "overrideid": "",
+                    "name": "驳回",
+                    "documentation": "",
+                    "conditionsequenceflow": "${flag.equals('驳回')}",
+                    "executionlisteners": "",
+                    "defaultflow": "false",
+                    "showdiamondmarker": false
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 315,
+                        "y": 191.52429051146217
+                    },
+                    "upperLeft": {
+                        "x": 170,
+                        "y": 140.3268435791439
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    },
+                    {
+                        "x": 315,
+                        "y": 191.52429051146217
+                    },
+                    {
+                        "x": 170,
+                        "y": 191.52429051146217
+                    },
+                    {
+                        "x": 50,
+                        "y": 79
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-8C8E72BC-5302-40A7-A017-04EB9FA916DA"
+                }
+            },
+            {
+                "resourceId": "sid-54B35C23-018B-4FBA-96C2-7EF45D014DDD",
+                "properties": {
+                    "overrideid": "",
+                    "name": "审批",
+                    "documentation": "",
+                    "conditionsequenceflow": "${flag.equals('审批')}",
+                    "executionlisteners": "",
+                    "defaultflow": "false"
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-7D3BA0CC-0E14-401A-997B-E5B57798D600"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 409.64844687000755,
+                        "y": 100.40973353623383
+                    },
+                    "upperLeft": {
+                        "x": 365.62889687999245,
+                        "y": 100.21917271376623
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    },
+                    {
+                        "x": 20.5,
+                        "y": 20.5
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-7D3BA0CC-0E14-401A-997B-E5B57798D600"
+                }
+            },
+            {
+                "resourceId": "sid-03D60074-0783-4C3B-8CE0-73B43EFC5180",
+                "properties": {
+                    "overrideid": "",
+                    "name": "审批",
+                    "documentation": "",
+                    "conditionsequenceflow": "${flag.equals('审批')}",
+                    "executionlisteners": "",
+                    "defaultflow": "false"
+                },
+                "stencil": {
+                    "id": "SequenceFlow"
+                },
+                "childShapes": [
+
+                ],
+                "outgoing": [
+                    {
+                        "resourceId": "sid-A13A9AA8-CC8F-4B33-8166-EF7757F6ABDB"
+                    }
+                ],
+                "bounds": {
+                    "lowerRight": {
+                        "x": 639.15625,
+                        "y": 100.00000000000001
+                    },
+                    "upperLeft": {
+                        "x": 595.84375,
+                        "y": 100.00000000000001
+                    }
+                },
+                "dockers": [
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    },
+                    {
+                        "x": 50,
+                        "y": 40.000000000000014
+                    }
+                ],
+                "target": {
+                    "resourceId": "sid-A13A9AA8-CC8F-4B33-8166-EF7757F6ABDB"
+                }
+            }
+        ],
+        "bounds": {
+            "lowerRight": {
+                "x": 1200,
+                "y": 1050
+            },
+            "upperLeft": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "stencilset": {
+            "url": "stencilsets/bpmn2.0/bpmn2.0.json",
+            "namespace": "http://b3mn.org/stencilset/bpmn2.0#"
+        },
+        "ssextensions": [
+
+        ]
+    }
+}
