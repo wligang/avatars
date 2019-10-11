@@ -1,2 +1,2 @@
 
-include "avatar-api","avatar-web","avatar-admin","avatar-web-app","avatar-common","avatar-quartz-dynamic-datasource","avatar-web-monitor","avatar-dynamic-quartz","avatar-service-dynamic-datasource","avatar-service"
+include "avatar-api","avatar-web","avatar-admin","avatar-web-app","avatar-common","avatar-quartz-dynamic-datasource","avatar-web-monitor","avatar-dynamic-quartz","avatar-service-dynamic-datasource","avatar-service","avatar-activiti"
