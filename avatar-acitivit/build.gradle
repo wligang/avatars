@@ -1,0 +1,14 @@
+apply plugin: 'org.springframework.boot'
+
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile 'com.alibaba:fastjson:1.2.57'
+    compile "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+    compile group: 'cn.hutool', name: 'hutool-all', version: '4.5.16'
+    compile "org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}"
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+}
