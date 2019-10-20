@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping("/risk")
 public class ActTaskController {
-    
+
 
 }
