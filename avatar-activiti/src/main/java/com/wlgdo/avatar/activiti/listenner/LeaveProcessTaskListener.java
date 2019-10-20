@@ -15,7 +15,7 @@
  * Author: lengleng (wangiegie@gmail.com)
  */
 
-package com.pig4cloud.pigx.act.listener;
+package com.wlgdo.avatar.activiti.listenner;
 
 import cn.hutool.core.collection.CollUtil;
 import com.pig4cloud.pigx.admin.api.entity.SysUser;
