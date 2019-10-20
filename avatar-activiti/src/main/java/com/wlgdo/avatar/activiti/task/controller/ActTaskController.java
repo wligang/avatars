@@ -1,4 +1,4 @@
-package com.wlgdo.avatar.activiti.task;
+package com.wlgdo.avatar.activiti.task.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
