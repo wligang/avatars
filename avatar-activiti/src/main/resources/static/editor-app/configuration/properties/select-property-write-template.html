@@ -1,0 +1,6 @@
+<div ng-controller="KisBpmSelectComplexPropertyCtrl">
+    <select ng-model="property.value" ng-change="multiInstanceSelectChanged()">
+        <option ng-repeat="x in property.options track by $index" value="{{x.value}}">{{x.name}}
+        </option>
+    </select>
+</div>
