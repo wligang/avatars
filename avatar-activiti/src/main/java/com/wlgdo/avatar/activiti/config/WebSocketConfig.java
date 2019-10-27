@@ -46,7 +46,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 			@Override
 			public Message<?> preSend(Message<?> message, MessageChannel channel) {
 				StompHeaderAccessor accessor = MessageHeaderAccessor.getAccessor(message, StompHeaderAccessor.class);
-				// 判断是否首次连接请求
 				if (StompCommand.CONNECT.equals(accessor.getCommand())) {
 					String tokens = accessor.getFirstNativeHeader("Authorization");
 					log.info("webSocket token is {}", tokens);
