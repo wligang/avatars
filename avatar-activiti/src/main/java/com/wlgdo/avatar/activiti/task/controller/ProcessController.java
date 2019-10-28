@@ -18,11 +18,6 @@
 package com.wlgdo.avatar.activiti.task.controller;
 
 import cn.hutool.core.io.IoUtil;
-import com.pig4cloud.pigx.act.process.dto.ProcessDTO;
-import com.pig4cloud.pigx.act.process.service.ProcessService;
-import com.pig4cloud.pigx.common.core.constant.enums.ResourceTypeEnum;
-import com.pig4cloud.pigx.common.core.util.R;
-import com.pig4cloud.pigx.common.security.annotation.Inner;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;

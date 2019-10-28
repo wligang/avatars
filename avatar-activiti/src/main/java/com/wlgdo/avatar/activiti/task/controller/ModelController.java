@@ -17,16 +17,6 @@
 
 package com.wlgdo.avatar.activiti.task.controller;
 
-import com.pig4cloud.pigx.act.dto.ModelForm;
-import com.pig4cloud.pigx.act.dto.TicketDTO;
-import com.pig4cloud.pigx.act.process.dto.ProcessDTO;
-import com.pig4cloud.pigx.act.process.service.ModelService;
-import com.pig4cloud.pigx.common.core.util.R;
-import com.pig4cloud.pigx.common.data.tenant.PigxTenantConfigProperties;
-import com.pig4cloud.pigx.common.data.tenant.TenantContextHolder;
-import com.pig4cloud.pigx.common.security.annotation.Inner;
-import com.pig4cloud.pigx.common.security.service.PigxUser;
-import com.pig4cloud.pigx.common.security.util.SecurityUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -35,7 +25,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static com.pig4cloud.pigx.act.process.service.ModelService.*;
 
 /**
  * @author lengleng
