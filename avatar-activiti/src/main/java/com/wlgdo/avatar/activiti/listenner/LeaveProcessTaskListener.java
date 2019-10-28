@@ -18,13 +18,6 @@
 package com.wlgdo.avatar.activiti.listenner;
 
 import cn.hutool.core.collection.CollUtil;
-import com.pig4cloud.pigx.admin.api.entity.SysUser;
-import com.pig4cloud.pigx.admin.api.feign.RemoteUserService;
-import com.pig4cloud.pigx.common.core.constant.enums.TaskTypeEnum;
-import com.pig4cloud.pigx.common.core.util.R;
-import com.pig4cloud.pigx.common.core.util.SpringContextHolder;
-import com.pig4cloud.pigx.common.data.tenant.TenantContextHolder;
-import com.pig4cloud.pigx.common.security.util.SecurityUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.delegate.DelegateTask;
 import org.activiti.engine.delegate.TaskListener;
