@@ -28,9 +28,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author lengleng
- * @date 2018/9/27
- * 请假流程监听器
+ * @author Ligang.Wang[@foxjk.com]
  */
 @Slf4j
 public class LeaveProcessTaskListener implements TaskListener {
