@@ -1,5 +1,6 @@
 package com.wlgdo.avatar.activiti.task.controller;
 
+import com.wlgdo.avatar.activiti.task.service.ModelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import static com.wlgdo.avatar.activiti.task.service.ModelService.PROCESS_PREFIX_KEY;
+import static com.wlgdo.avatar.activiti.task.service.ModelService.TICKET_PREFIX_KEY;
 
 
 /**
@@ -21,7 +25,6 @@ import javax.validation.Valid;
 public class ModelController {
 	private final ModelService modelService;
 
-	private final PigxTenantConfigProperties foxjkConfigProperties;
 
 	@ApiOperation(value = "创建流程模型管理接口", notes = "创建流程模型管理接口")
 	@PostMapping(value = "/insert")
