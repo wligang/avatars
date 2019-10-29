@@ -1,6 +1,7 @@
 package com.wlgdo.avatar.activiti.task.controller;
 
 import com.wlgdo.avatar.activiti.task.service.ModelService;
+import com.wlgdo.avatar.common.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -43,7 +44,6 @@ public class ModelController {
 		return R.ok(Boolean.TRUE);
 	}
 
-	@Inner
 	@ApiOperation(value = "复制流程模型管理接口", notes = "复制流程模型管理接口")
 	@PutMapping(value = "/init")
 	public R<Boolean> init() {

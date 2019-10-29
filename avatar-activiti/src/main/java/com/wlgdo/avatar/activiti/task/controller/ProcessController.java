@@ -4,6 +4,7 @@ package com.wlgdo.avatar.activiti.task.controller;
 
 import cn.hutool.core.io.IoUtil;
 import com.wlgdo.avatar.activiti.task.service.ProcessService;
+import com.wlgdo.avatar.common.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -34,7 +35,6 @@ public class ProcessController {
     }
 
     @ApiOperation(value = "查询流程图", notes = "查询流程图")
-    @Inner(value = false)
     @GetMapping(value = "/resource/{proInsId}/{procDefId}/{resType}")
     public ResponseEntity resourceRead(@PathVariable String procDefId, @PathVariable String proInsId, @PathVariable String resType) {
 
