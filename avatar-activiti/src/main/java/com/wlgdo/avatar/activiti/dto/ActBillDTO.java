@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2019-10-03 11:51:45
  */
 @Data
-public class ActivitiBill implements Serializable {
+public class ActBillDTO implements Serializable {
     /**
      * 任务ID
      */
