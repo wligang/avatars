@@ -38,8 +38,7 @@ public class TaskController {
     @ApiOperation(value = "分页查询隐患流程任务历史", notes = "分页查询隐患流程任务历史")
     @GetMapping("/his")
     public R<IPage<TaskDTO>> getTaskHis(TaskDTO taskDTO) {
-        String pigUser = SecurityUtils.getUser().getUsername();
-        return R.ok(actTaskService.getTaskHisByUserName(taskDTO, SecurityUtils.getUser().getUsername()));
+        return R.ok(actTaskService.getTaskHisByUserName(taskDTO, "user-id"));
     }
 
     @ApiOperation(value = "分页查询待办列表", notes = "分页查询隐患流程任务历史")
