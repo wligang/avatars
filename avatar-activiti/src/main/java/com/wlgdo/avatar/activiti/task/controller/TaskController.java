@@ -59,7 +59,6 @@ public class TaskController {
         return R.ok(actTaskService.submitTask(activitiBill));
     }
 
-    @Inner(value = false)
     @ApiOperation(value = "根据任务ID查询任务审批流程图", notes = "根据任务ID查询任务审批流程图")
     @GetMapping("/view/{id}")
     public ResponseEntity viewCurrentImage(@PathVariable String id) {
