@@ -3,6 +3,7 @@ package com.wlgdo.avatar.activiti.task.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.wlgdo.avatar.activiti.dto.ActBillDTO;
+import com.wlgdo.avatar.activiti.dto.ProcessDTO;
 import com.wlgdo.avatar.activiti.dto.ProcessDefDTO;
 import org.activiti.engine.task.Task;
 
@@ -59,5 +60,4 @@ public interface ProcessService {
 
     String startRiskAuditProcess(Integer riskId);
 
-    ActBillDTO startJobTicketActiviti(Integer userId, Integer bizPk, TicketEnum.Type type);
 }

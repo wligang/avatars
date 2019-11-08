@@ -3,16 +3,15 @@
 package com.wlgdo.avatar.activiti.task.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.wlgdo.avatar.activiti.dto.ProcessDTO;
 import org.activiti.engine.repository.Model;
 
 import java.util.List;
-import java.util.Map;
 
 
 public interface ModelService {
     public static final String PROCESS_PREFIX_KEY = "PT%d%s";
     public static final String TICKET_PREFIX_KEY = "PK%s";
-    public static final String TICKET_CATEGORY_KEY = "TICKET";
 
     /**
      * 创建流程
