@@ -1,8 +1,12 @@
 package com.wlgdo.avatar.activiti.task.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import com.wlgdo.avatar.activiti.task.entity.LeaveBill;
+import com.wlgdo.avatar.activiti.task.service.LeaveBillService;
+import com.wlgdo.avatar.activiti.task.service.ProcessService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,8 +56,8 @@ public class LeaveBillController {
 	 */
 	@PostMapping
 	public R save(@RequestBody LeaveBill leaveBill) {
-		leaveBill.setUsername(SecurityUtils.getUser().getUsername());
-		leaveBill.setState(TaskStatusEnum.UNSUBMIT.getStatus());
+		leaveBill.setUsername("user-1");
+		leaveBill.setState("1");
 		return R.ok(leaveBillService.save(leaveBill));
 	}
 
