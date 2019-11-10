@@ -1,5 +1,3 @@
-
-
 package com.wlgdo.avatar.activiti.task.service;
 
 /**
