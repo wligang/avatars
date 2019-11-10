@@ -12,6 +12,8 @@ dependencies {
     compile 'org.activiti:activiti-spring-boot-starter-basic:5.22.0'
     compile 'org.activiti:activiti-modeler:5.22.0'
     compile 'io.springfox:springfox-swagger2:2.9.2'
+    compile('mysql:mysql-connector-java')
+
     compile 'org.springframework.boot:spring-boot-starter-websocket'
     compileOnly 'org.projectlombok:lombok:1.18.6'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
