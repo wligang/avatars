@@ -4,10 +4,11 @@ package com.wlgdo.avatar.activiti.task.controller;
 
 import cn.hutool.core.io.IoUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.wlgdo.avatar.activiti.dto.ActBillDTO;
+import com.wlgdo.avatar.activiti.dto.CommentDto;
 import com.wlgdo.avatar.activiti.dto.TaskDTO;
 import com.wlgdo.avatar.activiti.task.service.ActTaskService;
-import com.wlgdo.avatar.common.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
@@ -44,7 +45,7 @@ public class TaskController {
     @ApiOperation(value = "分页查询待办列表", notes = "分页查询隐患流程任务历史")
     @GetMapping("/todo")
     public R<IPage<TaskDTO>> getTaskTodo(TaskDTO taskDTO) {
-        return R.ok(actTaskService.getTaskByName(taskDTO, SecurityUtils.getUser().getUsername()));
+        return R.ok(actTaskService.getTaskByName(taskDTO, "username"));
     }
 
     @ApiOperation(value = "查询需要审批的任务信息", notes = "查询需要审批的任务信息")
