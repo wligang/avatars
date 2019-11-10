@@ -1,5 +1,7 @@
+
 package com.wlgdo.avatar.activiti.task.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -10,7 +12,9 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import com.wlgdo.avatar.activiti.dto.ActBillDTO;
+import com.wlgdo.avatar.activiti.dto.CommentDto;
 import com.wlgdo.avatar.activiti.dto.TaskDTO;
+import com.wlgdo.avatar.activiti.task.mapper.LeaveBillMapper;
 import com.wlgdo.avatar.activiti.task.service.ActTaskService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,19 +36,20 @@ import org.activiti.engine.task.TaskQuery;
 import org.activiti.image.ProcessDiagramGenerator;
 import org.activiti.spring.ProcessEngineFactoryBean;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.InputStream;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
 
-
+/**
+ * @author lengleng
+ * @date 2018/9/25
+ */
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -56,9 +61,6 @@ public class ActTaskServiceImpl implements ActTaskService {
 	private final RepositoryService repositoryService;
 	private final HistoryService historyService;
 	private final ProcessEngineFactoryBean processEngine;
-	private final CheckBillService checkBillService;
-	private final RemoteTaskFromService remoteTaskFromService;
-	private final ActUserService actUserService;
 
 
 	@Override
@@ -74,6 +76,9 @@ public class ActTaskServiceImpl implements ActTaskService {
 
 		if (StringUtils.isNotEmpty(taskDTO.getNodeKey())) {
 			taskQuery.taskDefinitionKeyLike("%" + taskDTO.getNodeKey());
+//            if (taskDTO.getNodeKey().contains("zhi_pai")) {
+//                taskQuery.or().taskDefinitionKeyLike("%shen_pi");
+//            }
 		}
 
 
@@ -154,28 +159,23 @@ public class ActTaskServiceImpl implements ActTaskService {
 		ActBillDTO.TaskOpsDTO taskOpsDTO = findOutFlagListByTaskId(task, pi);
 
 		ActBillDTO actBillDto = new ActBillDTO();
+		actBillDto.setProcessInsId(pi.getProcessInstanceId());
+		actBillDto.setProcessDefKey(pi.getProcessDefinitionKey());
+		actBillDto.setActId(pi.getActivityId());
 		actBillDto.setCategroy(task.getCategory());
 		actBillDto.setTaskId(taskId);
 		actBillDto.setTime(task.getCreateTime());
 		actBillDto.setFlagList(taskOpsDTO.comeLines);
 		actBillDto.setBizPk(businessKey);
-		actBillDto.setOps(taskOpsDTO.ops);
-		actBillDto.setActId(pi.getActivityId());
+		actBillDto.setTaskOps(taskOpsDTO.ops);
 		TaskTypeEnum byCategory = TaskTypeEnum.getByCategory(task.getCategory());
 		switch (byCategory) {
-			case LEAVE:
-				LeaveBill leaveBill = leaveBillMapper.selectById(businessKey);
-				BeanUtils.copyProperties(actBillDto, leaveBill);
-				leaveBill.setUsername(leaveBill.getUsername());
-				return R.ok(actBillDto);
-			case AUDIT:
-				log.info("没有这个任务：{}", actBillDto);
-				return R.failed(actBillDto);
 			case RISK:
 				R<RiskFormDTO> retRiskForm = remoteTaskFromService.getRiskFormInfo(businessKey, SecurityConstants.FROM_IN);
 				if (retRiskForm.getCode() != 0) {
-					return R.failed(retRiskForm.getMsg());
+					return R.failed("该任务已被删除，无法进行该操作");
 				}
+				actBillDto.setState(retRiskForm.getData().getState());
 				actBillDto.setRiskForm(retRiskForm.getData());
 				return R.ok(actBillDto);
 			case TICKET:
@@ -183,11 +183,13 @@ public class ActTaskServiceImpl implements ActTaskService {
 				if (retTicketForm.getCode() != 0) {
 					return R.failed(retTicketForm.getMsg());
 				}
+				actBillDto.setState(retTicketForm.getData().getStatus());
 				actBillDto.setTicketForm(retTicketForm.getData());
 				return R.ok(actBillDto);
 			default:
 				log.error("未定义的任务类型:{}", pi.getBusinessKey());
 		}
+
 		return R.failed("获取任务信息失败");
 
 	}
@@ -201,65 +203,37 @@ public class ActTaskServiceImpl implements ActTaskService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public Boolean submitTask(ActBillDTO actBillDTO) {
+		log.info("开始处理流程:{}", actBillDTO);
 		PigxUser user = SecurityUtils.getUser();
 		String taskId = actBillDTO.getTaskId();
 		String processInstanceId = actBillDTO.getProcessInsId();
 		Authentication.setAuthenticatedUserId(SecurityUtils.getUser().getUsername());
 		taskService.addComment(taskId, processInstanceId, actBillDTO.getComment());
 		taskService.claim(taskId, user.getUsername());
-		ProcessInstance pi = null;
-		Map<String, Object> variables = null;
-		log.info("开始处理请假流程:{}", actBillDTO);
-		List<ActUser> actUsers = Lists.newArrayList();
+		List<String> usernameList = Lists.newArrayList();
+		Map<String, Object> variables = new HashMap<>(2);
 		switch (TaskTypeEnum.getByCategory(actBillDTO.getCategroy())) {
-			case LEAVE:
-				variables = new HashMap<>(2);
-				variables.put("flag", actBillDTO.getTaskFlag());
-				LeaveBill bill = leaveBillMapper.selectById(actBillDTO.getBizPk());
-				variables.put("days", bill.getDays());
-				taskService.complete(taskId, variables);
-				pi = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
-
-				if (pi == null) {
-					bill.setState(StrUtil.equals(TaskStatusEnum.OVERRULE.getDescription(), actBillDTO.getTaskFlag()) ? TaskStatusEnum.OVERRULE.getStatus() : TaskStatusEnum.COMPLETED.getStatus());
-					leaveBillMapper.updateById(bill);
-				}
-				return Boolean.TRUE;
-			case AUDIT:
-				variables = new HashMap<>(1);
-				variables.put("state", actBillDTO.getState());
-				CheckBill checkBill = checkBillService.getById(actBillDTO.getBizPk());
-				taskService.complete(taskId, variables);
-				pi = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
-
-				if (pi != null) {
-					checkBill.setState(actBillDTO.getState());
-					checkBillService.updateById(checkBill);
-				}
-				return Boolean.TRUE;
 			case RISK:
-				actUsers = actUserService.list(Wrappers.<ActUser>lambdaQuery()
-						.eq(ActUser::getTenantId, user.getTenantId())
-						.eq(ActUser::getCategory, actBillDTO.getCategroy())
-						.eq(ActUser::getNode, actBillDTO.getProcessDefKey()));
-
-				List<String> usernameList = actUsers.stream().map(ActUser::getUsername).collect(Collectors.toList());
-				log.info("开始查找委托人：{}", usernameList);
-				variables = new HashMap<>(1);
+				if (CollUtil.isNotEmpty(actBillDTO.getDelegationUsers())) {
+					usernameList = actBillDTO.getDelegationUsers();
+					taskService.addComment(taskId, processInstanceId, "[委托原因]" + actBillDTO.getDelegationReason());
+				} else {
+					List<ActUser> actUsers = actUserService.list(Wrappers.<ActUser>lambdaQuery().eq(ActUser::getTenantId, user.getTenantId()).eq(ActUser::getCategory, actBillDTO.getCategroy()).eq(ActUser::getNode, actBillDTO.getProcessDefKey()));
+					usernameList = actUsers.stream().map(ActUser::getUsername).collect(Collectors.toList());
+				}
+				if (usernameList.size() == 0) {
+					usernameList.add(SecurityUtils.getUser().getUsername());
+				}
+				variables.put("candidateUsers", usernameList);
 				if (StringUtils.isNotEmpty(actBillDTO.getState())) {
 					variables.put("status", actBillDTO.getState());
 
 				}
-				variables.put("candidateUsers", usernameList);
+
 				taskService.complete(taskId, variables);
-				pi = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
+				ProcessInstance pi = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
 				if (pi != null) {
-					RiskFormDTO remoteRiskFormDto = RiskFormDTO.builder()
-							.id(Integer.valueOf(actBillDTO.getBizPk()))
-							.state(actBillDTO.getState())
-							.build();
-					remoteRiskFormDto.setProcessInsId(processInstanceId);
-					remoteTaskFromService.updateRiskForm(remoteRiskFormDto, SecurityConstants.FROM_IN);
+					remoteTaskFromService.updateRiskForm(RiskFormDTO.builder().id(Integer.valueOf(actBillDTO.getBizPk())).processInsId(processInstanceId).state(actBillDTO.getState()).build(), SecurityConstants.FROM_IN);
 				}
 				return Boolean.TRUE;
 			case TICKET:
@@ -267,7 +241,11 @@ public class ActTaskServiceImpl implements ActTaskService {
 				if (StringUtils.isNotEmpty(actBillDTO.getState())) {
 					variables.put("status", actBillDTO.getState());
 				}
+				if ("yan_shou".equals(actBillDTO.getActId())) {
+					actBillDTO.setState(TicketEnum.Status.COMPLETED.getStatus());
+				}
 				taskService.complete(taskId, variables);
+				actBillDTO.setProcessInsId(processInstanceId);
 				remoteTaskFromService.updateTicketForm(actBillDTO, SecurityConstants.FROM_IN);
 				return Boolean.TRUE;
 			default:
@@ -451,7 +429,7 @@ public class ActTaskServiceImpl implements ActTaskService {
 		outgoingTransitions.get(0).getDestination().getOutgoingTransitions().stream().forEach(p -> {
 			if (p.getProperty(CONDITION_TXT) != null && p.getProperty(CONDITION_LABLE) != null) {
 				log.info("下一步的网关：{}", p);
-				taskOpsDto.ops.add(new ActBillDTO.TaskOpsDTO.Ops((String) p.getProperty(CONDITION_TXT), (String) p.getProperty(CONDITION_LABLE)));
+				taskOpsDto.ops.add(new ActBillDTO.Ops((String) p.getProperty(CONDITION_TXT), (String) p.getProperty(CONDITION_LABLE)));
 			}
 		});
 
