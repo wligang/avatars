@@ -4,6 +4,7 @@ package com.wlgdo.avatar.activiti.task.service.impl;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wlgdo.avatar.activiti.constance.ProcessStatusEnum;
 import com.wlgdo.avatar.activiti.constance.ResourceTypeEnum;
 import com.wlgdo.avatar.activiti.dto.ActBillDTO;
 import com.wlgdo.avatar.activiti.dto.ProcessDTO;
@@ -11,6 +12,7 @@ import com.wlgdo.avatar.activiti.dto.ProcessDefDTO;
 import com.wlgdo.avatar.activiti.task.entity.LeaveBill;
 import com.wlgdo.avatar.activiti.task.mapper.LeaveBillMapper;
 import com.wlgdo.avatar.activiti.task.service.ActTaskService;
+import com.wlgdo.avatar.activiti.task.service.ModelService;
 import com.wlgdo.avatar.activiti.task.service.ProcessService;
 import lombok.AllArgsConstructor;
 import org.activiti.engine.RepositoryService;
@@ -38,9 +40,6 @@ public class ProcessServiceImpl implements ProcessService {
     private final RepositoryService repositoryService;
     private final RuntimeService runtimeService;
     private final LeaveBillMapper leaveBillMapper;
-    private final CheckBillService checkBillService;
-    private final ActTaskService actTaskService;
-    private final TaskService taskService;
 
     /**
      * 分页流程列表
@@ -149,62 +148,15 @@ public class ProcessServiceImpl implements ProcessService {
     @Transactional(rollbackFor = Exception.class)
     public Boolean saveStartProcess(Integer leaveId) {
         LeaveBill leaveBill = leaveBillMapper.selectById(leaveId);
-        leaveBill.setState(TaskStatusEnum.CHECK.getStatus());
+        leaveBill.setState("LeaveBill");
 
         String key = leaveBill.getClass().getSimpleName();
         String businessKey = key + "_" + leaveBill.getLeaveId();
-        runtimeService.startProcessInstanceByKeyAndTenantId(key, businessKey, String.valueOf(TenantContextHolder.getTenantId()));
+        runtimeService.startProcessInstanceByKeyAndTenantId(key, businessKey, String.valueOf(0));
         leaveBillMapper.updateById(leaveBill);
         return Boolean.TRUE;
     }
 
-    @Override
-    public Boolean saveStartRiskCheckProcess(Integer taskId) {
-        CheckBill checkBill = checkBillService.getById(taskId);
-        checkBill.setState(RiskTaskStatusEnum.UNAUDIT.getStatus());
 
-        String key = checkBill.getClass().getSimpleName();
-        String businessKey = key + "_" + checkBill.getCheckId();
-        runtimeService.startProcessInstanceByKeyAndTenantId(key, businessKey, String.valueOf(TenantContextHolder.getTenantId()));
-        checkBillService.updateById(checkBill);
-        return Boolean.TRUE;
-    }
-
-    @Override
-    public String startRiskAuditProcess(Integer riskId) {
-        Integer tenantId = TenantContextHolder.getTenantId();
-        String modelKey = String.format(ModelService.PROCESS_PREFIX_KEY, tenantId, TaskTypeEnum.RISK.getCategory());
-        String businessKey = modelKey + "_" + riskId;
-        ProcessInstance ret = runtimeService.startProcessInstanceByKeyAndTenantId(modelKey, businessKey, String.valueOf(tenantId));
-        Task task = taskService.createTaskQuery().processInstanceId(ret.getId()).list().get(0);
-        //this process should auto commit
-        ActBillDTO actBillDto = new ActBillDTO();
-        actBillDto.setBizPk(String.valueOf(riskId));
-        actBillDto.setComment("提交隐患");
-        actBillDto.setCategroy(TaskTypeEnum.RISK.getCategory());
-        actBillDto.setState(TaskStatusEnum.CHECK.getStatus());
-        actBillDto.setTaskId(task.getId());
-        actBillDto.setProcessInsId(ret.getProcessInstanceId());
-        actTaskService.submitTask(actBillDto);
-
-        return ret.getId();
-    }
-
-    @Override
-    public ActBillDTO startJobTicketActiviti(Integer userid, Integer bizPk, TicketEnum.Type type) {
-        String modelKey = String.format(ModelService.TICKET_PREFIX_KEY, type);
-        String businessKey = modelKey + "_" + bizPk;
-        ProcessInstance ret = runtimeService.startProcessInstanceByKey(modelKey, businessKey);
-
-        ActBillDTO actBillDto = new ActBillDTO();
-        actBillDto.setUserId(userid);
-        actBillDto.setBizPk(String.valueOf(bizPk));
-        actBillDto.setComment(String.format("提交%s", type.getDesc()));
-        actBillDto.setCategroy(TaskTypeEnum.TICKET.getCategory());
-        actBillDto.setState(TicketEnum.Status.CHECKING.getStatus());
-        actBillDto.setProcessInsId(ret.getProcessInstanceId());
-        actTaskService.submitTicketTask(actBillDto);
-        return actBillDto;
-    }
 
 }

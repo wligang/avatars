@@ -52,8 +52,5 @@ public interface ProcessService {
      */
     Boolean saveStartProcess(Integer leaveId);
 
-    Boolean saveStartRiskCheckProcess(Integer taskId);
-
-    String startRiskAuditProcess(Integer riskId);
 
 }
