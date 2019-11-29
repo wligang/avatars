@@ -4,6 +4,11 @@ package com.wlgdo.avatar.activiti.task.service.impl;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.wlgdo.avatar.activiti.constance.ResourceTypeEnum;
+import com.wlgdo.avatar.activiti.dto.ActBillDTO;
+import com.wlgdo.avatar.activiti.dto.ProcessDTO;
+import com.wlgdo.avatar.activiti.dto.ProcessDefDTO;
+import com.wlgdo.avatar.activiti.task.entity.LeaveBill;
 import com.wlgdo.avatar.activiti.task.mapper.LeaveBillMapper;
 import com.wlgdo.avatar.activiti.task.service.ActTaskService;
 import com.wlgdo.avatar.activiti.task.service.ProcessService;
@@ -46,7 +51,7 @@ public class ProcessServiceImpl implements ProcessService {
     @Override
     public IPage<ProcessDefDTO> getProcessByPage(ProcessDTO params) {
         ProcessDefinitionQuery query = repositoryService.createProcessDefinitionQuery()
-                .processDefinitionTenantId(String.valueOf(TenantContextHolder.getTenantId())).latestVersion();
+                .processDefinitionTenantId(String.valueOf(0)).latestVersion();
 
         String category = params.getCategory();
         if (StrUtil.isNotBlank(category)) {
