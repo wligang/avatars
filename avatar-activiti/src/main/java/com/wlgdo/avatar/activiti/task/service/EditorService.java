@@ -1,9 +1,5 @@
 package com.wlgdo.avatar.activiti.task.service;
 
-/**
- * @author lengleng
- * @date 2018/9/25
- */
 public interface EditorService {
 	/**
 	 * 获取设计器页面的json
