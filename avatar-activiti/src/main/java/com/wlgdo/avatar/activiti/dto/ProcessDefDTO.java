@@ -6,10 +6,6 @@ import lombok.Data;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.ProcessDefinition;
 
-/**
- * @author lengleng
- * @date 2018/9/25
- */
 @Data
 @ApiModel(value = "流程定义模型")
 public class ProcessDefDTO {

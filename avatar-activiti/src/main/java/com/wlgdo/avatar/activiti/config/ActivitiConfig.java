@@ -13,8 +13,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 
 /**
- * @author lengleng
- * @date 2018/9/25
+ * @author Ligang.Wang
  * Activiti 配置
  */
 @Configuration

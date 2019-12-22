@@ -1,6 +1,5 @@
 package com.wlgdo.avatar.activiti.config;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
