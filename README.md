@@ -61,4 +61,6 @@ The release completes a simple application Hido interconnection, search for "Hid
 
 <img src="http://img.wlgdo.com/avatar/avatar-wechat.png" width = "260" height = "350" div align="right" />
 
+or search wechat mini program "AUU旗舰店"
+
 If you like the project and it`s works in your job, you could order A Star. thank U!!!!
