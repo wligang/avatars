@@ -57,7 +57,8 @@
 ### 小程序码
 ![https://img-blog.csdnimg.cn/20190505115944855.jpg](https://img-blog.csdnimg.cn/20190505115944855.jpg)
 <img src="http://img.wlgdo.com/avatar/avatar-wechat.png" width = "260" height = "350" div align="right" />
-
+![https://github.com/wligang/avatars/blob/master/db/auu-mini.jpg](https://github.com/wligang/avatars/blob/master/db/auu-mini.jpg)
+<img src="https://github.com/wligang/avatars/blob/master/db/auu-mini.jpg" width = "260" height = "350" div align="right" />
 
 
 如果觉得项目不错或者对你有帮助，可以点个⭐⭐💗💗哦！！！
